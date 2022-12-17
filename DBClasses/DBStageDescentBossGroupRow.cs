@@ -1,0 +1,193 @@
+﻿public class DBStageDescentBossGroupRow
+{
+    public int GroupId
+    {
+        get
+        {
+            return group_id;
+        }
+    }
+
+    public int EventSubIndex
+    {
+        get
+        {
+            return event_sub_index;
+        }
+    }
+
+    public int GroupMonsterId1
+    {
+        get
+        {
+            return group_monster_id_1;
+        }
+    }
+
+    public int GroupMonsterId2
+    {
+        get
+        {
+            return group_monster_id_2;
+        }
+    }
+
+    public int GroupMonsterId3
+    {
+        get
+        {
+            return group_monster_id_3;
+        }
+    }
+
+    public string GroupString
+    {
+        get
+        {
+            return group_string.Localize();
+        }
+    }
+
+    public string InfoImage1
+    {
+        get
+        {
+            return info_image_1;
+        }
+    }
+
+    public string InfoImage2
+    {
+        get
+        {
+            return info_image_2;
+        }
+    }
+
+    public string InfoImage3
+    {
+        get
+        {
+            return info_image_3;
+        }
+    }
+
+    public string DescentBossStrongSkillDesc
+    {
+        get
+        {
+            return descent_boss_strong_skill_desc.Localize();
+        }
+    }
+
+    public string DescentBossPatternPhase01Desc
+    {
+        get
+        {
+            return descent_boss_pattern_phase01_desc.Localize();
+        }
+    }
+
+    public string DescentBossPatternPhase02Desc
+    {
+        get
+        {
+            return descent_boss_pattern_phase02_desc.Localize();
+        }
+    }
+
+    public string DescentBossPatternPhase03Desc
+    {
+        get
+        {
+            return descent_boss_pattern_phase03_desc.Localize();
+        }
+    }
+
+    public List<int> ListGroupMonsterId
+    {
+        get
+        {
+            if (list_group_monster_id == null)
+            {
+                list_group_monster_id = new List<int>
+                {
+                    GroupMonsterId1,
+                    GroupMonsterId2,
+                    GroupMonsterId3
+                };
+            }
+            return list_group_monster_id;
+        }
+    }
+
+    public List<string> ListInfoImage
+    {
+        get
+        {
+            if (list_info_image == null)
+            {
+                list_info_image = new List<string>
+                {
+                    InfoImage1,
+                    InfoImage2,
+                    InfoImage3
+                };
+            }
+            return list_info_image;
+        }
+    }
+
+    public bool ReadToStream(BinaryReader reader)
+    {
+        group_id = reader.ReadInt32();
+        event_sub_index = reader.ReadInt32();
+        group_monster_id_1 = reader.ReadInt32();
+        group_monster_id_2 = reader.ReadInt32();
+        group_monster_id_3 = reader.ReadInt32();
+        group_string = reader.ReadInt32();
+        info_image_1 = reader.ReadString();
+        info_image_2 = reader.ReadString();
+        info_image_3 = reader.ReadString();
+        descent_boss_strong_skill_desc = reader.ReadInt32();
+        descent_boss_pattern_phase01_desc = reader.ReadInt32();
+        descent_boss_pattern_phase02_desc = reader.ReadInt32();
+        descent_boss_pattern_phase03_desc = reader.ReadInt32();
+        return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return GroupId;
+    }
+
+    private int group_id;
+
+    private int event_sub_index;
+
+    private int group_monster_id_1;
+
+    private int group_monster_id_2;
+
+    private int group_monster_id_3;
+
+    private int group_string;
+
+    private string info_image_1;
+
+    private string info_image_2;
+
+    private string info_image_3;
+
+    private int descent_boss_strong_skill_desc;
+
+    private int descent_boss_pattern_phase01_desc;
+
+    private int descent_boss_pattern_phase02_desc;
+
+    private int descent_boss_pattern_phase03_desc;
+
+    private List<int> list_group_monster_id;
+
+    private List<string> list_info_image;
+}
