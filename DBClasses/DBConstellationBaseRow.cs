@@ -48,6 +48,30 @@
         }
     }
 
+    public int ItemChargeLimit
+    {
+        get
+        {
+            return item_charge_limit;
+        }
+    }
+
+    public int ResetPartsItemId
+    {
+        get
+        {
+            return reset_parts_item_id;
+        }
+    }
+
+    public int ResetPartsItemValue
+    {
+        get
+        {
+            return reset_parts_item_value;
+        }
+    }
+
     public int LockItemId
     {
         get
@@ -61,6 +85,14 @@
         get
         {
             return lock_item_value;
+        }
+    }
+
+    public int LockManastoneLimit
+    {
+        get
+        {
+            return lock_manastone_limit;
         }
     }
 
@@ -104,6 +136,14 @@
         }
     }
 
+    public List<int> ListArrayChaosConstellatiion
+    {
+        get
+        {
+            return list_array_chaos_constellation;
+        }
+    }
+
     public string IconSymbol
     {
         get
@@ -136,13 +176,23 @@
         constellation_group_id = reader.ReadInt32();
         reset_item_id = reader.ReadInt32();
         reset_item_value = reader.ReadInt32();
+        item_charge_limit = reader.ReadInt32();
+        reset_parts_item_id = reader.ReadInt32();
+        reset_parts_item_value = reader.ReadInt32();
         lock_item_id = reader.ReadInt32();
         lock_item_value = reader.ReadInt32();
+        lock_manastone_limit = reader.ReadInt32();
         open_conditon_id = reader.ReadInt32();
         constellation_lock = reader.ReadInt32();
         atk = reader.ReadInt32();
         def = reader.ReadInt32();
         hp = reader.ReadInt32();
+        int num = reader.ReadInt32();
+        list_array_chaos_constellation = new List<int>();
+        for (int i = 0; i < num; i++)
+        {
+            list_array_chaos_constellation.Add(reader.ReadInt32());
+        }
         icon_symbol = reader.ReadString();
         icon_next_symbol = reader.ReadString();
         chaos_enable = reader.ReadInt32();
@@ -161,9 +211,17 @@
 
     private int reset_item_value;
 
+    private int item_charge_limit;
+
+    private int reset_parts_item_id;
+
+    private int reset_parts_item_value;
+
     private int lock_item_id;
 
     private int lock_item_value;
+
+    private int lock_manastone_limit;
 
     private int open_conditon_id;
 
@@ -174,6 +232,8 @@
     private int def;
 
     private int hp;
+
+    private List<int> list_array_chaos_constellation;
 
     private string icon_symbol;
 

@@ -48,6 +48,14 @@ public class DBEventRoadStageRow
         }
     }
 
+    public int TileReaction
+    {
+        get
+        {
+            return tile_reaction;
+        }
+    }
+
     public bool ReadToStream(BinaryReader reader)
     {
         id = reader.ReadInt32();
@@ -56,6 +64,7 @@ public class DBEventRoadStageRow
         tile_type = reader.ReadInt32();
         tile_value1 = reader.ReadInt32();
         tile_value2 = reader.ReadInt32();
+        tile_reaction = reader.ReadInt32();
         return true;
     }
 
@@ -70,4 +79,6 @@ public class DBEventRoadStageRow
     private int tile_value1;
 
     private int tile_value2;
+
+    private int tile_reaction;
 }

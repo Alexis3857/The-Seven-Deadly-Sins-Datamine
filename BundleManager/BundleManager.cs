@@ -286,6 +286,7 @@ namespace BundleManager
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_event_lobby_gift.csv"), typeof(DBEventLobbyGiftRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_event_luckybag_reward.csv"), typeof(DBEventLuckybagRewardRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_event_luckybag_set.csv"), typeof(DBEventLuckybagSetRow));
+            TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_event_luckybox.csv"), typeof(DBEventLuckyboxRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_event_match_block.csv"), typeof(DBEventMatchBlockRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_event_match_buff.csv"), typeof(DBEventMatchBuffRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_event_match_config.csv"), typeof(DBEventMatchConfigRow));

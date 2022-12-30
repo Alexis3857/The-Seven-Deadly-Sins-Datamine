@@ -16,14 +16,6 @@ public class DBEventRoadReactionRow
         }
     }
 
-    public string ReactionImage
-    {
-        get
-        {
-            return reaction_image;
-        }
-    }
-
     public string Locale
     {
         get
@@ -32,12 +24,20 @@ public class DBEventRoadReactionRow
         }
     }
 
+    public string Animation
+    {
+        get
+        {
+            return animation;
+        }
+    }
+
     public bool ReadToStream(BinaryReader reader)
     {
         id = reader.ReadInt32();
         tile_type = reader.ReadString();
-        reaction_image = reader.ReadString();
         locale = reader.ReadInt32();
+        animation = reader.ReadString();
         return true;
     }
 
@@ -45,7 +45,7 @@ public class DBEventRoadReactionRow
 
     private string tile_type;
 
-    private string reaction_image;
-
     private int locale;
+
+    private string animation;
 }

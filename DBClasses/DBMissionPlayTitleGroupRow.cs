@@ -56,11 +56,11 @@
         }
     }
 
-    public int PassiveId
+    public List<int> ListArrayPassiveId
     {
         get
         {
-            return passive_id;
+            return list_array_passive_id;
         }
     }
 
@@ -72,11 +72,11 @@
         }
     }
 
-    public float PassiveValue
+    public List<float> ListArrayPassiveValue
     {
         get
         {
-            return passive_value;
+            return list_array_passive_value;
         }
     }
 
@@ -137,9 +137,19 @@
         rarity = reader.ReadInt32();
         limited = reader.ReadInt32();
         passive_type = reader.ReadString();
-        passive_id = reader.ReadInt32();
+        int num = reader.ReadInt32();
+        list_array_passive_id = new List<int>();
+        for (int i = 0; i < num; i++)
+        {
+            list_array_passive_id.Add(reader.ReadInt32());
+        }
         hidden_title = reader.ReadInt32();
-        passive_value = reader.ReadSingle();
+        int num2 = reader.ReadInt32();
+        list_array_passive_value = new List<float>();
+        for (int i = 0; i < num2; i++)
+        {
+            list_array_passive_value.Add(reader.ReadSingle());
+        }
         play_title_point = reader.ReadInt32();
         play_title_icon = reader.ReadString();
         play_title = reader.ReadInt32();
@@ -168,11 +178,11 @@
 
     private string passive_type;
 
-    private int passive_id;
+    private List<int> list_array_passive_id;
 
     private int hidden_title;
 
-    private float passive_value;
+    private List<float> list_array_passive_value;
 
     private int play_title_point;
 
