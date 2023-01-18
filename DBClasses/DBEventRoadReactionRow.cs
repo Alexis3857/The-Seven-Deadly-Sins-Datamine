@@ -8,14 +8,6 @@ public class DBEventRoadReactionRow
         }
     }
 
-    public string TileType
-    {
-        get
-        {
-            return tile_type;
-        }
-    }
-
     public string Locale
     {
         get
@@ -35,15 +27,12 @@ public class DBEventRoadReactionRow
     public bool ReadToStream(BinaryReader reader)
     {
         id = reader.ReadInt32();
-        tile_type = reader.ReadString();
         locale = reader.ReadInt32();
         animation = reader.ReadString();
         return true;
     }
 
     private int id;
-
-    private string tile_type;
 
     private int locale;
 

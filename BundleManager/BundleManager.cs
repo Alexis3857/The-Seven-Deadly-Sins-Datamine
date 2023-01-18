@@ -553,6 +553,7 @@ namespace BundleManager
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_stage_challenge_boss_event.csv"), typeof(DBStageChallengeBossEventRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_stage_challenge_boss_group.csv"), typeof(DBStageChallengeBossGroupRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_stage_creaturenest.csv"), typeof(DBStageCreaturenestRow));
+            TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_stage_creaturenest_gauge.csv"), typeof(DBStageCreaturenestGaugeRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_stage_creaturenest_info.csv"), typeof(DBStageCreaturenestInfoRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_stage_descent_boss.csv"), typeof(DBStageDescentBossRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_stage_descent_boss_group.csv"), typeof(DBStageDescentBossGroupRow));

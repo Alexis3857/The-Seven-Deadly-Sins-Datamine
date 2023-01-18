@@ -104,6 +104,30 @@
         }
     }
 
+    public float GroupMonsterLocationZ
+    {
+        get
+        {
+            return group_monster_location_z;
+        }
+    }
+
+    public float GroupMonsterLocationY
+    {
+        get
+        {
+            return group_monster_location_y;
+        }
+    }
+
+    public float GroupMonsterLocationX
+    {
+        get
+        {
+            return group_monster_location_x;
+        }
+    }
+
     public List<int> ListGroupHeroId
     {
         get
@@ -158,12 +182,10 @@
         }
         final_boss_pattern_phase01_desc = reader.ReadInt32();
         final_boss_pattern_phase02_desc = reader.ReadInt32();
+        group_monster_location_z = reader.ReadSingle();
+        group_monster_location_y = reader.ReadSingle();
+        group_monster_location_x = reader.ReadSingle();
         return true;
-    }
-
-    public int GetRowIndex()
-    {
-        return GroupId;
     }
 
     private int group_id;
@@ -191,6 +213,12 @@
     private int final_boss_pattern_phase01_desc;
 
     private int final_boss_pattern_phase02_desc;
+
+    private float group_monster_location_z;
+
+    private float group_monster_location_y;
+
+    private float group_monster_location_x;
 
     private List<int> list_group_hero_id;
 

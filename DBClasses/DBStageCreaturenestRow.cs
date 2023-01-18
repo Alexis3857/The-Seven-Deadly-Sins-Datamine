@@ -1152,6 +1152,14 @@
         }
     }
 
+    public List<int> ListArrayGaugeID
+    {
+        get
+        {
+            return list_array_gauge_id;
+        }
+    }
+
     public string SituationBehaviorTreeName
     {
         get
@@ -2784,6 +2792,12 @@
         boss_die_to_appear_effect_id = reader.ReadInt32();
         limit_contents_match_passive_group = reader.ReadInt32();
         boss_random_passive_group = reader.ReadInt32();
+        list_array_gauge_id = new List<int>();
+        int num99 = reader.ReadInt32();
+        for (int i = 0; i < num99; i++)
+        {
+            list_array_gauge_id.Add(reader.ReadInt32());
+        }
         situation_behavior_tree_name = reader.ReadString();
         phase1_monster_ai_id = reader.ReadInt32();
         phase1_boss_ui_change = reader.ReadByte();
@@ -2941,11 +2955,6 @@
         BanCondition_6 = reader.ReadString();
         BanConditionValue_6 = reader.ReadInt32();
         return true;
-    }
-
-    public int GetRowIndex()
-    {
-        return Id;
     }
 
     private int id;
@@ -3235,6 +3244,8 @@
     private int limit_contents_match_passive_group;
 
     private int boss_random_passive_group;
+
+    private List<int> list_array_gauge_id;
 
     private string situation_behavior_tree_name;
 

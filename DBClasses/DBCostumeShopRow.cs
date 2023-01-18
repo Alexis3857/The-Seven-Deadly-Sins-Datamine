@@ -176,6 +176,14 @@
         }
     }
 
+    public int ResaleCheck
+    {
+        get
+        {
+            return resale_check;
+        }
+    }
+
     public List<int> ListPriceId
     {
         get
@@ -237,6 +245,7 @@
         buy_start_date = reader.ReadString();
         buy_limited_date = reader.ReadString();
         hero_portrait_rotation = reader.ReadSingle();
+        resale_check = reader.ReadInt32();
         return true;
     }
 
@@ -283,6 +292,8 @@
     private string buy_limited_date;
 
     private float hero_portrait_rotation;
+
+    private int resale_check;
 
     private List<int> list_price_id;
 

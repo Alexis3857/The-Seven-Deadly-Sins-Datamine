@@ -64,6 +64,30 @@
         }
     }
 
+    public float GroupMonsterLocationZ
+    {
+        get
+        {
+            return group_monster_location_z;
+        }
+    }
+
+    public float GroupMonsterLocationY
+    {
+        get
+        {
+            return group_monster_location_y;
+        }
+    }
+
+    public float GroupMonsterLocationX
+    {
+        get
+        {
+            return group_monster_location_x;
+        }
+    }
+
     public bool ReadToStream(BinaryReader reader)
     {
         group_id = reader.ReadInt32();
@@ -74,12 +98,10 @@
         challenge_boss_strong_skill_desc = reader.ReadInt32();
         result_score_list = reader.ReadInt32();
         result_score_name = reader.ReadInt32();
+        group_monster_location_z = reader.ReadSingle();
+        group_monster_location_y = reader.ReadSingle();
+        group_monster_location_x = reader.ReadSingle();
         return true;
-    }
-
-    public int GetRowIndex()
-    {
-        return GroupId;
     }
 
     private int group_id;
@@ -97,4 +119,10 @@
     private int result_score_list;
 
     private int result_score_name;
+
+    private float group_monster_location_z;
+
+    private float group_monster_location_y;
+
+    private float group_monster_location_x;
 }
