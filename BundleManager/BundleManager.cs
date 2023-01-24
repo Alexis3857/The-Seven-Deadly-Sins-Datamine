@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using ServiceStack;
 using System.Reflection;
+using System.Text;
 
 namespace BundleManager
 {
@@ -133,25 +134,17 @@ namespace BundleManager
             byte[] fileContent = File.ReadAllBytes(fileName);
             try
             {
-                byte[] skippedHeader = new byte[fileContent.Length];
-                Array.Copy(fileContent, 20, skippedHeader, 0, fileContent.Length - 20);
-                byte[] pattern = { 0x55, 0x6E, 0x69, 0x74, 0x79, 0x46, 0x53, };  // "UnityFS" as hex
-                for (int i = 0; i < skippedHeader.Length; i++)
+                if (Encoding.UTF8.GetString(fileContent, 0, 12).Equals("UnityArchive"))
                 {
-                    if (skippedHeader.Skip(i).Take(pattern.Length).SequenceEqual(pattern))
-                    {
-                        byte[] repairedFile = new byte[skippedHeader.Length - i];
-                        Array.Copy(skippedHeader, i, repairedFile, 0, skippedHeader.Length - i);
-                        return repairedFile;
-                    }
+                    int bundleSize = BitConverter.ToInt32(fileContent, 0x37);
+                    return fileContent[^bundleSize..].ToArray();  // Extract last bundleSize bytes from fileContent array
                 }
-                return fileContent;
             }
             catch
             {
                 Console.WriteLine("Failed to repair " + fileName);
-                return fileContent;
             }
+            return fileContent;
         }
 
         // The database contains binary files that have to be transformed in order to be understood 
