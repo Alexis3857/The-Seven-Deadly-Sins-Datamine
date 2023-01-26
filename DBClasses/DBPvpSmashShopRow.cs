@@ -80,6 +80,13 @@
         }
     }
 
+    public int PopularItemCheck
+    {
+        get
+        {
+            return popular_item_check;
+        }
+    }
     public List<int> ListPriceId
     {
         get
@@ -122,6 +129,7 @@
         buy_limited_count = reader.ReadInt32();
         price_id_1 = reader.ReadInt32();
         price_count_1 = reader.ReadInt32();
+        popular_item_check = reader.ReadInt32();
         return true;
     }
 
@@ -144,6 +152,8 @@
     private int price_id_1;
 
     private int price_count_1;
+
+    private int popular_item_check;
 
     private List<int> list_price_id;
 

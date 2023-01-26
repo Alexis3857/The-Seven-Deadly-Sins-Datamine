@@ -376,6 +376,14 @@
         }
     }
 
+    public int RewardValueEvent1
+    {
+        get
+        {
+            return reward_value_event_1;
+        }
+    }
+
     public int RewardValueBox1
     {
         get
@@ -400,6 +408,14 @@
         }
     }
 
+    public int RewardValueEvent2
+    {
+        get
+        {
+            return reward_value_event_2;
+        }
+    }
+
     public int RewardValueBox2
     {
         get
@@ -421,6 +437,14 @@
         get
         {
             return reward_value_3;
+        }
+    }
+
+    public int RewardValueEvent3
+    {
+        get
+        {
+            return reward_value_event_3;
         }
     }
 
@@ -2135,6 +2159,23 @@
         }
     }
 
+    public List<int> ListRewardValueEvent
+    {
+        get
+        {
+            if (list_reward_value_event == null)
+            {
+                list_reward_value_event = new List<int>
+                {
+                    RewardValueEvent1,
+                    RewardValueEvent2,
+                    RewardValueEvent3
+                };
+            }
+            return list_reward_value_event;
+        }
+    }
+
     public List<int> ListRewardValueBox
     {
         get
@@ -2695,12 +2736,15 @@
         first_reward_value_5 = reader.ReadInt32();
         reward_id_1 = reader.ReadInt32();
         reward_value_1 = reader.ReadInt32();
+        reward_value_event_1 = reader.ReadInt32();
         reward_value_box_1 = reader.ReadInt32();
         reward_id_2 = reader.ReadInt32();
         reward_value_2 = reader.ReadInt32();
+        reward_value_event_2 = reader.ReadInt32();
         reward_value_box_2 = reader.ReadInt32();
         reward_id_3 = reader.ReadInt32();
         reward_value_3 = reader.ReadInt32();
+        reward_value_event_3 = reader.ReadInt32();
         reward_value_box_3 = reader.ReadInt32();
         drop_item_boss_min_count = reader.ReadInt32();
         drop_item_boss_max_count = reader.ReadInt32();
@@ -3051,17 +3095,23 @@
 
     private int reward_value_1;
 
+    private int reward_value_event_1;
+
     private int reward_value_box_1;
 
     private int reward_id_2;
 
     private int reward_value_2;
 
+    private int reward_value_event_2;
+
     private int reward_value_box_2;
 
     private int reward_id_3;
 
     private int reward_value_3;
+
+    private int reward_value_event_3;
 
     private int reward_value_box_3;
 
@@ -3472,6 +3522,8 @@
     private List<int> list_reward_id;
 
     private List<int> list_reward_value;
+
+    private List<int> list_reward_value_event;
 
     private List<int> list_reward_value_box;
 

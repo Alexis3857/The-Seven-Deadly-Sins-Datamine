@@ -104,6 +104,14 @@
         }
     }
 
+    public int RewardItemValueEvent1
+    {
+        get
+        {
+            return reward_item_value_event_1;
+        }
+    }
+
     public int RewardItemId2
     {
         get
@@ -117,6 +125,14 @@
         get
         {
             return reward_item_value_2;
+        }
+    }
+
+    public int RewardItemValueEvent2
+    {
+        get
+        {
+            return reward_item_value_event_2;
         }
     }
 
@@ -136,6 +152,14 @@
         }
     }
 
+    public int RewardItemValueEvent3
+    {
+        get
+        {
+            return reward_item_value_event_3;
+        }
+    }
+
     public int RewardItemId4
     {
         get
@@ -152,11 +176,11 @@
         }
     }
 
-    public int EventOn
+    public int RewardItemValueEvent4
     {
         get
         {
-            return event_on;
+            return reward_item_value_event_4;
         }
     }
 
@@ -196,6 +220,24 @@
         }
     }
 
+    public List<int> LiistRewardItemValueEvent
+    {
+        get
+        {
+            if (list_reward_item_value_event == null)
+            {
+                list_reward_item_value_event = new List<int>
+                {
+                    RewardItemValueEvent1,
+                    RewardItemValueEvent2,
+                    RewardItemValueEvent3,
+                    RewardItemValueEvent4
+                };
+            }
+            return list_reward_item_value_event;
+        }
+    }
+
     public bool ReadToStream(BinaryReader reader)
     {
         id = reader.ReadInt32();
@@ -211,19 +253,17 @@
         complete_time = reader.ReadInt32();
         reward_item_id_1 = reader.ReadInt32();
         reward_item_value_1 = reader.ReadInt32();
+        reward_item_value_event_1 = reader.ReadInt32();
         reward_item_id_2 = reader.ReadInt32();
         reward_item_value_2 = reader.ReadInt32();
+        reward_item_value_event_2 = reader.ReadInt32();
         reward_item_id_3 = reader.ReadInt32();
         reward_item_value_3 = reader.ReadInt32();
+        reward_item_value_event_3 = reader.ReadInt32();
         reward_item_id_4 = reader.ReadInt32();
         reward_item_value_4 = reader.ReadInt32();
-        event_on = reader.ReadInt32();
+        reward_item_value_event_4 = reader.ReadInt32();
         return true;
-    }
-
-    public int GetRowIndex()
-    {
-        return Id;
     }
 
     private int id;
@@ -252,21 +292,29 @@
 
     private int reward_item_value_1;
 
+    private int reward_item_value_event_1;
+
     private int reward_item_id_2;
 
     private int reward_item_value_2;
+
+    private int reward_item_value_event_2;
 
     private int reward_item_id_3;
 
     private int reward_item_value_3;
 
+    private int reward_item_value_event_3;
+
     private int reward_item_id_4;
 
     private int reward_item_value_4;
 
-    private int event_on;
+    private int reward_item_value_event_4;
 
     private List<int> list_reward_item_id;
 
     private List<int> list_reward_item_value;
+
+    private List<int> list_reward_item_value_event;
 }

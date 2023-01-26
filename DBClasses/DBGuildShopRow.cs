@@ -80,6 +80,14 @@
         }
     }
 
+    public int PopularItemCheck
+    {
+        get
+        {
+            return popular_item_check;
+        }
+    }
+
     public bool ReadToStream(BinaryReader reader)
     {
         id = reader.ReadInt32();
@@ -92,12 +100,8 @@
         buy_limit_count = reader.ReadInt32();
         price_id = reader.ReadInt32();
         price_count = reader.ReadInt32();
+        popular_item_check = reader.ReadInt32();
         return true;
-    }
-
-    public int GetRowIndex()
-    {
-        return Id;
     }
 
     private int id;
@@ -119,4 +123,6 @@
     private int price_id;
 
     private int price_count;
+
+    private int popular_item_check;
 }

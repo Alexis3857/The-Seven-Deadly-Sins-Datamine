@@ -64,6 +64,14 @@
         }
     }
 
+    public int ContinueFreeCountEvent
+    {
+        get
+        {
+            return continue_free_count_event;
+        }
+    }
+
     public int ChangeMonsterAi
     {
         get
@@ -130,6 +138,7 @@
         restart_control = reader.ReadInt32();
         continue_control = reader.ReadInt32();
         continue_free_count = reader.ReadInt32();
+        continue_free_count_event = reader.ReadInt32();
         change_monster_ai = reader.ReadInt32();
         continue_number_limited = reader.ReadInt32();
         continue_cost_id = reader.ReadInt32();
@@ -155,6 +164,8 @@
     private int continue_control;
 
     private int continue_free_count;
+
+    private int continue_free_count_event;
 
     private int change_monster_ai;
 

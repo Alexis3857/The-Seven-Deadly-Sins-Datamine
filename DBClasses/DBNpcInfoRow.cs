@@ -200,22 +200,6 @@
         }
     }
 
-    public float TraceRadius
-    {
-        get
-        {
-            return trace_radius;
-        }
-    }
-
-    public float TraceSpeed
-    {
-        get
-        {
-            return trace_speed;
-        }
-    }
-
     public int PositionId
     {
         get
@@ -299,8 +283,6 @@
         trans_scale = reader.ReadSingle();
         size_info = reader.ReadString();
         content_radius = reader.ReadSingle();
-        trace_radius = reader.ReadSingle();
-        trace_speed = reader.ReadSingle();
         position_id = reader.ReadInt32();
         look_at = reader.ReadInt32();
         object_check = reader.ReadInt32();
@@ -361,10 +343,6 @@
     private string size_info;
 
     private float content_radius;
-
-    private float trace_radius;
-
-    private float trace_speed;
 
     private int position_id;
 

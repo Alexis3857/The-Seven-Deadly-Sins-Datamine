@@ -40,6 +40,14 @@
         }
     }
 
+    public int NeedFellowLevelEvent
+    {
+        get
+        {
+            return need_fellow_level_event;
+        }
+    }
+
     public int ExposeFellowTab
     {
         get
@@ -80,6 +88,14 @@
         }
     }
 
+    public int BuyLimitedCountEvent
+    {
+        get
+        {
+            return buy_limited_count_event;
+        }
+    }
+
     public bool ReadToStream(BinaryReader reader)
     {
         id = reader.ReadInt32();
@@ -87,17 +103,14 @@
         npc_id = reader.ReadInt32();
         product_id = reader.ReadInt32();
         need_fellow_level = reader.ReadInt32();
+        need_fellow_level_event = reader.ReadInt32();
         expose_fellow_tab = reader.ReadInt32();
         product_count = reader.ReadInt32();
         price_id = reader.ReadInt32();
         price_count = reader.ReadInt32();
         buy_limited_count = reader.ReadInt32();
+        buy_limited_count_event = reader.ReadInt32();
         return true;
-    }
-
-    public int GetRowIndex()
-    {
-        return Id;
     }
 
     private int id;
@@ -110,6 +123,8 @@
 
     private int need_fellow_level;
 
+    private int need_fellow_level_event;
+
     private int expose_fellow_tab;
 
     private int product_count;
@@ -119,4 +134,6 @@
     private int price_count;
 
     private int buy_limited_count;
+
+    private int buy_limited_count_event;
 }
