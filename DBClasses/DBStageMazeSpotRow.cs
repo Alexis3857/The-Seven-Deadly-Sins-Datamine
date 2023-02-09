@@ -80,35 +80,35 @@ public class DBStageMazeSpotRow
         }
     }
 
-    public int HealPer
+    public List<int> ListArrayHealPer
     {
         get
         {
-            return heal_per;
+            return list_array_heal_per;
         }
     }
 
-    public int LevelPoint
+    public List<int> ListArrayLevelPoint
     {
         get
         {
-            return level_point;
+            return list_array_level_point;
         }
     }
 
-    public int SpecialPoint
+    public List<int> ListArraySpecialPoint
     {
         get
         {
-            return special_point;
+            return list_array_special_point;
         }
     }
 
-    public int AwakenPoint
+    public List<int> ListArrayAwakenPoint
     {
         get
         {
-            return awaken_point;
+            return list_array_awaken_point;
         }
     }
 
@@ -164,10 +164,30 @@ public class DBStageMazeSpotRow
         need_hero_group = reader.ReadInt32();
         hero_count = reader.ReadInt32();
         random_hero_count = reader.ReadInt32();
-        heal_per = reader.ReadInt32();
-        level_point = reader.ReadInt32();
-        special_point = reader.ReadInt32();
-        awaken_point = reader.ReadInt32();
+        int num1 = reader.ReadInt32();
+        list_array_heal_per = new List<int>();
+        for (int i = 0; i < num1; i++)
+        {
+            list_array_heal_per.Add(reader.ReadInt32());
+        }
+        int num2 = reader.ReadInt32();
+        list_array_level_point = new List<int>();
+        for (int i = 0; i < num2; i++)
+        {
+            list_array_level_point.Add(reader.ReadInt32());
+        }
+        int num3 = reader.ReadInt32();
+        list_array_special_point = new List<int>();
+        for (int i = 0; i < num3; i++)
+        {
+            list_array_special_point.Add(reader.ReadInt32());
+        }
+        int num4 = reader.ReadInt32();
+        list_array_awaken_point = new List<int>();
+        for (int i = 0; i < num4; i++)
+        {
+            list_array_awaken_point.Add(reader.ReadInt32());
+        }
         random_passive_group = reader.ReadInt32();
         shop_group_id = reader.ReadInt32();
         random_count = reader.ReadInt32();
@@ -196,13 +216,13 @@ public class DBStageMazeSpotRow
 
     private int random_hero_count;
 
-    private int heal_per;
+    private List<int> list_array_heal_per;
 
-    private int level_point;
+    private List<int> list_array_level_point;
 
-    private int special_point;
+    private List<int> list_array_special_point;
 
-    private int awaken_point;
+    private List<int> list_array_awaken_point;
 
     private int random_passive_group;
 

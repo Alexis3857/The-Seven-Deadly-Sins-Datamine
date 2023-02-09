@@ -376,6 +376,30 @@
         }
     }
 
+    public int ItemId13
+    {
+        get
+        {
+            return item_id_13;
+        }
+    }
+
+    public int ItemCount13
+    {
+        get
+        {
+            return item_count_13;
+        }
+    }
+
+    public int ItemRate13
+    {
+        get
+        {
+            return item_rate_13;
+        }
+    }
+
     public List<int> ListItemId
     {
         get
@@ -395,7 +419,8 @@
                     ItemId9,
                     ItemId10,
                     ItemId11,
-                    ItemId12
+                    ItemId12,
+                    ItemId13
                 };
             }
             return list_item_id;
@@ -421,7 +446,8 @@
                     ItemCount9,
                     ItemCount10,
                     ItemCount11,
-                    ItemCount12
+                    ItemCount12,
+                    ItemCount13
                 };
             }
             return list_item_count;
@@ -447,7 +473,8 @@
                     ItemRate9,
                     ItemRate10,
                     ItemRate11,
-                    ItemRate12
+                    ItemRate12,
+                    ItemRate13
                 };
             }
             return list_item_rate;
@@ -518,6 +545,9 @@
         item_id_12 = reader.ReadInt32();
         item_count_12 = reader.ReadInt32();
         item_rate_12 = reader.ReadInt32();
+        item_id_13 = reader.ReadInt32();
+        item_count_13 = reader.ReadInt32();
+        item_rate_13 = reader.ReadInt32();
         return true;
     }
 
@@ -614,6 +644,12 @@
     private int item_count_12;
 
     private int item_rate_12;
+
+    private int item_id_13;
+
+    private int item_count_13;
+
+    private int item_rate_13;
 
     private List<int> list_item_id;
 

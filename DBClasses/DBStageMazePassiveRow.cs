@@ -32,12 +32,21 @@
         }
     }
 
+    public int BasicPassive
+    {
+        get
+        {
+            return basic_passive;
+        }
+    }
+
     public bool ReadToStream(BinaryReader reader)
     {
         id = reader.ReadInt32();
         passive_skill_id = reader.ReadInt32();
         random_passive_group = reader.ReadInt32();
         random_passive_grade = reader.ReadInt32();
+        basic_passive = reader.ReadInt32();
         return true;
     }
 
@@ -48,4 +57,6 @@
     private int random_passive_group;
 
     private int random_passive_grade;
+
+    private int basic_passive;
 }

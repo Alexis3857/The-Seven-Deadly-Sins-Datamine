@@ -439,7 +439,9 @@ namespace BundleManager
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_material_fusion_config.csv"), typeof(DBMaterialFusionConfigRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_material_info.csv"), typeof(DBMaterialInfoRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_maze_need_hero.csv"), typeof(DBMazeNeedHeroRow));
+            TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_maze_replay_bonus.csv"), typeof(DBMazeReplayBonusRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_maze_season.csv"), typeof(DBMazeSeasonRow));
+            TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_maze_season_shop.csv"), typeof(DBMazeSeasonShopRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_maze_shop.csv"), typeof(DBMazeShopRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_mercenary_npc_setting.csv"), typeof(DBMercenaryNpcSettingRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_mission.csv"), typeof(DBMissionRow));
