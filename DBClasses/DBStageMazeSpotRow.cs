@@ -112,6 +112,14 @@ public class DBStageMazeSpotRow
         }
     }
 
+    public int RandomStagePer
+    {
+        get
+        {
+            return random_stage_per;
+        }
+    }
+
     public int RandomPassiveGroup
     {
         get
@@ -188,6 +196,7 @@ public class DBStageMazeSpotRow
         {
             list_array_awaken_point.Add(reader.ReadInt32());
         }
+        random_stage_per = reader.ReadInt32();
         random_passive_group = reader.ReadInt32();
         shop_group_id = reader.ReadInt32();
         random_count = reader.ReadInt32();
@@ -223,6 +232,8 @@ public class DBStageMazeSpotRow
     private List<int> list_array_special_point;
 
     private List<int> list_array_awaken_point;
+
+    private int random_stage_per;
 
     private int random_passive_group;
 

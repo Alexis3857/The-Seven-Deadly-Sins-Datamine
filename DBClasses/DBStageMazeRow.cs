@@ -8,11 +8,27 @@
         }
     }
 
+    public string SpotType
+    {
+        get
+        {
+            return spot_type;
+        }
+    }
+
     public string Type
     {
         get
         {
             return type;
+        }
+    }
+
+    public string ControlType
+    {
+        get
+        {
+            return control_type;
         }
     }
 
@@ -1725,6 +1741,7 @@
     public bool ReadToStream(BinaryReader reader)
     {
         id = reader.ReadInt32();
+        spot_type = reader.ReadString();
         type = reader.ReadString();
         control_type = reader.ReadString();
         stage_string = reader.ReadInt32();
@@ -1918,6 +1935,8 @@
     }
 
     private int id;
+
+    private string spot_type;
 
     private string type;
 

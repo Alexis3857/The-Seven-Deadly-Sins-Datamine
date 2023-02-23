@@ -48,6 +48,14 @@
         }
     }
 
+    public int SeasonPriceID
+    {
+        get
+        {
+            return season_price_id;
+        }
+    }
+
     public bool ReadToStream(BinaryReader reader)
     {
         season_id = reader.ReadInt32();
@@ -56,6 +64,7 @@
         season_desc = reader.ReadInt32();
         need_stamina_item_id = reader.ReadInt32();
         need_stamina_count = reader.ReadInt32();
+        season_price_id = reader.ReadInt32();
         return true;
     }
 
@@ -75,4 +84,6 @@
     private int need_stamina_item_id;
 
     private int need_stamina_count;
+
+    private int season_price_id;
 }

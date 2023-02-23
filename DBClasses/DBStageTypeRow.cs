@@ -128,6 +128,14 @@
         }
     }
 
+    public int GiveupRestartControl
+    {
+        get
+        {
+            return giveup_restart_control;
+        }
+    }
+
     public bool ReadToStream(BinaryReader reader)
     {
         id = reader.ReadInt32();
@@ -146,6 +154,7 @@
         clear_ticket = reader.ReadInt32();
         clear_ticket_limit = reader.ReadInt32();
         rejoin_control = reader.ReadInt32();
+        giveup_restart_control = reader.ReadInt32();
         return true;
     }
 
@@ -180,4 +189,6 @@
     private int clear_ticket_limit;
 
     private int rejoin_control;
+
+    private int giveup_restart_control;
 }

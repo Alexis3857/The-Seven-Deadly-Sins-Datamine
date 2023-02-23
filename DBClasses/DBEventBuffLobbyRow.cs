@@ -72,6 +72,22 @@
         }
     }
 
+    public string BuffActivationDate
+    {
+        get
+        {
+            return buff_activation_date;
+        }
+    }
+
+    public string BuffDeactivationDate
+    {
+        get
+        {
+            return buff_deactivation_date;
+        }
+    }
+
     public bool ReadToStream(BinaryReader reader)
     {
         id = reader.ReadInt32();
@@ -83,6 +99,8 @@
         group = reader.ReadInt32();
         level_group = reader.ReadInt32();
         exp_group = reader.ReadInt32();
+        buff_activation_date = reader.ReadString();
+        buff_deactivation_date = reader.ReadString();
         return true;
     }
 
@@ -103,4 +121,8 @@
     private int level_group;
 
     private int exp_group;
+
+    private string buff_activation_date;
+
+    private string buff_deactivation_date;
 }
