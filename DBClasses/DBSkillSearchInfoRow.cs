@@ -16,7 +16,7 @@
         }
     }
 
-    public byte SearchSkillTargetTag
+    public int SearchSkillTargetTag
     {
         get
         {
@@ -52,7 +52,7 @@
     {
         id = reader.ReadInt32();
         search_skill_name = reader.ReadInt32();
-        search_skill_target_tag = reader.ReadByte();
+        search_skill_target_tag = reader.ReadInt32();
         search_skill_group = reader.ReadByte();
         search_skill_sort = reader.ReadInt32();
         search_skill_desc = reader.ReadInt32();
@@ -68,7 +68,7 @@
 
     private int search_skill_name;
 
-    private byte search_skill_target_tag;
+    private int search_skill_target_tag;
 
     private byte search_skill_group;
 

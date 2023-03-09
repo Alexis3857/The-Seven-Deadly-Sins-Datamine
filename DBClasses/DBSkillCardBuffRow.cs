@@ -401,11 +401,11 @@
         }
     }
 
-    public string EqualEffectKeyword
+    public List<string> ListArrayEqualEffectKeyword
     {
         get
         {
-            return equal_effect_keyword;
+            return list_array_equal_effect_keyword;
         }
     }
 
@@ -520,7 +520,12 @@
         {
             list_array_accure_end_sound_id.Add(reader.ReadInt32());
         }
-        equal_effect_keyword = reader.ReadString();
+        int num19 = reader.ReadInt32();
+        list_array_equal_effect_keyword = new List<string>();
+        for (int num20 = 0; num20 < num19; num20++)
+        {
+            list_array_equal_effect_keyword.Add(reader.ReadString());
+        }
         return true;
     }
 
@@ -627,5 +632,5 @@
 
     private List<int> list_array_accure_end_sound_id;
 
-    private string equal_effect_keyword;
+    private List<string> list_array_equal_effect_keyword;
 }

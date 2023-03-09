@@ -381,6 +381,9 @@ namespace BundleManager
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_guild_group_mission.csv"), typeof(DBGuildGroupMissionRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_guild_mark.csv"), typeof(DBGuildMarkRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_guild_mission.csv"), typeof(DBGuildMissionRow));
+            TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_guildorder_bonusreward_group.csv"), typeof(DBGuildorderBonusrewardGroupRow));
+            TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_guildorder_mission.csv"), typeof(DBGuildorderMissionRow));
+            TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_guildorder_rewardbox.csv"), typeof(DBGuildorderRewardboxRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_guild_rank_reward.csv"), typeof(DBGuildRankRewardRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_guild_shop.csv"), typeof(DBGuildShopRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_guild_skill.csv"), typeof(DBGuildSkillRow));
