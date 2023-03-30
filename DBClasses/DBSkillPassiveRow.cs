@@ -296,6 +296,14 @@
         }
     }
 
+    public int PassiveSfxId
+    {
+        get
+        {
+            return base.DecryptInt32(passive_sfx_id);
+        }
+    }
+
     public byte ExclusiveInvisible
     {
         get
@@ -393,6 +401,7 @@
         exclusive_type = reader.ReadString();
         exclusive_ani = reader.ReadBytes(4);
         exclusive_invisible = reader.ReadByte();
+        passive_sfx_id = reader.ReadBytes(4);
         return true;
     }
 
@@ -474,4 +483,6 @@
     private byte[] exclusive_ani;
 
     private byte exclusive_invisible;
+
+    private byte[] passive_sfx_id;
 }

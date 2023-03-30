@@ -96,6 +96,22 @@
         }
     }
 
+    public int SolidarityExclusivePassiveId
+    {
+        get
+        {
+            return solidarity_exclusive_passive_id;
+        }
+    }
+
+    public string SolidarityExclusivePassiveGroup
+    {
+        get
+        {
+            return solidarity_exclusive_passive_group;
+        }
+    }
+
     public List<int> ListArrayAttributeExclusivePassiveId
     {
         get
@@ -160,6 +176,8 @@
         taboo_exclusive_passive_id = reader.ReadInt32();
         grace_exclusive_passive_id = reader.ReadInt32();
         grace_exclusive_passive_group = reader.ReadString();
+        solidarity_exclusive_passive_id = reader.ReadInt32();
+        solidarity_exclusive_passive_group = reader.ReadString();
         int num = reader.ReadInt32();
         list_array_attribute_exclusive_passive_id = new List<int>();
         for (int i = 0; i < num; i++)
@@ -203,6 +221,10 @@
     private int grace_exclusive_passive_id;
 
     private string grace_exclusive_passive_group;
+
+    private int solidarity_exclusive_passive_id;
+
+    private string solidarity_exclusive_passive_group;
 
     private List<int> list_array_attribute_exclusive_passive_id;
 

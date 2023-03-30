@@ -88,6 +88,14 @@
         }
     }
 
+    public int GachaSsrBonusCount
+    {
+        get
+        {
+            return gacha_ssr_bonus_count;
+        }
+    }
+
     public bool ReadToStream(BinaryReader reader)
     {
         index = reader.ReadInt32();
@@ -101,12 +109,8 @@
         gacha_bonus_reward_rate = reader.ReadInt32();
         skin_level = reader.ReadInt32();
         skin_awaken = reader.ReadInt32();
+        gacha_ssr_bonus_count = reader.ReadInt32();
         return true;
-    }
-
-    public int GetRowIndex()
-    {
-        return Index;
     }
 
     private int index;
@@ -130,4 +134,6 @@
     private int skin_level;
 
     private int skin_awaken;
+
+    private int gacha_ssr_bonus_count;
 }
