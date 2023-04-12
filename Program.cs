@@ -1,5 +1,6 @@
 ﻿using Decryptor;
 using Newtonsoft.Json.Linq;
+using System.Globalization;
 
 namespace _7dsgcDatamine
 {
@@ -7,6 +8,7 @@ namespace _7dsgcDatamine
     {
         static void Main(string[] args)
         {
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");  // Needed to make sure the program writes decimal number with . and not ,
             if (args.Length >= 1)
             {
                 string configuration = s_configurationDecryptor.Decrypt(GetConfigurationJson("configuration"));

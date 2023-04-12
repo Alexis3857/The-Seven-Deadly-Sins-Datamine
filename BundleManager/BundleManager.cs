@@ -39,9 +39,6 @@ namespace BundleManager
                 _assetExporter.ExportBmdataFile(folder);
                 if (folder.Equals("jal"))
                 {
-                    Console.WriteLine("\nExporting localization...");
-                    string localizeFileChecksum = string.Empty;
-                    string bundlePackDataName = string.Empty;
                     BinaryReader reader = new BinaryReader(File.Open(Path.Join(bmdataDirectory, "Exported", "jal_BundleData.bytes"), FileMode.Open));
                     int count = reader.ReadInt32();
                     for (int i = 0; i < count; i++)
@@ -49,25 +46,27 @@ namespace BundleManager
                         BundleData bundleData = new BundleData(reader);
                         if (bundleData.Name.Equals("localizestring_japanese"))
                         {
-                            localizeFileChecksum = bundleData.Checksum;
+                            reader = new BinaryReader(File.Open(Path.Join(bmdataDirectory, "Exported", "jal_BundlePackData.bytes"), FileMode.Open));
+                            count = reader.ReadInt32();
+                            for (int j = 0; j < count; j++)
+                            {
+                                BundlePackData bundlePackData = new BundlePackData(reader);
+                                if (bundlePackData.IncludeBundles.Contains(bundleData.Checksum))
+                                {
+                                    _bundleDownloader.DownloadBundlePackFile(folder, new List<string> { bundlePackData.Name }).Wait();
+                                    break;
+                                }
+                            }
+                            string localizeFilePath = Path.Join(_currentRootDirectory, "Bundles", folder, bundleData.Checksum);
+                            File.WriteAllBytes(localizeFilePath, GetRepairedFile(localizeFilePath));
+                            Console.WriteLine("\nExporting localization...");
+                            _assetExporter.ExportFolderFiles("jal", new Dictionary<string, BundleData>
+                            {
+                                { bundleData.Checksum, bundleData }
+                            });
                             break;
                         }
                     }
-                    reader = new BinaryReader(File.Open(Path.Join(bmdataDirectory, "Exported", "jal_BundlePackData.bytes"), FileMode.Open));
-                    count = reader.ReadInt32();
-                    for (int i = 0; i < count; i++)
-                    {
-                        BundlePackData bundlePackData = new BundlePackData(reader);
-                        if (bundlePackData.IncludeBundles.Contains(localizeFileChecksum))
-                        {
-                            bundlePackDataName = bundlePackData.Name;
-                            break;
-                        }
-                    }
-                    _bundleDownloader.DownloadBundlePackFile(folder, new List<string> { bundlePackDataName }).Wait();
-                    string localizeFilePath = Path.Join(_currentRootDirectory, "Bundles", folder, localizeFileChecksum);
-                    File.WriteAllBytes(localizeFilePath, GetRepairedFile(localizeFilePath));
-                    _assetExporter.ExportJalFiles();
                 }
             }
         }
@@ -117,12 +116,10 @@ namespace BundleManager
                 }
             }
             Console.WriteLine("\nExporting assets...");
-            _assetExporter.ExportJalFiles();
-            _assetExporter.ExportJasFiles(folderChecksumAssetsDictionary["jas"]);
-            _assetExporter.ExportJauFiles(folderChecksumAssetsDictionary["jau"]);
-            _assetExporter.ExportMFiles(folderChecksumAssetsDictionary["m"]);
-            _assetExporter.ExportSFiles(folderChecksumAssetsDictionary["s"]);
-            _assetExporter.ExportBFiles();
+            foreach (string folder in _folderList)
+            {
+                _assetExporter.ExportFolderFiles(folder, folderChecksumAssetsDictionary[folder]);
+            }
             Localization.Localizer.Load(_currentRootDirectory, _previousRootDirectory);
             Localization.Localizer.WriteNewStringsToFile(_currentRootDirectory);
             TransformDatabase();

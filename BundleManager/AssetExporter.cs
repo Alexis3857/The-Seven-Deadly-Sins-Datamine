@@ -1,6 +1,7 @@
 using AssetStudio;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
+using System.Text;
 
 namespace BundleManager
 {
@@ -26,7 +27,7 @@ namespace BundleManager
                         {
                             string fileName = $"{folder}_{textAsset.m_Name}.bytes";
                             File.WriteAllBytes(Path.Join(_rootDirectory, "Bmdata", "Exported", fileName), textAsset.m_Script);
-                            Console.WriteLine($"Exported {fileName}");
+                            Console.WriteLine($"Exported {fileName}.txt");
                         }
                     }
                 }
@@ -34,35 +35,38 @@ namespace BundleManager
             _assetsManager.Clear();
         }
 
-        public void ExportJalFiles()
+        private void ExportJalFiles(Dictionary<string, BundleData> jalAssetsDictionary)
         {
-            string directory = Path.Join(_rootDirectory, "Bundles", "jal");
+            string assetsDirectory = Path.Join(_rootDirectory, "Bundles", "jal");
             string outputDirectory = Path.Join(_rootDirectory, "Localization");
-            if (Directory.Exists(directory))
+            if (Directory.Exists(assetsDirectory))
             {
                 Directory.CreateDirectory(outputDirectory);
-                _assetsManager.LoadFolder(Path.Join(directory));
-                foreach (SerializedFile assetFile in _assetsManager.assetsFileList)
+                foreach (var item in jalAssetsDictionary)
                 {
-                    foreach (ObjectInfo obj in assetFile.m_Objects)
+                    _assetsManager.LoadFiles(Path.Join(assetsDirectory, item.Key));
+                    foreach (SerializedFile assetFile in _assetsManager.assetsFileList)
                     {
-                        ObjectReader objectReader = new ObjectReader(assetFile.reader, assetFile, obj);
-                        if (objectReader.type == ClassIDType.TextAsset)
+                        foreach (ObjectInfo obj in assetFile.m_Objects)
                         {
-                            TextAsset textAsset = new TextAsset(objectReader);
-                            if (textAsset.m_Name.StartsWith("LocalizeString_Japanese"))
+                            ObjectReader objectReader = new ObjectReader(assetFile.reader, assetFile, obj);
+                            if (objectReader.type == ClassIDType.TextAsset)
                             {
-                                File.WriteAllBytes(Path.Join(outputDirectory, $"{textAsset.m_Name}.bytes"), textAsset.m_Script);
-                                Console.WriteLine($"Exported {textAsset.m_Name}");
+                                TextAsset textAsset = new TextAsset(objectReader);
+                                if (textAsset.m_Name.StartsWith("LocalizeString_Japanese"))
+                                {
+                                    File.WriteAllBytes(Path.Join(outputDirectory, $"{textAsset.m_Name}.bytes"), textAsset.m_Script);
+                                    Console.WriteLine($"Exported {textAsset.m_Name}.bytes");
+                                }
                             }
                         }
                     }
+                    _assetsManager.Clear();
                 }
-                _assetsManager.Clear();
             }
         }
 
-        public void ExportJasFiles(Dictionary<string, BundleData> jasAssetsDictionary)
+        private void ExportJasFiles(Dictionary<string, BundleData> jasAssetsDictionary)
         {
             string assetsDirectory = Path.Join(_rootDirectory, "Bundles", "jas");
             string outputDirectory = Path.Join(_rootDirectory, "AudioClip");
@@ -90,7 +94,7 @@ namespace BundleManager
                                     {
                                         byte[] buffer = audioClipConverter.ConvertToWav();
                                         File.WriteAllBytes(Path.Join(outputDirectory, $"{audioClip.m_Name}.wav"), buffer);
-                                        Console.WriteLine("Exported " + audioClip.m_Name);
+                                        Console.WriteLine($"Exported {audioClip.m_Name}.wav");
                                     }
                                 }
                             }
@@ -101,7 +105,7 @@ namespace BundleManager
             }
         }
 
-        public void ExportJauFiles(Dictionary<string, BundleData> jauAssetsDictionary)
+        private void ExportJauFiles(Dictionary<string, BundleData> jauAssetsDictionary)
         {
             string assetsDirectory = Path.Join(_rootDirectory, "Bundles", "jau");
             string outputDirectory = Path.Join(_rootDirectory, "Texture2D");
@@ -127,7 +131,7 @@ namespace BundleManager
                                     FileStream fileStream = File.OpenWrite(Path.Join(outputDirectory, $"{texture2D.m_Name}.png"));
                                     Image<Bgra32> image = Texture2DExtensions.ConvertToImage(texture2D, true);
                                     AssetStudio.ImageExtensions.WriteToStream(image, fileStream, ImageFormat.Png);
-                                    Console.WriteLine("Exported " + texture2D.m_Name);
+                                    Console.WriteLine($"Exported {texture2D.m_Name}.png");
                                     fileStream.Close();
                                 }
                             }
@@ -138,7 +142,7 @@ namespace BundleManager
             }
         }
 
-        public void ExportMFiles(Dictionary<string, BundleData> mAssetsDictionary)
+        private void ExportMFiles(Dictionary<string, BundleData> mAssetsDictionary)
         {
             string assetsDirectory = Path.Join(_rootDirectory, "Bundles", "m");
             string outputDirectoryTexture = Path.Join(_rootDirectory, "Texture2D");
@@ -156,7 +160,6 @@ namespace BundleManager
                 foreach (var item in mAssetsDictionary)
                 {
                     _assetsManager.LoadFiles(Path.Join(assetsDirectory, item.Key));
-                    Dictionary<long, string> animatorPathIdDictionary = new Dictionary<long, string>();
                     foreach (SerializedFile file in _assetsManager.assetsFileList)
                     {
                         foreach (ObjectInfo obj in file.m_Objects)
@@ -170,7 +173,7 @@ namespace BundleManager
                                     FileStream fileStream = File.OpenWrite(Path.Join(outputDirectoryTexture, $"{texture2D.m_Name}.png"));
                                     Image<Bgra32> image = Texture2DExtensions.ConvertToImage(texture2D, true);
                                     AssetStudio.ImageExtensions.WriteToStream(image, fileStream, ImageFormat.Png);
-                                    Console.WriteLine("Exported " + texture2D.m_Name);
+                                    Console.WriteLine($"Exported {texture2D.m_Name}.png");
                                     fileStream.Close();
                                 }
                             }
@@ -183,37 +186,23 @@ namespace BundleManager
                                     {
                                         if (file.ObjectsDic[component.m_PathID].type == ClassIDType.Animator)
                                         {
-                                            animatorPathIdDictionary.Add(component.m_PathID, gameObject.m_Name);
+                                            Animator animator = new Animator(file.ObjectsDic[component.m_PathID].reader);
+                                            ModelConverter modelConverter = new ModelConverter(animator, ImageFormat.Png, null);
+                                            ModelExporter.ExportFbx(Path.Join(outputDirectoryModel, gameObject.m_Name, $"{gameObject.m_Name}.fbx"), modelConverter, true, (float)0.25, true, true, true, true, false, 10, false, (float)10, 3, false);
+                                            Console.WriteLine($"Exported {gameObject.m_Name}.fbx");
+                                            break;
                                         }
                                     }
                                 }
                             }
                         }
                     }
-                    if (animatorPathIdDictionary.Count != 0)
-                    {
-                        foreach (SerializedFile file in _assetsManager.assetsFileList)
-                        {
-                            foreach (ObjectInfo obj in file.m_Objects)
-                            {
-                                if (animatorPathIdDictionary.ContainsKey(obj.m_PathID))
-                                {
-                                    ObjectReader objectReader = new ObjectReader(file.reader, file, obj);
-                                    Animator animator = new Animator(objectReader);
-                                    ModelConverter modelConverter = new ModelConverter(animator, ImageFormat.Png, null);
-                                    ModelExporter.ExportFbx(Path.Join(outputDirectoryModel, animatorPathIdDictionary[obj.m_PathID], $"{animatorPathIdDictionary[obj.m_PathID]}.fbx"), modelConverter, true, (float)0.25, true, true, true, true, false, 10, false, (float)10, 3, false);
-                                    Console.WriteLine($"Exported {animatorPathIdDictionary[obj.m_PathID]}");
-                                }
-                            }
-                        }
-                    }
                     _assetsManager.Clear();
-                    animatorPathIdDictionary.Clear();
                 }
             }
         }
 
-        public void ExportSFiles(Dictionary<string, BundleData> sAssetsDictionary)
+        private void ExportSFiles(Dictionary<string, BundleData> sAssetsDictionary)
         {
             string assetsDirectory = Path.Join(_rootDirectory, "Bundles", "s");
             string outputDirectory = Path.Join(_rootDirectory, "AudioClip");
@@ -241,7 +230,7 @@ namespace BundleManager
                                     {
                                         byte[] buffer = audioClipConverter.ConvertToWav();
                                         File.WriteAllBytes(Path.Join(outputDirectory, $"{audioClip.m_Name}.wav"), buffer);
-                                        Console.WriteLine("Exported " + audioClip.m_Name);
+                                        Console.WriteLine($"Exported {audioClip.m_Name}");
                                     }
                                 }
                             }
@@ -252,7 +241,7 @@ namespace BundleManager
             }
         }
 
-        public void ExportBFiles()
+        private void ExportBFiles(Dictionary<string, BundleData> bAssetsDictionary)
         {
             string assetsDirectory = Path.Join(_rootDirectory, "Bundles", "b");
             string outputDirectory = Path.Join(_rootDirectory, "Database");
@@ -262,21 +251,194 @@ namespace BundleManager
                 {
                     Directory.CreateDirectory(outputDirectory);
                 }
-                _assetsManager.LoadFolder(assetsDirectory);
-                foreach (SerializedFile assetFile in _assetsManager.assetsFileList)
+                foreach (var item in bAssetsDictionary)
                 {
-                    foreach (ObjectInfo obj in assetFile.m_Objects)
+                    _assetsManager.LoadFiles(Path.Join(assetsDirectory, item.Key));
+                    foreach (SerializedFile assetFile in _assetsManager.assetsFileList)
                     {
-                        ObjectReader objectReader = new ObjectReader(assetFile.reader, assetFile, obj);
-                        if (objectReader.type == ClassIDType.TextAsset)
+                        foreach (ObjectInfo obj in assetFile.m_Objects)
                         {
-                            TextAsset textAsset = new TextAsset(objectReader);
-                            File.WriteAllBytes(Path.Join(outputDirectory, $"{textAsset.m_Name}.csv"), textAsset.m_Script);
-                            Console.WriteLine($"Exported {textAsset.m_Name}");
+                            ObjectReader objectReader = new ObjectReader(assetFile.reader, assetFile, obj);
+                            if (objectReader.type == ClassIDType.TextAsset)
+                            {
+                                TextAsset textAsset = new TextAsset(objectReader);
+                                File.WriteAllBytes(Path.Join(outputDirectory, $"{textAsset.m_Name}.csv"), textAsset.m_Script);
+                                Console.WriteLine($"Exported {textAsset.m_Name}.csv");
+                            }
                         }
                     }
+                    _assetsManager.Clear();
                 }
-                _assetsManager.Clear();
+            }
+        }
+
+        private void ExportMesh(Mesh mesh, string outputDirectory)
+        {
+            string exportFullPath = Path.Join(outputDirectory, $"{mesh.m_Name}.obj");
+            var sb = new StringBuilder();
+            sb.AppendLine("g " + mesh.m_Name);
+            #region Vertices
+            int c = 3;
+            if (mesh.m_Vertices.Length == mesh.m_VertexCount * 4)
+            {
+                c = 4;
+            }
+            for (int v = 0; v < mesh.m_VertexCount; v++)
+            {
+                sb.AppendFormat("v {0} {1} {2}\r\n", -mesh.m_Vertices[v * c], mesh.m_Vertices[v * c + 1], mesh.m_Vertices[v * c + 2]);
+            }
+            #endregion
+
+            #region UV
+            if (mesh.m_UV0?.Length > 0)
+            {
+                c = 4;
+                if (mesh.m_UV0.Length == mesh.m_VertexCount * 2)
+                {
+                    c = 2;
+                }
+                else if (mesh.m_UV0.Length == mesh.m_VertexCount * 3)
+                {
+                    c = 3;
+                }
+                for (int v = 0; v < mesh.m_VertexCount; v++)
+                {
+                    sb.AppendFormat("vt {0} {1}\r\n", mesh.m_UV0[v * c], mesh.m_UV0[v * c + 1]);
+                }
+            }
+            #endregion
+
+            #region Normals
+            if (mesh.m_Normals?.Length > 0)
+            {
+                if (mesh.m_Normals.Length == mesh.m_VertexCount * 3)
+                {
+                    c = 3;
+                }
+                else if (mesh.m_Normals.Length == mesh.m_VertexCount * 4)
+                {
+                    c = 4;
+                }
+                for (int v = 0; v < mesh.m_VertexCount; v++)
+                {
+                    sb.AppendFormat("vn {0} {1} {2}\r\n", -mesh.m_Normals[v * c], mesh.m_Normals[v * c + 1], mesh.m_Normals[v * c + 2]);
+                }
+            }
+            #endregion
+
+            #region Face
+            int sum = 0;
+            for (var i = 0; i < mesh.m_SubMeshes.Length; i++)
+            {
+                sb.AppendLine($"g {mesh.m_Name}_{i}");
+                int indexCount = (int)mesh.m_SubMeshes[i].indexCount;
+                var end = sum + indexCount / 3;
+                for (int f = sum; f < end; f++)
+                {
+                    sb.AppendFormat("f {0}/{0}/{0} {1}/{1}/{1} {2}/{2}/{2}\r\n", mesh.m_Indices[f * 3 + 2] + 1, mesh.m_Indices[f * 3 + 1] + 1, mesh.m_Indices[f * 3] + 1);
+                }
+                sum = end;
+            }
+            #endregion
+
+            sb.Replace("NaN", "0");
+            File.WriteAllText(exportFullPath, sb.ToString());
+        }
+
+        private void ExportWFiles(Dictionary<string, BundleData> wAssetsDictionary)
+        {
+            string assetsDirectory = Path.Join(_rootDirectory, "Bundles", "w");
+            string outputDirectory = Path.Join(_rootDirectory, "Mesh");
+            string outputDirectoryModel = Path.Join(_rootDirectory, "Animator");
+            if (Directory.Exists(assetsDirectory))
+            {
+                if (!Directory.Exists(outputDirectory))
+                {
+                    Directory.CreateDirectory(outputDirectory);
+                }
+                foreach (var item in wAssetsDictionary)
+                {
+                    _assetsManager.LoadFiles(Path.Join(assetsDirectory, item.Key));
+                    foreach (SerializedFile file in _assetsManager.assetsFileList)
+                    {
+                        foreach (ObjectInfo obj in file.m_Objects)
+                        {
+                            ObjectReader objectReader = new ObjectReader(file.reader, file, obj);
+                            if (objectReader.type == ClassIDType.Mesh)
+                            {
+                                Mesh mesh = new Mesh(objectReader);
+                                if (item.Value.Assets.Contains($"{mesh.m_Name}.prefab"))
+                                {
+                                    string meshOutputDirectory = Path.Join(outputDirectory, mesh.m_Name);
+                                    Directory.CreateDirectory(meshOutputDirectory);
+                                    ExportMesh(mesh, meshOutputDirectory);
+                                    Console.WriteLine($"Exported {mesh.m_Name}.obj");
+                                }
+                            }
+                            else if (objectReader.type == ClassIDType.Texture2D)
+                            {
+                                Texture2D texture2D = new Texture2D(objectReader);
+                                if (item.Value.Assets.Contains($"{texture2D.m_Name.Replace("_D", string.Empty)}.prefab"))
+                                {
+                                    string meshOutputDirectory = Path.Join(outputDirectory, texture2D.m_Name.Replace("_D", string.Empty));
+                                    Directory.CreateDirectory(meshOutputDirectory);
+                                    FileStream fileStream = File.OpenWrite(Path.Join(meshOutputDirectory, $"{texture2D.m_Name}.png"));
+                                    Image<Bgra32> image = Texture2DExtensions.ConvertToImage(texture2D, true);
+                                    AssetStudio.ImageExtensions.WriteToStream(image, fileStream, ImageFormat.Png);
+                                    Console.WriteLine("Exported " + texture2D.m_Name);
+                                    fileStream.Close();
+                                }
+                            }
+                            else if (objectReader.type == ClassIDType.GameObject)
+                            {
+                                GameObject gameObject = new GameObject(objectReader);
+                                if (item.Value.Assets.Contains($"{gameObject.m_Name.ToLower()}.prefab"))
+                                {
+                                    foreach (var component in gameObject.m_Components)
+                                    {
+                                        if (file.ObjectsDic[component.m_PathID].type == ClassIDType.Animator)
+                                        {
+                                            Animator animator = new Animator(file.ObjectsDic[component.m_PathID].reader);
+                                            ModelConverter modelConverter = new ModelConverter(animator, ImageFormat.Png, null);
+                                            ModelExporter.ExportFbx(Path.Join(outputDirectoryModel, gameObject.m_Name, $"{gameObject.m_Name}.fbx"), modelConverter, true, (float)0.25, true, true, true, true, false, 10, false, (float)10, 3, false);
+                                            Console.WriteLine($"Exported {gameObject.m_Name}.fbx");
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    _assetsManager.Clear();
+                }
+            }
+        }
+
+        public void ExportFolderFiles(string folder, Dictionary<string, BundleData> dict)
+        {
+            switch (folder)
+            {
+                case "b":
+                    ExportBFiles(dict);
+                    break;
+                case "jal":
+                    ExportJalFiles(dict);
+                    break;
+                case "jas":
+                    ExportJasFiles(dict);
+                    break;
+                case "jau":
+                    ExportJauFiles(dict);
+                    break;
+                case "m":
+                    ExportMFiles(dict);
+                    break;
+                case "s":
+                    ExportSFiles(dict);
+                    break;
+                case "w":
+                    ExportWFiles(dict);
+                    break;
             }
         }
 
