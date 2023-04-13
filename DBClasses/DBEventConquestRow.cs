@@ -72,6 +72,54 @@ public class DBEventConquestRow
         }
     }
 
+    public int CheckUseRecommendRoute
+    {
+        get
+        {
+            return check_use_recommend_route;
+        }
+    }
+
+    public int CheckCharacter
+    {
+        get
+        {
+            return check_character;
+        }
+    }
+
+    public int CheckFog
+    {
+        get
+        {
+            return check_fog;
+        }
+    }
+
+    public float FogMaskingRate
+    {
+        get
+        {
+            return fog_masking_rate;
+        }
+    }
+
+    public float FogAfterMaskingRate
+    {
+        get
+        {
+            return fog_after_masking_rate;
+        }
+    }
+
+    public float FogMaskingSize
+    {
+        get
+        {
+            return fog_masking_size;
+        }
+    }
+
     public bool ReadToStream(BinaryReader reader)
     {
         id = reader.ReadInt32();
@@ -83,6 +131,12 @@ public class DBEventConquestRow
         ally_name = reader.ReadInt32();
         ally_position = reader.ReadInt32();
         ally_minion_atk = reader.ReadInt32();
+        check_use_recommend_route = reader.ReadInt32();
+        check_character = reader.ReadInt32();
+        check_fog = reader.ReadInt32();
+        fog_masking_rate = reader.ReadSingle();
+        fog_after_masking_rate = reader.ReadSingle();
+        fog_masking_size = reader.ReadSingle();
         return true;
     }
 
@@ -103,4 +157,16 @@ public class DBEventConquestRow
     private int ally_position;
 
     private int ally_minion_atk;
+
+    private int check_use_recommend_route;
+
+    private int check_character;
+
+    private int check_fog;
+
+    private float fog_masking_rate;
+
+    private float fog_after_masking_rate;
+
+    private float fog_masking_size;
 }

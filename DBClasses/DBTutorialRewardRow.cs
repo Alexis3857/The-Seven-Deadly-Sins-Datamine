@@ -120,6 +120,54 @@
         }
     }
 
+    public int TutorialRewardId2
+    {
+        get
+        {
+            return tutorial_reward_id_2;
+        }
+    }
+
+    public int TutorialRewardCount2
+    {
+        get
+        {
+            return tutorial_reward_count_2;
+        }
+    }
+
+    public int TutorialRewardId3
+    {
+        get
+        {
+            return tutorial_reward_id_3;
+        }
+    }
+
+    public int TutorialRewardCount3
+    {
+        get
+        {
+            return tutorial_reward_count_3;
+        }
+    }
+
+    public int TutorialRewardId4
+    {
+        get
+        {
+            return tutorial_reward_id_4;
+        }
+    }
+
+    public int TutorialRewardCount4
+    {
+        get
+        {
+            return tutorial_reward_count_4;
+        }
+    }
+
     public List<int> ListTutorialResourceId
     {
         get
@@ -162,7 +210,10 @@
             {
                 list_tutorial_reward_id = new List<int>
                 {
-                    TutorialRewardId1
+                    TutorialRewardId1,
+                    TutorialRewardId2,
+                    TutorialRewardId3,
+                    TutorialRewardId4
                 };
             }
             return list_tutorial_reward_id;
@@ -177,7 +228,10 @@
             {
                 list_tutorial_reward_count = new List<int>
                 {
-                    TutorialRewardCount1
+                    TutorialRewardCount1,
+                    TutorialRewardCount2,
+                    TutorialRewardCount3,
+                    TutorialRewardCount4
                 };
             }
             return list_tutorial_reward_count;
@@ -201,6 +255,12 @@
         tutorial_resource_count_3 = reader.ReadInt32();
         tutorial_reward_id_1 = reader.ReadInt32();
         tutorial_reward_count_1 = reader.ReadInt32();
+        tutorial_reward_id_2 = reader.ReadInt32();
+        tutorial_reward_count_2 = reader.ReadInt32();
+        tutorial_reward_id_3 = reader.ReadInt32();
+        tutorial_reward_count_3 = reader.ReadInt32();
+        tutorial_reward_id_4 = reader.ReadInt32();
+        tutorial_reward_count_4 = reader.ReadInt32();
         return true;
     }
 
@@ -233,6 +293,18 @@
     private int tutorial_reward_id_1;
 
     private int tutorial_reward_count_1;
+
+    private int tutorial_reward_id_2;
+
+    private int tutorial_reward_count_2;
+
+    private int tutorial_reward_id_3;
+
+    private int tutorial_reward_count_3;
+
+    private int tutorial_reward_id_4;
+
+    private int tutorial_reward_count_4;
 
     private List<int> list_tutorial_resource_id;
 

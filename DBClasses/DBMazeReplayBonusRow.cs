@@ -1,6 +1,3 @@
-using AssetStudio;
-using System.ComponentModel;
-
 public class DBMazeReplayBonusRow
 {
     public int Id

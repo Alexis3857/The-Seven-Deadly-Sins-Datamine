@@ -168,6 +168,64 @@ public class DBEventConquestLocalizationRow
         }
     }
 
+    public string UiMenuBtnShowAlly
+    {
+        get
+        {
+            return ui_menu_btn_show_ally.Localize();
+        }
+    }
+
+    public string UiMenuBtnShowEnemy
+    {
+        get
+        {
+            return ui_menu_btn_show_enemy.Localize();
+        }
+    }
+
+    public string UiMenuBtnShowEnemyHp
+    {
+        get
+        {
+            return ui_menu_btn_show_enemy_hp.Localize();
+        }
+    }
+
+    public string UiMenuBtnShowResources
+    {
+        get
+        {
+            return ui_menu_btn_show_resources.Localize();
+        }
+    }
+
+    public string UiMenuBtnFever
+    {
+        get
+        {
+            return ui_menu_btn_fever.Localize();
+        }
+    }
+
+    public List<string> ListUiBattleEventDesc
+    {
+        get
+        {
+            if (list_ui_battle_event_desc == null)
+            {
+                list_ui_battle_event_desc = new List<string>
+                {
+                    UiBattleEventDesc1,
+                    UiBattleEventDesc2,
+                    UiBattleEventDesc3,
+                    UiBattleEventDesc4
+                };
+            }
+            return list_ui_battle_event_desc;
+        }
+    }
+
     public bool ReadToStream(BinaryReader reader)
     {
         id = reader.ReadInt32();
@@ -191,6 +249,11 @@ public class DBEventConquestLocalizationRow
         ui_battle_event_desc_2 = reader.ReadInt32();
         ui_battle_event_desc_3 = reader.ReadInt32();
         ui_battle_event_desc_4 = reader.ReadInt32();
+        ui_menu_btn_show_ally = reader.ReadInt32();
+        ui_menu_btn_show_enemy = reader.ReadInt32();
+        ui_menu_btn_show_enemy_hp = reader.ReadInt32();
+        ui_menu_btn_show_resources = reader.ReadInt32();
+        ui_menu_btn_fever = reader.ReadInt32();
         return true;
     }
 
@@ -235,6 +298,16 @@ public class DBEventConquestLocalizationRow
     private int ui_battle_event_desc_3;
 
     private int ui_battle_event_desc_4;
+
+    private int ui_menu_btn_show_ally;
+
+    private int ui_menu_btn_show_enemy;
+
+    private int ui_menu_btn_show_enemy_hp;
+
+    private int ui_menu_btn_show_resources;
+
+    private int ui_menu_btn_fever;
 
     private List<string> list_ui_battle_event_desc;
 }

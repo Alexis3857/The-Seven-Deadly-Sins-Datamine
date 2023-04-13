@@ -167,6 +167,7 @@ namespace BundleManager
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_artifact_category.csv"), typeof(DBArtifactCategoryRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_artifact_event_group.csv"), typeof(DBArtifactEventGroupRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_artifact_group.csv"), typeof(DBArtifactGroupRow));
+            TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_artifact_union_filter_group.csv"), typeof(DBArtifactUnionFilterGroupRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_attendance_hero.csv"), typeof(DBAttendanceHeroRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_attendance_package.csv"), typeof(DBAttendancePackageRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_basepoint_collision_npc.csv"), typeof(DBBasepointCollisionNpcRow));
@@ -243,6 +244,8 @@ namespace BundleManager
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_event_cheer_group.csv"), typeof(DBEventCheerGroupRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_event_cheer_reward.csv"), typeof(DBEventCheerRewardRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_event_conquest.csv"), typeof(DBEventConquestRow));
+            TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_event_conquest_character.csv"), typeof(DBEventConquestCharacterRow));
+            TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_event_conquest_cut_in.csv"), typeof(DBEventConquestCutInRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_event_conquest_cutscene.csv"), typeof(DBEventConquestCutsceneRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_event_conquest_enemy.csv"), typeof(DBEventConquestEnemyRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_event_conquest_fever.csv"), typeof(DBEventConquestFeverRow));
@@ -441,6 +444,7 @@ namespace BundleManager
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_maze_need_hero.csv"), typeof(DBMazeNeedHeroRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_maze_replay_bonus.csv"), typeof(DBMazeReplayBonusRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_maze_season.csv"), typeof(DBMazeSeasonRow));
+            TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_maze_season_shop_grade.csv"), typeof(DBMazeSeasonShopGradeRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_maze_season_shop.csv"), typeof(DBMazeSeasonShopRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_maze_shop.csv"), typeof(DBMazeShopRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_mercenary_npc_setting.csv"), typeof(DBMercenaryNpcSettingRow));
@@ -547,6 +551,7 @@ namespace BundleManager
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_stage_challenge_boss_desc.csv"), typeof(DBStageChallengeBossDescRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_stage_challenge_boss_event.csv"), typeof(DBStageChallengeBossEventRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_stage_challenge_boss_group.csv"), typeof(DBStageChallengeBossGroupRow));
+            TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_stage_conquest.csv"), typeof(DBStageConquestRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_stage_creaturenest.csv"), typeof(DBStageCreaturenestRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_stage_creaturenest_gauge.csv"), typeof(DBStageCreaturenestGaugeRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_stage_creaturenest_info.csv"), typeof(DBStageCreaturenestInfoRow));

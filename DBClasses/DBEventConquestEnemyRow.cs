@@ -104,6 +104,30 @@ public class DBEventConquestEnemyRow
         }
     }
 
+    public int StageId
+    {
+        get
+        {
+            return stage_id;
+        }
+    }
+
+    public int OpenCutInIndex
+    {
+        get
+        {
+            return open_cut_in_index;
+        }
+    }
+
+    public int CloseCutInIndex
+    {
+        get
+        {
+            return close_cut_in_index;
+        }
+    }
+
     public int NeedItemId1
     {
         get
@@ -240,6 +264,9 @@ public class DBEventConquestEnemyRow
         }
         recommend_route = reader.ReadInt32();
         enemy_hp = reader.ReadInt32();
+        stage_id = reader.ReadInt32();
+        open_cut_in_index = reader.ReadInt32();
+        close_cut_in_index = reader.ReadInt32();
         need_item_id_1 = reader.ReadInt32();
         need_item_count_1 = reader.ReadInt32();
         need_item_id_2 = reader.ReadInt32();
@@ -278,6 +305,12 @@ public class DBEventConquestEnemyRow
     private int recommend_route;
 
     private int enemy_hp;
+
+    private int stage_id;
+
+    private int open_cut_in_index;
+
+    private int close_cut_in_index;
 
     private int need_item_id_1;
 

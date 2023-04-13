@@ -24,6 +24,14 @@ public class DBMazeSeasonShopRow
         }
     }
 
+    public int ShopGrade
+    {
+        get
+        {
+            return shop_grade;
+        }
+    }
+
     public int RewardItemId
     {
         get
@@ -101,6 +109,7 @@ public class DBMazeSeasonShopRow
         id = reader.ReadInt32();
         product_season = reader.ReadInt32();
         product_page = reader.ReadInt32();
+        shop_grade = reader.ReadInt32();
         reward_item_id = reader.ReadInt32();
         reward_item_count = reader.ReadInt32();
         product_type = reader.ReadInt32();
@@ -118,6 +127,8 @@ public class DBMazeSeasonShopRow
     private int product_season;
 
     private int product_page;
+
+    private int shop_grade;
 
     private int reward_item_id;
 

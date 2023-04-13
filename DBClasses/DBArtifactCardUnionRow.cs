@@ -72,6 +72,14 @@
         }
     }
 
+    public string SearchExceptWord
+    {
+        get
+        {
+            return search_except_word.Localize();
+        }
+    }
+
     public int UnionPassive1
     {
         get
@@ -128,6 +136,38 @@
         }
     }
 
+    public List<byte> ListArrayUnionContent
+    {
+        get
+        {
+            return list_array_union_content;
+        }
+    }
+
+    public List<byte> ListArrayUnionKind
+    {
+        get
+        {
+            return list_array_union_kind;
+        }
+    }
+
+    public List<byte> ListArrayUnionJobGroup
+    {
+        get
+        {
+            return list_array_union_job_group;
+        }
+    }
+
+    public List<byte> ListArrayUnionAnother
+    {
+        get
+        {
+            return list_array_union_another;
+        }
+    }
+
     public List<int> ListUnionCard
     {
         get
@@ -177,6 +217,7 @@
         union_card_4 = reader.ReadInt32();
         union_card_5 = reader.ReadInt32();
         union_name = reader.ReadInt32();
+        search_except_word = reader.ReadInt32();
         union_passive_1 = reader.ReadInt32();
         union_passive_2 = reader.ReadInt32();
         union_passive_3 = reader.ReadInt32();
@@ -184,6 +225,30 @@
         union_passive_5 = reader.ReadInt32();
         reinforce_max_level = reader.ReadInt32();
         reinforce_class = reader.ReadByte();
+        int num = reader.ReadInt32();
+        list_array_union_content = new List<byte>();
+        for (int i = 0; i < num; i++)
+        {
+            list_array_union_content.Add(reader.ReadByte());
+        }
+        int num2 = reader.ReadInt32();
+        list_array_union_kind = new List<byte>();
+        for (int i = 0; i < num2; i++)
+        {
+            list_array_union_kind.Add(reader.ReadByte());
+        }
+        int num3 = reader.ReadInt32();
+        list_array_union_job_group = new List<byte>();
+        for (int i = 0; i < num3; i++)
+        {
+            list_array_union_job_group.Add(reader.ReadByte());
+        }
+        int num4 = reader.ReadInt32();
+        list_array_union_another = new List<byte>();
+        for (int i = 0; i < num4; i++)
+        {
+            list_array_union_another.Add(reader.ReadByte());
+        }
         return true;
     }
 
@@ -205,6 +270,8 @@
 
     private int union_name;
 
+    private int search_except_word;
+
     private int union_passive_1;
 
     private int union_passive_2;
@@ -218,6 +285,14 @@
     private int reinforce_max_level;
 
     private byte reinforce_class;
+
+    private List<byte> list_array_union_content;
+
+    private List<byte> list_array_union_kind;
+
+    private List<byte> list_array_union_job_group;
+
+    private List<byte> list_array_union_another;
 
     private List<int> list_union_card;
 

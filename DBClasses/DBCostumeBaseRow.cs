@@ -280,6 +280,14 @@
         }
     }
 
+    public List<int> ListArrayAddPassiveId
+    {
+        get
+        {
+            return list_array_add_passive_id;
+        }
+    }
+
     public bool ReadToStream(BinaryReader reader)
     {
         id = reader.ReadInt32();
@@ -327,6 +335,12 @@
         passive_id = reader.ReadInt32();
         loop_idle_sfx = reader.ReadInt32();
         growth_point = reader.ReadInt32();
+        int num3 = reader.ReadInt32();
+        list_array_add_passive_id = new List<int>();
+        for (int i = 0; i < num3; i++)
+        {
+            list_array_add_passive_id.Add(reader.ReadInt32());
+        }
         return true;
     }
 
@@ -399,4 +413,6 @@
     private int loop_idle_sfx;
 
     private int growth_point;
+
+    private List<int> list_array_add_passive_id;
 }

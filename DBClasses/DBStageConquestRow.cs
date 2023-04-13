@@ -1,4 +1,4 @@
-﻿public class DBStageRow
+﻿public class DBStageConquestRow
 {
     public int Id
     {
@@ -8,19 +8,27 @@
         }
     }
 
+    public int EventSubIndex
+    {
+        get
+        {
+            return event_sub_index;
+        }
+    }
+
+    public string StageName
+    {
+        get
+        {
+            return stage_name.Localize();
+        }
+    }
+
     public string Type
     {
         get
         {
             return type;
-        }
-    }
-
-    public string StageString
-    {
-        get
-        {
-            return stage_string.Localize();
         }
     }
 
@@ -37,134 +45,6 @@
         get
         {
             return control_type;
-        }
-    }
-
-    public int Region
-    {
-        get
-        {
-            return region;
-        }
-    }
-
-    public int Index
-    {
-        get
-        {
-            return index;
-        }
-    }
-
-    public int Area
-    {
-        get
-        {
-            return area;
-        }
-    }
-
-    public int Side
-    {
-        get
-        {
-            return side;
-        }
-    }
-
-    public int StartQuestId
-    {
-        get
-        {
-            return start_quest_id;
-        }
-    }
-
-    public int NeedQuestId
-    {
-        get
-        {
-            return need_quest_id;
-        }
-    }
-
-    public int NeedStageSide
-    {
-        get
-        {
-            return need_stage_side;
-        }
-    }
-
-    public int ExtraGroupId
-    {
-        get
-        {
-            return extra_group_id;
-        }
-    }
-
-    public int NeedStageId
-    {
-        get
-        {
-            return need_stage_id;
-        }
-    }
-
-    public int NextStageSide
-    {
-        get
-        {
-            return next_stage_side;
-        }
-    }
-
-    public int NextStageId
-    {
-        get
-        {
-            return next_stage_id;
-        }
-    }
-
-    public int StartCut
-    {
-        get
-        {
-            return start_cut;
-        }
-    }
-
-    public int EndCut
-    {
-        get
-        {
-            return end_cut;
-        }
-    }
-
-    public int StoryId1
-    {
-        get
-        {
-            return story_id_1;
-        }
-    }
-
-    public int StoryId2
-    {
-        get
-        {
-            return story_id_2;
-        }
-    }
-
-    public int StoryId3
-    {
-        get
-        {
-            return story_id_3;
         }
     }
 
@@ -760,55 +640,6 @@
         }
     }
 
-    public int HrunRewardMaxValue
-    {
-        get
-        {
-            return Hrun_reward_max_value;
-        }
-    }
-
-    public string HrunMap
-    {
-        get
-        {
-            return Hrun_map;
-        }
-    }
-
-    public string HrunBg
-    {
-        get
-        {
-            return Hrun_bg;
-        }
-    }
-
-    public int NpcTeamId
-    {
-        get
-        {
-            return npc_team_id;
-        }
-    }
-
-    public List<int> ListStoryId
-    {
-        get
-        {
-            if (list_story_id == null)
-            {
-                list_story_id = new List<int>
-                {
-                    StoryId1,
-                    StoryId2,
-                    StoryId3
-                };
-            }
-            return list_story_id;
-        }
-    }
-
     public List<int> ListMonsterId
     {
         get
@@ -1004,26 +835,17 @@
     public bool ReadToStream(BinaryReader reader)
     {
         id = reader.ReadInt32();
+        event_sub_index = reader.ReadInt32();
         type = reader.ReadString();
-        stage_string = reader.ReadInt32();
+        stage_name = reader.ReadInt32();
         essen_hero_setting = reader.ReadInt32();
         control_type = reader.ReadString();
-        region = reader.ReadInt32();
-        index = reader.ReadInt32();
-        area = reader.ReadInt32();
-        side = reader.ReadInt32();
-        start_quest_id = reader.ReadInt32();
-        need_quest_id = reader.ReadInt32();
-        need_stage_side = reader.ReadInt32();
-        extra_group_id = reader.ReadInt32();
-        need_stage_id = reader.ReadInt32();
-        next_stage_side = reader.ReadInt32();
-        next_stage_id = reader.ReadInt32();
-        start_cut = reader.ReadInt32();
-        end_cut = reader.ReadInt32();
-        story_id_1 = reader.ReadInt32();
-        story_id_2 = reader.ReadInt32();
-        story_id_3 = reader.ReadInt32();
+        int num1 = reader.ReadInt32();
+        list_array_need_stage_id = new List<int>();
+        for (int i = 0; i < num1; i++)
+        {
+            list_array_need_stage_id.Add(reader.ReadInt32());
+        }
         need_stamina_item_id = reader.ReadInt32();
         need_stamina_count = reader.ReadInt32();
         team_power = reader.ReadInt32();
@@ -1123,59 +945,22 @@
         BanConditionValue_5 = reader.ReadInt32();
         BanCondition_6 = reader.ReadString();
         BanConditionValue_6 = reader.ReadInt32();
-        Hrun_reward_max_value = reader.ReadInt32();
-        Hrun_map = reader.ReadString();
-        Hrun_bg = reader.ReadString();
-        npc_team_id = reader.ReadInt32();
         return true;
-    }
-
-    public int GetRowIndex()
-    {
-        return Id;
     }
 
     private int id;
 
+    private int event_sub_index;
+
     private string type;
 
-    private int stage_string;
+    private int stage_name;
 
     private int essen_hero_setting;
 
     private string control_type;
 
-    private int region;
-
-    private int index;
-
-    private int area;
-
-    private int side;
-
-    private int start_quest_id;
-
-    private int need_quest_id;
-
-    private int need_stage_side;
-
-    private int extra_group_id;
-
-    private int need_stage_id;
-
-    private int next_stage_side;
-
-    private int next_stage_id;
-
-    private int start_cut;
-
-    private int end_cut;
-
-    private int story_id_1;
-
-    private int story_id_2;
-
-    private int story_id_3;
+    private List<int> list_array_need_stage_id;
 
     private int need_stamina_item_id;
 
@@ -1257,9 +1042,9 @@
 
     private string map_filename;
 
-    private string spawn_prop_filename;
-
     private string change_map_filename;
+
+    private string spawn_prop_filename;
 
     private int bgm_sound_id;
 
@@ -1324,16 +1109,6 @@
     private string BanCondition_6;
 
     private int BanConditionValue_6;
-
-    private int Hrun_reward_max_value;
-
-    private string Hrun_map;
-
-    private string Hrun_bg;
-
-    private int npc_team_id;
-
-    private List<int> list_story_id;
 
     private List<int> list_monster_id;
 
