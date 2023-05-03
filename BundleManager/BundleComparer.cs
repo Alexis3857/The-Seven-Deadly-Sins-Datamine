@@ -9,54 +9,52 @@ namespace BundleManager
         }
 
         // Compares new and previous versions checksums to know which files to download and which assets to export
-        public Dictionary<string, BundleData> GetNewChecksumAssetsDictionary(string folderName)
+        public List<BundleData> GetNewAssetList(string folderName)
         {
-            Dictionary<string, BundleData> checksumAssetsDictionary = new Dictionary<string, BundleData>();
+            List<BundleData> checksumAssetsDictionary = new List<BundleData>();
             Dictionary<string, BundleData> previousBundleDataDictionary = GetPreviousBundleDataDictionary(folderName);
-            BinaryReader newBundleReader = new BinaryReader(File.Open(Path.Join(_currentRootDirectory, "Bmdata", "Exported", folderName + "_BundleData.bytes"), FileMode.Open));
-            int newBundlesCount = newBundleReader.ReadInt32();
-            for (int i = 0; i < newBundlesCount; i++)
+            using (BinaryReader newBundleReader = new BinaryReader(File.Open(Path.Join(_currentRootDirectory, "Bmdata", "Exported", folderName + "_BundleData.bytes"), FileMode.Open)))
             {
-                BundleData bundleData = new BundleData(newBundleReader);
-                if (_specialBundleNames.Contains(bundleData.Name))
+                int newBundlesCount = newBundleReader.ReadInt32();
+                for (int i = 0; i < newBundlesCount; i++)
                 {
-                    checksumAssetsDictionary.Add(bundleData.Checksum, bundleData);
-                }
-                else if (!previousBundleDataDictionary.ContainsKey(bundleData.Name))
-                {
-                    List<string> assetsList = new List<string>();
-                    foreach (string asset in bundleData.Assets)
+                    BundleData bundleData = new BundleData(newBundleReader);
+                    if (_specialBundleNames.Contains(bundleData.Name))
                     {
-                        if (_allowedAssetExtensions.Contains(Path.GetExtension(asset)))
-                        {
-                            assetsList.Add(Path.GetFileName(asset));
-                        }
+                        checksumAssetsDictionary.Add(bundleData);
+                        continue;
                     }
-                    bundleData.Assets = assetsList;
-                    checksumAssetsDictionary.Add(bundleData.Checksum, bundleData);
-                }
-                else
-                {
-                    BundleData previousBundleData = previousBundleDataDictionary[bundleData.Name];
-                    if (previousBundleData.Checksum != bundleData.Checksum)
+                    BundleData? previousBundleData;
+                    if (previousBundleDataDictionary.TryGetValue(bundleData.Name, out previousBundleData) && !bundleData.Checksum.Equals(previousBundleData))
                     {
-                        List<string> assetsList = new List<string>();
                         foreach (string asset in bundleData.Assets)
                         {
-                            if (!previousBundleData.Assets.Contains(asset) && _allowedAssetExtensions.Contains(Path.GetExtension(asset)))
+                            if (_allowedAssetExtensions.Contains(Path.GetExtension(asset)) && !previousBundleData.Assets.Contains(asset))
                             {
-                                assetsList.Add(Path.GetFileName(asset));
+                                bundleData.NewAssetsList.Add(Path.GetFileName(asset));
                             }
                         }
-                        bundleData.Assets = assetsList;
-                        if (bundleData.Assets.Count != 0)
+                        if (bundleData.NewAssetsList.Count != 0)
                         {
-                            checksumAssetsDictionary.Add(bundleData.Checksum, bundleData);
+                            checksumAssetsDictionary.Add(bundleData);
+                        }
+                    }
+                    else
+                    {
+                        foreach (string asset in bundleData.Assets)
+                        {
+                            if (_allowedAssetExtensions.Contains(Path.GetExtension(asset)))
+                            {
+                                bundleData.NewAssetsList.Add(Path.GetFileName(asset));
+                            }
+                        }
+                        if (bundleData.NewAssetsList.Count != 0)
+                        {
+                            checksumAssetsDictionary.Add(bundleData);
                         }
                     }
                 }
             }
-            newBundleReader.Dispose();
             return checksumAssetsDictionary;
         }
 
@@ -78,17 +76,19 @@ namespace BundleManager
         public List<string> GetBundleNameList(string folderName, List<string> checksumList)
         {
             List<string> bundleNameList = new List<string>();
-            BinaryReader bundlePackDataReader = new BinaryReader(File.Open(Path.Join(_currentRootDirectory, "Bmdata", "Exported", folderName + "_BundlePackData.bytes"), FileMode.Open));
-            int newBundlesCount = bundlePackDataReader.ReadInt32();
-            for (int i = 0; i < newBundlesCount; i++)
+            using (BinaryReader bundlePackDataReader = new BinaryReader(File.Open(Path.Join(_currentRootDirectory, "Bmdata", "Exported", folderName + "_BundlePackData.bytes"), FileMode.Open)))
             {
-                BundlePackData bundlePackData = new BundlePackData(bundlePackDataReader);
-                foreach (string checksum in bundlePackData.IncludeBundles)
+                int newBundlesCount = bundlePackDataReader.ReadInt32();
+                for (int i = 0; i < newBundlesCount; i++)
                 {
-                    if (checksumList.Contains(checksum))
+                    BundlePackData bundlePackData = new BundlePackData(bundlePackDataReader);
+                    foreach (string checksum in bundlePackData.IncludeBundles)
                     {
-                        bundleNameList.Add(bundlePackData.Name);
-                        break;
+                        if (checksumList.Contains(checksum))
+                        {
+                            bundleNameList.Add(bundlePackData.Name);
+                            break;
+                        }
                     }
                 }
             }

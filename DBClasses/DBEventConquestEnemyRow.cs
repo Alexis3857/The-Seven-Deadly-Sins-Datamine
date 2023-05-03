@@ -16,6 +16,14 @@ public class DBEventConquestEnemyRow
         }
     }
 
+    public int EnemyGroup
+    {
+        get
+        {
+            return enemy_group;
+        }
+    }
+
     public string EnemyName
     {
         get
@@ -248,6 +256,7 @@ public class DBEventConquestEnemyRow
     {
         id = reader.ReadInt32();
         event_sub_index = reader.ReadInt32();
+        enemy_group = reader.ReadInt32();
         enemy_name = reader.ReadInt32();
         enemy_icon = reader.ReadString();
         enemy_icon_complete = reader.ReadString();
@@ -283,6 +292,8 @@ public class DBEventConquestEnemyRow
     private int id;
 
     private int event_sub_index;
+
+    private int enemy_group;
 
     private int enemy_name;
 

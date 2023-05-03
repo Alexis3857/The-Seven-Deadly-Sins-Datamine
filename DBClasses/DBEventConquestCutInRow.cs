@@ -48,6 +48,14 @@
         }
     }
 
+    public string CutInBg
+    {
+        get
+        {
+            return cut_in_bg;
+        }
+    }
+
     public int CutInResourceType
     {
         get
@@ -95,6 +103,7 @@
         cut_in_layout_type = reader.ReadString();
         appear_order = reader.ReadInt32();
         appear_direction = reader.ReadString();
+        cut_in_bg = reader.ReadString();
         cut_in_resource_type = reader.ReadInt32();
         cut_in_base = reader.ReadString();
         cut_in_resource = reader.ReadString();
@@ -114,6 +123,8 @@
     private int appear_order;
 
     private string appear_direction;
+
+    private string cut_in_bg;
 
     private int cut_in_resource_type;
 

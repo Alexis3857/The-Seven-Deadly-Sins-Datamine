@@ -1042,9 +1042,9 @@
 
     private string map_filename;
 
-    private string change_map_filename;
-
     private string spawn_prop_filename;
+
+    private string change_map_filename;
 
     private int bgm_sound_id;
 

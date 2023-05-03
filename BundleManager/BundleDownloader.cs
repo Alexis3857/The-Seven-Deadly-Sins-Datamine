@@ -10,6 +10,22 @@ namespace BundleManager
             _patchVersion = patchVersion;
         }
 
+        /* You can get the following files from this function :
+         * configuration : patch name, version, server ip
+         * notice : maintenance time
+         * url_configuration : sns urls and game urls
+         * guide_configuration
+         * patch_configuration
+         * extra_configuration
+         * whitelist.json
+         */
+
+        public static async Task<string> GetConfiguration(string configFile)
+        {
+            string configuration = await _httpClient.GetStringAsync(_configurationURL + configFile);
+            return configuration;
+        }
+
         // unity bundle file that contains TextAsset that have information needed to filter and download the new bundles
         public async Task<byte[]> DownloadBmdataFile(string folder)
         {
@@ -34,9 +50,11 @@ namespace BundleManager
             }
         }
 
-        private readonly HttpClient _httpClient = new HttpClient();
+        private static readonly HttpClient _httpClient = new HttpClient();
 
         private const string _downloadURL = "http://nanatsunotaizai.gcdn.netmarble.com/nanatsunotaizai/bundle/windows64bit/astc";
+
+        private const string _configurationURL = "http://nanatsunotaizai.gcdn.netmarble.com/nanatsunotaizai/config/";
 
         private readonly string _patchRelativeSub;
 

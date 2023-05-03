@@ -2,8 +2,11 @@ using Decryptor;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using ServiceStack;
+using System.IO;
 using System.Reflection;
 using System.Text;
+using System.Runtime.InteropServices;
+using SixLabors.ImageSharp.ColorSpaces;
 
 namespace BundleManager
 {
@@ -60,10 +63,7 @@ namespace BundleManager
                             string localizeFilePath = Path.Join(_currentRootDirectory, "Bundles", folder, bundleData.Checksum);
                             File.WriteAllBytes(localizeFilePath, GetRepairedFile(localizeFilePath));
                             Console.WriteLine("\nExporting localization...");
-                            _assetExporter.ExportFolderFiles("jal", new Dictionary<string, BundleData>
-                            {
-                                { bundleData.Checksum, bundleData }
-                            });
+                            _assetExporter.ExportFolderFiles("jal", new List<BundleData> { bundleData });
                             break;
                         }
                     }
@@ -88,17 +88,19 @@ namespace BundleManager
                 byte[] bmdata = _bundleDownloader.DownloadBmdataFile(folder).Result;
                 File.WriteAllBytes(Path.Join(bmdataDirectory, folder), _bundleDecryptor.Decrypt(bmdata));
                 _assetExporter.ExportBmdataFile(folder);
-                Dictionary<string, BundleData> checksumAssetsDictionary = _bundleComparer.GetNewChecksumAssetsDictionary(folder);
-                folderChecksumAssetsDictionary.Add(folder, checksumAssetsDictionary);
-                if (checksumAssetsDictionary.Count != 0)
+                List<BundleData> assetList = _bundleComparer.GetNewAssetList(folder);
+                folderAssetsDictionary.Add(folder, assetList);
+                if (assetList.Count != 0)
                 {
-                    List<string> bundleNameList = _bundleComparer.GetBundleNameList(folder, checksumAssetsDictionary.Keys.ToList());
+                    List<string> bundleNameList = _bundleComparer.GetBundleNameList(folder, assetList.Select(bundleData => bundleData.Checksum).ToList());
                     _bundleDownloader.DownloadBundlePackFile(folder, bundleNameList).Wait();
+                    string bundleDirectory = Path.Join(_currentRootDirectory, "Bundles", folder);
                     foreach (FileInfo fileInfo in new DirectoryInfo(Path.Join(_currentRootDirectory, "Bundles", folder)).GetFiles())
                     {
-                        if (checksumAssetsDictionary.ContainsKey(fileInfo.Name))
+                        BundleData? bundleData = assetList.Find((BundleData e) => e.Checksum.Equals(fileInfo.Name));
+                        if (bundleData is not null)
                         {
-                            if (checksumAssetsDictionary[fileInfo.Name].Encrypt)
+                            if (bundleData.Encrypt)
                             {
                                 byte[] decryptedAsset = _bundleDecryptor.Decrypt(File.ReadAllBytes(fileInfo.FullName));
                                 File.WriteAllBytes(fileInfo.FullName, decryptedAsset);
@@ -118,7 +120,7 @@ namespace BundleManager
             Console.WriteLine("\nExporting assets...");
             foreach (string folder in _folderList)
             {
-                _assetExporter.ExportFolderFiles(folder, folderChecksumAssetsDictionary[folder]);
+                _assetExporter.ExportFolderFiles(folder, folderAssetsDictionary[folder]);
             }
             Localization.Localizer.Load(_currentRootDirectory, _previousRootDirectory);
             Localization.Localizer.WriteNewStringsToFile(_currentRootDirectory);
@@ -243,6 +245,12 @@ namespace BundleManager
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_event_cheer_gauge.csv"), typeof(DBEventCheerGaugeRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_event_cheer_group.csv"), typeof(DBEventCheerGroupRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_event_cheer_reward.csv"), typeof(DBEventCheerRewardRow));
+            TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_event_confirm_box.csv"), typeof(DBEventConfirmBoxRow));
+            TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_event_confirm_config.csv"), typeof(DBEventConfirmConfigRow));
+            TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_event_confirm_note.csv"), typeof(DBEventConfirmNoteRow));
+            TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_event_confirm_reward.csv"), typeof(DBEventConfirmRewardRow));
+            TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_event_confirm_score.csv"), typeof(DBEventConfirmScoreRow));
+            TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_event_confirm_image.csv"), typeof(DBEventConfirmImageRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_event_conquest.csv"), typeof(DBEventConquestRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_event_conquest_character.csv"), typeof(DBEventConquestCharacterRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_event_conquest_cut_in.csv"), typeof(DBEventConquestCutInRow));
@@ -709,6 +717,6 @@ namespace BundleManager
 
         private readonly AssetExporter _assetExporter;
 
-        private Dictionary<string, Dictionary<string, BundleData>> folderChecksumAssetsDictionary = new Dictionary<string, Dictionary<string, BundleData>>();
+        private Dictionary<string, List<BundleData>> folderAssetsDictionary = new Dictionary<string, List<BundleData>>();
     }
 }

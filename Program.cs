@@ -1,6 +1,7 @@
 ﻿using Decryptor;
 using Newtonsoft.Json.Linq;
 using System.Globalization;
+using BundleManager;
 
 namespace _7dsgcDatamine
 {
@@ -11,7 +12,7 @@ namespace _7dsgcDatamine
             Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");  // Needed to make sure the program writes decimal number with . and not ,
             if (args.Length >= 1)
             {
-                string configuration = s_configurationDecryptor.Decrypt(GetConfigurationJson("configuration"));
+                string configuration = s_configurationDecryptor.Decrypt(BundleDownloader.GetConfiguration("configuration").Result);
                 GetRelativeSubAndVersion(configuration, out string patchRelativeSub, out string patchVersion);
                 string previousVersionFolderName = GetLastVersionFolder(patchVersion).ToString();
                 s_bundleManager = new BundleManager.BundleManager(patchRelativeSub, patchVersion, args[0], previousVersionFolderName);
@@ -51,22 +52,6 @@ namespace _7dsgcDatamine
             {
                 Console.WriteLine("You have to provide a decryption key when executing the program.");
             }
-        }
-
-        /* You can get the following files from this function :
-         * configuration : patch name, version, server ip
-         * notice : maintenance time
-         * url_configuration : sns urls and game urls
-         * guide_configuration
-         * patch_configuration
-         * extra_configuration
-         * whitelist.json
-         */
-
-        public static string GetConfigurationJson(string fileName)
-        {
-            HttpClient client = new HttpClient();
-            return client.GetStringAsync("http://nanatsunotaizai.gcdn.netmarble.com/nanatsunotaizai/config/" + fileName).Result;
         }
 
         // This folder will be compared with the new version of the game to filter the new files

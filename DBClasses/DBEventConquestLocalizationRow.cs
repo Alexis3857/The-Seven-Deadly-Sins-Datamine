@@ -136,6 +136,22 @@ public class DBEventConquestLocalizationRow
         }
     }
 
+    public string PopupConquestStrongPointClearRewardTitle
+    {
+        get
+        {
+            return popup_conquest_strong_point_clear_reward_title.Localize();
+        }
+    }
+
+    public string NoticeConquestCharacterExit
+    {
+        get
+        {
+            return notice_conquest_character_exit.Localize();
+        }
+    }
+
     public string UiBattleEventDesc1
     {
         get
@@ -245,6 +261,8 @@ public class DBEventConquestLocalizationRow
         popup_conquest_story_review_desc = reader.ReadInt32();
         popup_conquest_production_level_reward_title = reader.ReadInt32();
         popup_conquest_production_level_reward_desc = reader.ReadInt32();
+        popup_conquest_strong_point_clear_reward_title = reader.ReadInt32();
+        notice_conquest_character_exit = reader.ReadInt32();
         ui_battle_event_desc_1 = reader.ReadInt32();
         ui_battle_event_desc_2 = reader.ReadInt32();
         ui_battle_event_desc_3 = reader.ReadInt32();
@@ -290,6 +308,10 @@ public class DBEventConquestLocalizationRow
     private int popup_conquest_production_level_reward_title;
 
     private int popup_conquest_production_level_reward_desc;
+
+    private int popup_conquest_strong_point_clear_reward_title;
+
+    private int notice_conquest_character_exit;
 
     private int ui_battle_event_desc_1;
 
