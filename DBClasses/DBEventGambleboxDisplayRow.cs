@@ -8,6 +8,14 @@ public class DBEventGambleboxDisplayRow
         }
     }
 
+    public int FinalstepLoop
+    {
+        get
+        {
+            return finalstep_loop;
+        }
+    }
+
     public int GambleboxGroup
     {
         get
@@ -103,9 +111,18 @@ public class DBEventGambleboxDisplayRow
         }
     }
 
+    private string GambleboxTexture
+    {
+        get
+        {
+            return gamblebox_texture;
+        }
+    }
+
     public bool ReadToStream(BinaryReader reader)
     {
         id = reader.ReadInt32();
+        finalstep_loop = reader.ReadInt32();
         gamblebox_group = reader.ReadInt32();
         gamblebox_count_1 = reader.ReadInt32();
         gamblebox_cost_id_1 = reader.ReadInt32();
@@ -118,10 +135,13 @@ public class DBEventGambleboxDisplayRow
         gamblebox_title = reader.ReadInt32();
         gamblebox_hawkobject = reader.ReadString();
         gamblebox_background = reader.ReadInt32();
+        gamblebox_texture = reader.ReadString();
         return true;
     }
 
     private int id;
+
+    private int finalstep_loop;
 
     private int gamblebox_group;
 
@@ -146,4 +166,6 @@ public class DBEventGambleboxDisplayRow
     private string gamblebox_hawkobject;
 
     private int gamblebox_background;
+
+    private string gamblebox_texture;
 }

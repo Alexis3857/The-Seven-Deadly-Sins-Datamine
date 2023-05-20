@@ -419,6 +419,15 @@ namespace BundleManager
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_hero_group_name.csv"), typeof(DBHeroGroupNameRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_hero_growth_point_info.csv"), typeof(DBHeroGrowthPointInfoRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_hero_job_group.csv"), typeof(DBHeroJobGroupRow));
+            TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_hero_league_buff.csv"), typeof(DBHeroLeagueBuffRow));
+            TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_hero_league_defence.csv"), typeof(DBHeroLeagueDefenceRow));
+            TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_hero_league_info.csv"), typeof(DBHeroLeagueInfoRow));
+            TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_hero_league_npc_name.csv"), typeof(DBHeroLeagueNpcNameRow));
+            TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_hero_league_rank.csv"), typeof(DBHeroLeagueRankRow));
+            TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_hero_league_reward.csv"), typeof(DBHeroLeagueRewardRow));
+            TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_hero_league_season.csv"), typeof(DBHeroLeagueSeasonRow));
+            TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_hero_league_season_shop.csv"), typeof(DBHeroLeagueSeasonShopRow));
+            TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_hero_league_stage.csv"), typeof(DBHeroLeagueStageRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_hero_lovepoint_reward.csv"), typeof(DBHeroLovepointRewardRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_hero_lovepoint_share.csv"), typeof(DBHeroLovepointShareRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_interactive.csv"), typeof(DBInteractiveRow));

@@ -280,6 +280,14 @@
         }
     }
 
+    public string HeroLrSpecial
+    {
+        get
+        {
+            return hero_lr_special.Localize();
+        }
+    }
+
     public string HeroCoopMain
     {
         get
@@ -378,6 +386,7 @@
         hero_action_5 = reader.ReadBytes(4);
         hero_action_6 = reader.ReadBytes(4);
         hero_special = reader.ReadInt32();
+        hero_lr_special = reader.ReadInt32();
         hero_coop_main = reader.ReadInt32();
         hero_coop_sub = reader.ReadInt32();
         fame_anim = reader.ReadString();
@@ -457,6 +466,8 @@
     private byte[] hero_action_6;
 
     private int hero_special;
+
+    private int hero_lr_special;
 
     private int hero_coop_main;
 

@@ -32,6 +32,14 @@
         }
     }
 
+    public int HeroEvolutionLrGp
+    {
+        get
+        {
+            return hero_evolution_lr_gp;
+        }
+    }
+
     public int HeroAwakenGp
     {
         get
@@ -62,6 +70,7 @@
         start_rating = reader.ReadInt32();
         hero_get_gp = reader.ReadInt32();
         hero_evolution_break_gp = reader.ReadInt32();
+        hero_evolution_lr_gp = reader.ReadInt32();
         hero_awaken_gp = reader.ReadInt32();
         hero_transcend_gp = reader.ReadInt32();
         hero_skil_upgrade_gp = reader.ReadInt32();
@@ -80,6 +89,8 @@
     private int hero_get_gp;
 
     private int hero_evolution_break_gp;
+
+    private int hero_evolution_lr_gp;
 
     private int hero_awaken_gp;
 

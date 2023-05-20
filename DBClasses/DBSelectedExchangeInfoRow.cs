@@ -105,6 +105,14 @@
         }
     }
 
+    public float EvolutionOptionAmountSet
+    {
+        get
+        {
+            return evolution_option_amount_set;
+        }
+    }
+
     public byte WeaponUpgradeCount
     {
         get
@@ -163,6 +171,7 @@
         evolution_option_4 = reader.ReadInt32();
         evolution_option_5 = reader.ReadInt32();
         evolution_option_amount = reader.ReadInt32();
+        evolution_option_amount_set = reader.ReadSingle();
         Weapon_upgrade_count = reader.ReadByte();
         return true;
     }
@@ -197,6 +206,8 @@
     private int evolution_option_5;
 
     private int evolution_option_amount;
+
+    private float evolution_option_amount_set;
 
     private byte Weapon_upgrade_count;
 

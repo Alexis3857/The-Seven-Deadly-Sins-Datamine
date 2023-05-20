@@ -88,6 +88,14 @@
         }
     }
 
+    public int RankExp4
+    {
+        get
+        {
+            return base.DecryptInt32(rank_exp_4);
+        }
+    }
+
     public int GuestHeroRatingExp1
     {
         get
@@ -186,7 +194,8 @@
                 {
                     RankExp1,
                     RankExp2,
-                    RankExp3
+                    RankExp3,
+                    RankExp4
                 };
             }
             return list_rank_exp;
@@ -243,6 +252,7 @@
         rank_exp_1 = reader.ReadBytes(4);
         rank_exp_2 = reader.ReadBytes(4);
         rank_exp_3 = reader.ReadBytes(4);
+        rank_exp_4 = reader.ReadBytes(4);
         guest_hero_rating_exp_1 = reader.ReadBytes(4);
         guest_hero_rating_exp_2 = reader.ReadBytes(4);
         guest_hero_rating_exp_3 = reader.ReadBytes(4);
@@ -281,6 +291,8 @@
     private byte[] rank_exp_2;
 
     private byte[] rank_exp_3;
+
+    private byte[] rank_exp_4;
 
     private byte[] guest_hero_rating_exp_1;
 
