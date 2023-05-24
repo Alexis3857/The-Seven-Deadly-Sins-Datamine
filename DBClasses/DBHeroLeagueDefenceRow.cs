@@ -8,6 +8,7 @@ public class DBHeroLeagueDefenceRow
     public int TeamSlot { get => team_slot; }
     public int StageId { get => stage_id; }
     public float Balance { get => balance; }
+    public int FakePower { get => fake_power; }
     public int HeroId { get => hero_id; }
     public int SkinId { get => skin_id; }
     public int HeroLevel { get => hero_level; }
@@ -45,6 +46,7 @@ public class DBHeroLeagueDefenceRow
         team_slot = reader.ReadInt32();
         stage_id = reader.ReadInt32();
         balance = reader.ReadSingle();
+        fake_power = reader.ReadInt32();
         hero_id = reader.ReadInt32();
         skin_id = reader.ReadInt32();
         hero_level = reader.ReadInt32();
@@ -89,6 +91,8 @@ public class DBHeroLeagueDefenceRow
     private int stage_id;
 
     private float balance;
+
+    private int fake_power;
 
     private int hero_id;
 

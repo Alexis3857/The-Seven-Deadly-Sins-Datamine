@@ -32,6 +32,14 @@ public class DBHeroLeagueRankRow
         }
     }
 
+    public int LeagueTypeGroup
+    {
+        get
+        {
+            return league_type_group;
+        }
+    }
+
     public int FateUse
     {
         get
@@ -46,6 +54,7 @@ public class DBHeroLeagueRankRow
         hero_league_name = reader.ReadInt32();
         hero_league_icon = reader.ReadString();
         hero_league_recommend = reader.ReadInt32();
+        league_type_group = reader.ReadInt32();
         fate_use = reader.ReadInt32();
         return true;
     }
@@ -57,6 +66,8 @@ public class DBHeroLeagueRankRow
     private string hero_league_icon;
 
     private int hero_league_recommend;
+
+    private int league_type_group;
 
     private int fate_use;
 }

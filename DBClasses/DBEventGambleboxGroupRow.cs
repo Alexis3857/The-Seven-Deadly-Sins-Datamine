@@ -16,14 +16,6 @@ public class DBEventGambleboxGroupRow
         }
     }
 
-    public int GambleboxGroup
-    {
-        get
-        {
-            return gamblebox_group;
-        }
-    }
-
     public int Boxstep
     {
         get
@@ -100,7 +92,6 @@ public class DBEventGambleboxGroupRow
     {
         id = reader.ReadInt32();
         event_sub_index = reader.ReadInt32();
-        gamblebox_group = reader.ReadInt32();
         boxstep = reader.ReadInt32();
         item_id = reader.ReadInt32();
         amount = reader.ReadInt32();
@@ -116,8 +107,6 @@ public class DBEventGambleboxGroupRow
     private int id;
 
     private int event_sub_index;
-
-    private int gamblebox_group;
 
     private int boxstep;
 

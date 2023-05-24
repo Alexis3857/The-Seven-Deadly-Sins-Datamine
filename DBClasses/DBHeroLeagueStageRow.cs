@@ -4,6 +4,7 @@ public class DBHeroLeagueStageRow
     public string Type { get => type; }
     public string ControlType { get => control_type; }
     public int UserGroup { get => user_group; }
+    public int TeamPower { get => team_power; }
     public string StageString { get => stage_string.Localize(); }
     public int MatchTeamNumber { get => match_team_number; }
     public int IsTurnPivot { get => is_turn_pivot; }
@@ -19,6 +20,7 @@ public class DBHeroLeagueStageRow
         type = reader.ReadString();
         control_type = reader.ReadString();
         user_group = reader.ReadInt32();
+        team_power = reader.ReadInt32();
         stage_string = reader.ReadInt32();
         match_team_number = reader.ReadInt32();
         is_turn_pivot = reader.ReadInt32();
@@ -37,6 +39,8 @@ public class DBHeroLeagueStageRow
     private string control_type;
 
     private int user_group;
+
+    private int team_power;
 
     private int stage_string;
 

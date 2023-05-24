@@ -1,3 +1,5 @@
+using System.Text;
+
 namespace BundleManager
 {
     public class BundleComparer
@@ -11,6 +13,7 @@ namespace BundleManager
         // Compares new and previous versions checksums to know which files to download and which assets to export
         public List<BundleData> GetNewAssetList(string folderName)
         {
+            //StringBuilder sb = new StringBuilder();
             List<BundleData> checksumAssetsDictionary = new List<BundleData>();
             Dictionary<string, BundleData> previousBundleDataDictionary = GetPreviousBundleDataDictionary(folderName);
             using (BinaryReader newBundleReader = new BinaryReader(File.Open(Path.Join(_currentRootDirectory, "Bmdata", "Exported", folderName + "_BundleData.bytes"), FileMode.Open)))
@@ -25,13 +28,14 @@ namespace BundleManager
                         continue;
                     }
                     BundleData? previousBundleData;
-                    if (previousBundleDataDictionary.TryGetValue(bundleData.Name, out previousBundleData) && !bundleData.Checksum.Equals(previousBundleData))
+                    if (previousBundleDataDictionary.TryGetValue(bundleData.Name, out previousBundleData) && !bundleData.Checksum.Equals(previousBundleData))  // if the bundle content changed
                     {
                         foreach (string asset in bundleData.Assets)
                         {
                             if (_allowedAssetExtensions.Contains(Path.GetExtension(asset)) && !previousBundleData.Assets.Contains(asset))
                             {
                                 bundleData.NewAssetsList.Add(Path.GetFileName(asset));
+                                //sb.AppendLine(asset);
                             }
                         }
                         if (bundleData.NewAssetsList.Count != 0)
@@ -39,13 +43,14 @@ namespace BundleManager
                             checksumAssetsDictionary.Add(bundleData);
                         }
                     }
-                    else
+                    else  // if the bundle is new
                     {
                         foreach (string asset in bundleData.Assets)
                         {
                             if (_allowedAssetExtensions.Contains(Path.GetExtension(asset)))
                             {
                                 bundleData.NewAssetsList.Add(Path.GetFileName(asset));
+                                //sb.AppendLine(asset);
                             }
                         }
                         if (bundleData.NewAssetsList.Count != 0)
@@ -55,6 +60,10 @@ namespace BundleManager
                     }
                 }
             }
+            //if (sb.Length != 0)
+            //{
+            //    File.WriteAllText($"{_currentRootDirectory}/{folderName}_list.txt", sb.ToString());
+            //}
             return checksumAssetsDictionary;
         }
 

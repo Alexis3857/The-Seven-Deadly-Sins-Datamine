@@ -16,14 +16,6 @@ public class DBEventGambleboxDisplayRow
         }
     }
 
-    public int GambleboxGroup
-    {
-        get
-        {
-            return gamblebox_group;
-        }
-    }
-
     public int GambleboxCount1
     {
         get
@@ -123,7 +115,6 @@ public class DBEventGambleboxDisplayRow
     {
         id = reader.ReadInt32();
         finalstep_loop = reader.ReadInt32();
-        gamblebox_group = reader.ReadInt32();
         gamblebox_count_1 = reader.ReadInt32();
         gamblebox_cost_id_1 = reader.ReadInt32();
         gamblebox_cost_value_1 = reader.ReadInt32();
@@ -142,8 +133,6 @@ public class DBEventGambleboxDisplayRow
     private int id;
 
     private int finalstep_loop;
-
-    private int gamblebox_group;
 
     private int gamblebox_count_1;
 
