@@ -152,10 +152,6 @@ namespace BundleManager
             foreach (BundleData bundleData in mAssetsList)
             {
                 _assetsManager.LoadFiles(Path.Join(assetsDirectory, bundleData.Checksum));
-                if (bundleData.Checksum == "A2FC206A52CFFF953311E8764C838C63")
-                {
-                    Console.WriteLine("A2FC206A52CFFF953311E8764C838C63");
-                }
                 foreach (SerializedFile file in _assetsManager.assetsFileList)
                 {
                     foreach (ObjectInfo obj in file.m_Objects)

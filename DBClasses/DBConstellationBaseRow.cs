@@ -80,11 +80,35 @@
         }
     }
 
-    public int LockItemValue
+    public int LockItemValue1
     {
         get
         {
-            return lock_item_value;
+            return lock_item_value_1;
+        }
+    }
+
+    public int LockItemValue2
+    {
+        get
+        {
+            return lock_item_value_2;
+        }
+    }
+
+    public int LockItemValue3
+    {
+        get
+        {
+            return lock_item_value_3;
+        }
+    }
+
+    public int LockItemValue4
+    {
+        get
+        {
+            return lock_item_value_4;
         }
     }
 
@@ -168,6 +192,24 @@
         }
     }
 
+    public List<int> ListLockItemValue
+    {
+        get
+        {
+            if (list_lock_item_value == null)
+            {
+                list_lock_item_value = new List<int>
+                {
+                    LockItemValue1,
+                    LockItemValue2,
+                    LockItemValue3,
+                    LockItemValue4
+                };
+            }
+            return list_lock_item_value;
+        }
+    }
+
     public bool ReadToStream(BinaryReader reader)
     {
         id = reader.ReadInt32();
@@ -180,7 +222,10 @@
         reset_parts_item_id = reader.ReadInt32();
         reset_parts_item_value = reader.ReadInt32();
         lock_item_id = reader.ReadInt32();
-        lock_item_value = reader.ReadInt32();
+        lock_item_value_1 = reader.ReadInt32();
+        lock_item_value_2 = reader.ReadInt32();
+        lock_item_value_3 = reader.ReadInt32();
+        lock_item_value_4 = reader.ReadInt32();
         lock_manastone_limit = reader.ReadInt32();
         open_conditon_id = reader.ReadInt32();
         constellation_lock = reader.ReadInt32();
@@ -219,7 +264,13 @@
 
     private int lock_item_id;
 
-    private int lock_item_value;
+    private int lock_item_value_1;
+
+    private int lock_item_value_2;
+
+    private int lock_item_value_3;
+
+    private int lock_item_value_4;
 
     private int lock_manastone_limit;
 
@@ -240,4 +291,6 @@
     private string icon_next_symbol;
 
     private int chaos_enable;
+
+    private List<int> list_lock_item_value;
 }

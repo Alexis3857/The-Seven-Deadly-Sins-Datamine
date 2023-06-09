@@ -1,4 +1,6 @@
-﻿public class DBPvpSeasonBaseRow
+﻿using FMOD;
+
+public class DBPvpSeasonBaseRow
 {
     public int Id
     {
@@ -64,6 +66,22 @@
         }
     }
 
+    public int CombatMenuLabel
+    {
+        get
+        {
+            return combat_menu_label;
+        }
+    }
+
+    public int ButtonEffect
+    {
+        get
+        {
+            return button_effect;
+        }
+    }
+
     public int SeasonRewardGroup
     {
         get
@@ -82,13 +100,10 @@
         season_banner_s = reader.ReadString();
         season_banner_s_title = reader.ReadInt32();
         season_banner_s_desc = reader.ReadInt32();
+        combat_menu_label = reader.ReadInt32();
+        button_effect = reader.ReadInt32();
         season_reward_group = reader.ReadInt32();
         return true;
-    }
-
-    public int GetRowIndex()
-    {
-        return Id;
     }
 
     private int id;
@@ -106,6 +121,10 @@
     private int season_banner_s_title;
 
     private int season_banner_s_desc;
+
+    private int combat_menu_label;
+
+    private int button_effect;
 
     private int season_reward_group;
 }
