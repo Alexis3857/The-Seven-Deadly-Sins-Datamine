@@ -8,6 +8,14 @@
         }
     }
 
+    public int StageType
+    {
+        get
+        {
+            return stage_type;
+        }
+    }
+
     public int StageGroupId
     {
         get
@@ -115,6 +123,7 @@
     public bool ReadToStream(BinaryReader reader)
     {
         id = reader.ReadInt32();
+        stage_type = reader.ReadInt32();
         stage_group_id = reader.ReadInt32();
         stage_group_name = reader.ReadInt32();
         first_reward_Init_Item_id = reader.ReadInt32();
@@ -137,6 +146,8 @@
     }
 
     private int id;
+
+    private int stage_type;
 
     private int stage_group_id;
 

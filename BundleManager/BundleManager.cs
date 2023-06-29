@@ -216,6 +216,10 @@ namespace BundleManager
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_costume_shop_package.csv"), typeof(DBCostumeShopPackageRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_costume_shop_setting.csv"), typeof(DBCostumeShopSettingRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_costume_stat.csv"), typeof(DBCostumeStatRow));
+            TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_craft_costume_upgrade.csv"), typeof(DBCraftCostumeUpgradeRow));
+            TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_craft_costume_upgrade_finish.csv"), typeof(DBCraftCostumeUpgradeFinishRow));
+            TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_shop_creaturecolosseum.csv"), typeof(DBShopCreaturecolosseumRow));
+            TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_creaturecolosseum_season.csv"), typeof(DBCreaturecolosseumSeasonRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_creature_passive.csv"), typeof(DBCreaturePassiveRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_daily_attendance.csv"), typeof(DBDailyAttendanceRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_direct_selector.csv"), typeof(DBDirectSelectorRow));

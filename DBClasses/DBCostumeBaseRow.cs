@@ -288,6 +288,14 @@
         }
     }
 
+    public int CraftCostumeGroup
+    {
+        get
+        {
+            return craft_costume_group;
+        }
+    }
+
     public bool ReadToStream(BinaryReader reader)
     {
         id = reader.ReadInt32();
@@ -341,6 +349,7 @@
         {
             list_array_add_passive_id.Add(reader.ReadInt32());
         }
+        craft_costume_group = reader.ReadInt32();
         return true;
     }
 
@@ -415,4 +424,6 @@
     private int growth_point;
 
     private List<int> list_array_add_passive_id;
+
+    private int craft_costume_group;
 }
