@@ -144,6 +144,14 @@
         }
     }
 
+    public List<int> ListArrayHeroTarget
+    {
+        get
+        {
+            return list_array_hero_target;
+        }
+    }
+
     public int KindTarget
     {
         get
@@ -336,6 +344,12 @@
         third_value = reader.ReadBytes(4);
         target = reader.ReadString();
         sub_invoke_passive = reader.ReadByte();
+        int num99 = reader.ReadInt32();
+        list_array_hero_target = new List<int>();
+        for (int i = 0; i < num99; i++)
+        {
+            list_array_hero_target.Add(reader.ReadInt32());
+        }
         kind_target = reader.ReadBytes(4);
         kind_target_sub = reader.ReadByte();
         attribute_target = reader.ReadBytes(4);
@@ -443,6 +457,8 @@
     private byte[] third_value;
 
     private byte sub_invoke_passive;
+
+    private List<int> list_array_hero_target;
 
     private byte[] kind_target;
 

@@ -492,6 +492,9 @@ namespace BundleManager
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_patrol.csv"), typeof(DBPatrolRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_patrol_time_reward.csv"), typeof(DBPatrolTimeRewardRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_popup_package.csv"), typeof(DBPopupPackageRow));
+            TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_pvp_chaos_base.csv"), typeof(DBPvpChaosBaseRow));
+            TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_pvp_chaos_hero_cost.csv"), typeof(DBPvpChaosHeroCostRow));
+            TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_pvp_chaos_rank_reward.csv"), typeof(DBPvpChaosRankRewardRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_pvp_low_league_reward_group.csv"), typeof(DBPvpLowLeagueRewardGroupRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_pvp_low_league_rule_setting.csv"), typeof(DBPvpLowLeagueRuleSettingRow));
             TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", "DB_pvp_mode_base.csv"), typeof(DBPvpModeBaseRow));

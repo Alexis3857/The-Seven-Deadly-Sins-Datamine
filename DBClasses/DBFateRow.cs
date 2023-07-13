@@ -64,6 +64,14 @@
         }
     }
 
+    public int LrLvPassiveId
+    {
+        get
+        {
+            return base.DecryptInt32(lr_lv_passive_id);
+        }
+    }
+
     public int SpecialCoopCardId1
     {
         get
@@ -109,6 +117,14 @@
         get
         {
             return base.DecryptInt32(special_coop_card_id_6);
+        }
+    }
+
+    public List<int> ListArrayLrGradeSpecialCoopCardId
+    {
+        get
+        {
+            return list_array_lr_grade_special_coop_card_id;
         }
     }
 
@@ -173,12 +189,19 @@
         sr_lv_passive_id = reader.ReadBytes(4);
         ssr_lv_passive_id = reader.ReadBytes(4);
         ur_lv_passive_id = reader.ReadBytes(4);
+        lr_lv_passive_id = reader.ReadBytes(4);
         special_coop_card_id_1 = reader.ReadBytes(4);
         special_coop_card_id_2 = reader.ReadBytes(4);
         special_coop_card_id_3 = reader.ReadBytes(4);
         special_coop_card_id_4 = reader.ReadBytes(4);
         special_coop_card_id_5 = reader.ReadBytes(4);
         special_coop_card_id_6 = reader.ReadBytes(4);
+        int num = reader.ReadInt32();
+        list_array_lr_grade_special_coop_card_id = new List<int>();
+        for (int i = 0; i < num; i++)
+        {
+            list_array_lr_grade_special_coop_card_id.Add(reader.ReadInt32());
+        }
         special_coop_ani_folder = reader.ReadString();
         special_coop_desc = reader.ReadInt32();
         fate_name = reader.ReadInt32();
@@ -205,6 +228,8 @@
 
     private byte[] ur_lv_passive_id;
 
+    private byte[] lr_lv_passive_id;
+
     private byte[] special_coop_card_id_1;
 
     private byte[] special_coop_card_id_2;
@@ -216,6 +241,8 @@
     private byte[] special_coop_card_id_5;
 
     private byte[] special_coop_card_id_6;
+
+    private List<int> list_array_lr_grade_special_coop_card_id;
 
     private string special_coop_ani_folder;
 

@@ -3,6 +3,8 @@ public class DBHeroLeagueStageRow
     public int Id { get => id; }
     public string Type { get => type; }
     public string ControlType { get => control_type; }
+
+    public int Tier { get => tier; }
     public int UserGroup { get => user_group; }
     public int TeamPower { get => team_power; }
     public string StageString { get => stage_string.Localize(); }
@@ -19,6 +21,7 @@ public class DBHeroLeagueStageRow
         id = reader.ReadInt32();
         type = reader.ReadString();
         control_type = reader.ReadString();
+        tier = reader.ReadInt32();
         user_group = reader.ReadInt32();
         team_power = reader.ReadInt32();
         stage_string = reader.ReadInt32();
@@ -37,6 +40,8 @@ public class DBHeroLeagueStageRow
     private string type;
 
     private string control_type;
+
+    private int tier;
 
     private int user_group;
 

@@ -256,6 +256,14 @@
         }
     }
 
+    public byte BuffLoopCutScout
+    {
+        get
+        {
+            return buff_loop_cut_scout;
+        }
+    }
+
     public int TargetKeepSfxId
     {
         get
@@ -462,6 +470,7 @@
         }
         start_sound_id = reader.ReadBytes(4);
         buff_loop_cut = reader.ReadByte();
+        buff_loop_cut_scout = reader.ReadByte();
         target_keep_sfx_id = reader.ReadBytes(4);
         target_keep_sfx_second_id = reader.ReadBytes(4);
         target_stop_sfx_id = reader.ReadBytes(4);
@@ -595,6 +604,8 @@
     private byte[] start_sound_id;
 
     private byte buff_loop_cut;
+
+    private byte buff_loop_cut_scout;
 
     private byte[] target_keep_sfx_id;
 
