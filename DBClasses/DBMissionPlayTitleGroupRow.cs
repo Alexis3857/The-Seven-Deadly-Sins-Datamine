@@ -48,6 +48,14 @@
         }
     }
 
+    public int ToolControlCheck
+    {
+        get
+        {
+            return tool_control_check;
+        }
+    }
+
     public string PassiveType
     {
         get
@@ -136,6 +144,7 @@
         category = reader.ReadInt32();
         rarity = reader.ReadInt32();
         limited = reader.ReadInt32();
+        tool_control_check = reader.ReadInt32();
         passive_type = reader.ReadString();
         int num = reader.ReadInt32();
         list_array_passive_id = new List<int>();
@@ -159,11 +168,6 @@
         return true;
     }
 
-    public int GetRowIndex()
-    {
-        return Id;
-    }
-
     private int id;
 
     private string active_start;
@@ -175,6 +179,8 @@
     private int rarity;
 
     private int limited;
+
+    private int tool_control_check;
 
     private string passive_type;
 

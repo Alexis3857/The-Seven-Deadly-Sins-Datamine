@@ -8,19 +8,19 @@ public class DBEventGambleboxGroupRow
         }
     }
 
-    public int EventSubIndex
-    {
-        get
-        {
-            return event_sub_index;
-        }
-    }
-
     public int Boxstep
     {
         get
         {
             return boxstep;
+        }
+    }
+
+    public int EventSubIndex
+    {
+        get
+        {
+            return event_sub_index;
         }
     }
 
@@ -91,8 +91,8 @@ public class DBEventGambleboxGroupRow
     public bool ReadToStream(BinaryReader reader)
     {
         id = reader.ReadInt32();
-        event_sub_index = reader.ReadInt32();
         boxstep = reader.ReadInt32();
+        event_sub_index = reader.ReadInt32();
         item_id = reader.ReadInt32();
         amount = reader.ReadInt32();
         stock = reader.ReadInt32();
@@ -106,9 +106,9 @@ public class DBEventGambleboxGroupRow
 
     private int id;
 
-    private int event_sub_index;
-
     private int boxstep;
+
+    private int event_sub_index;
 
     private int item_id;
 

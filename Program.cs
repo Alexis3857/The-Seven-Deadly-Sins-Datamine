@@ -26,15 +26,14 @@ namespace _7dsgcDatamine
             {
                 patchRelativeSub = args[1];
                 patchVersion = args[2];
-
             }
             Console.WriteLine($"Relative sub : {patchRelativeSub}\nVersion : {patchVersion}\n");
             string previousVersionFolderName = GetLastVersionFolder(patchVersion).ToString();
-            s_bundleManager = new BundleManager.BundleManager(patchRelativeSub, patchVersion, args[0], previousVersionFolderName);
+            BundleManager.BundleManager bundleManager = new BundleManager.BundleManager(patchRelativeSub, patchVersion, args[0], previousVersionFolderName);
             if (Directory.Exists($"JP/{patchVersion}"))
             {
                 Console.Write($"The directory {patchVersion} already exists, do you want to delete it and do the process again ? (y/n) : ");
-                string userInput = Console.ReadLine();
+                string? userInput = Console.ReadLine();
                 while (string.IsNullOrEmpty(userInput) || !userInput.ToLower().Equals("y") && !userInput.ToLower().Equals("n"))
                 {
                     Console.Write("Invalid answer, try again : ");
@@ -54,12 +53,12 @@ namespace _7dsgcDatamine
             if (previousVersionFolderName.Equals("-1"))
             {
                 Console.WriteLine("No other version was found to compare with, only the necessary files will be downloaded so this version can be used for the next update.");
-                s_bundleManager.DownloadBaseOnly();
+                bundleManager.DownloadBaseOnly();
             }
             else
             {
                 Console.WriteLine($"Comparing with {previousVersionFolderName}");
-                s_bundleManager.Process();
+                bundleManager.DownloadNew();
             }
             Console.WriteLine("\nEverything was done successfully !");
         }
@@ -91,7 +90,5 @@ namespace _7dsgcDatamine
         }
 
         private static readonly ConfigDecryptor s_configurationDecryptor = new ConfigDecryptor();
-
-        private static BundleManager.BundleManager s_bundleManager;
     }
 }

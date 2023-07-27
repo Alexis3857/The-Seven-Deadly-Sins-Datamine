@@ -40,6 +40,22 @@
         }
     }
 
+    public int SkinLevel
+    {
+        get
+        {
+            return skin_level;
+        }
+    }
+
+    public int SkinAwaken
+    {
+        get
+        {
+            return skin_awaken;
+        }
+    }
+
     public bool ReadToStream(BinaryReader reader)
     {
         id = reader.ReadInt32();
@@ -47,12 +63,9 @@
         wish_type = reader.ReadInt32();
         item_id = reader.ReadInt32();
         item_count = reader.ReadInt32();
+        skin_level = reader.ReadInt32();
+        skin_awaken = reader.ReadInt32();
         return true;
-    }
-
-    public int GetRowIndex()
-    {
-        return Id;
     }
 
     private int id;
@@ -64,4 +77,8 @@
     private int item_id;
 
     private int item_count;
+
+    private int skin_level;
+
+    private int skin_awaken;
 }
