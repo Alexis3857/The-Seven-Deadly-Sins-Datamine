@@ -144,6 +144,14 @@ public class DBStageMazeSpotRow
         }
     }
 
+    public int BuffRate
+    {
+        get
+        {
+            return buff_rate;
+        }
+    }
+
     public int BadgeEtc
     {
         get
@@ -200,6 +208,7 @@ public class DBStageMazeSpotRow
         random_passive_group = reader.ReadInt32();
         shop_group_id = reader.ReadInt32();
         random_count = reader.ReadInt32();
+        buff_rate = reader.ReadInt32();
         badge_etc = reader.ReadInt32();
         random_stage_group = reader.ReadInt32();
         return true;
@@ -240,6 +249,8 @@ public class DBStageMazeSpotRow
     private int shop_group_id;
 
     private int random_count;
+
+    private int buff_rate;
 
     private int badge_etc;
 
