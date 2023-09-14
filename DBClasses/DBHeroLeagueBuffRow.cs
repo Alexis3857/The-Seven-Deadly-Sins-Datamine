@@ -8,33 +8,55 @@ public class DBHeroLeagueBuffRow
         }
     }
 
-    public int BuffTargetSeason
+    public string StartDate
     {
         get
         {
-            return buff_target_season;
+            return start_date;
         }
     }
 
-    public int BuffPassiveId
+    public string LimitedDate
     {
         get
         {
-            return buff_passive_id;
+            return limited_date;
+        }
+    }
+
+    public int SpecialBuffPassiveId
+    {
+        get
+        {
+            return special_buff_passive_id;
+        }
+    }
+
+    public int SeasonBuffPassiveId
+    {
+        get
+        {
+            return season_buff_passive_id;
         }
     }
 
     public bool ReadToStream(BinaryReader reader)
     {
         id = reader.ReadInt32();
-        buff_target_season = reader.ReadInt32();
-        buff_passive_id = reader.ReadInt32();
+        start_date = reader.ReadString();
+        limited_date = reader.ReadString();
+        special_buff_passive_id = reader.ReadInt32();
+        season_buff_passive_id = reader.ReadInt32();
         return true;
     }
 
     private int id;
 
-    private int buff_target_season;
+    private string start_date;
 
-    private int buff_passive_id;
+    private string limited_date;
+
+    private int special_buff_passive_id;
+
+    private int season_buff_passive_id;
 }

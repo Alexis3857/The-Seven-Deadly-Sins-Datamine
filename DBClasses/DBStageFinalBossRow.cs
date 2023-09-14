@@ -1536,6 +1536,14 @@
         }
     }
 
+    public int BossCinemaVariation
+    {
+        get
+        {
+            return boss_cinema_variation;
+        }
+    }
+
     public List<int> ListStoryId
     {
         get
@@ -2177,6 +2185,7 @@
         BanConditionValue_6 = reader.ReadInt32();
         npc_team_id = reader.ReadInt32();
         boss_cinema_type = reader.ReadInt32();
+        boss_cinema_variation = reader.ReadInt32();
         return true;
     }
 
@@ -2563,6 +2572,8 @@
     private int npc_team_id;
 
     private int boss_cinema_type;
+
+    private int boss_cinema_variation;
 
     private List<int> list_story_id;
 

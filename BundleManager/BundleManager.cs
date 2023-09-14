@@ -152,7 +152,7 @@ namespace BundleManager
             Console.WriteLine("\nTransforming the database...");
             foreach (var db in databaseDictionary)
             {
-                Console.WriteLine($"Transforming {db.Key}...");
+                // Console.WriteLine($"Transforming {db.Key}...");
                 TrasformBinaryToJson(Path.Join(_currentRootDirectory, "Database", db.Key), db.Value);
             }
             Console.WriteLine("Done !");
