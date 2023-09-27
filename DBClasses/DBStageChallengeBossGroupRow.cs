@@ -16,11 +16,27 @@
         }
     }
 
-    public int GroupHeroId
+    public int EventBossTitle
     {
         get
         {
-            return group_hero_id;
+            return event_boss_title;
+        }
+    }
+
+    public int GroupHeroId1
+    {
+        get
+        {
+            return group_hero_id_1;
+        }
+    }
+
+    public int GroupHeroId2
+    {
+        get
+        {
+            return group_hero_id_2;
         }
     }
 
@@ -32,11 +48,28 @@
         }
     }
 
-    public string InfoImage
+    public string InfoImage1
     {
         get
         {
-            return info_image;
+            return info_image_1;
+        }
+    }
+
+    public string InfoImage2
+    {
+        get
+        {
+            return info_image_2;
+        }
+    }
+
+
+    public int DoubleBossTitle
+    {
+        get
+        {
+            return double_boss_title;
         }
     }
 
@@ -88,13 +121,49 @@
         }
     }
 
+    public List<int> ListGroupHeroId
+    {
+        get
+        {
+            if (list_group_hero_id == null)
+            {
+                list_group_hero_id = new List<int>()
+                {
+                    GroupHeroId1,
+                    GroupHeroId2
+                };
+            }
+            return list_group_hero_id;
+        }
+    }
+
+    public List<string> ListInfoImage
+    {
+        get
+        {
+            if (list_info_image == null)
+            {
+                list_info_image = new List<string>()
+                {
+                    InfoImage1,
+                    InfoImage2
+                };
+            }
+            return list_info_image;
+        }
+    }
+
     public bool ReadToStream(BinaryReader reader)
     {
         group_id = reader.ReadInt32();
         event_sub_index = reader.ReadInt32();
-        group_hero_id = reader.ReadInt32();
+        event_boss_title = reader.ReadInt32();
+        group_hero_id_1 = reader.ReadInt32();
+        group_hero_id_2 = reader.ReadInt32();
         group_string = reader.ReadInt32();
-        info_image = reader.ReadString();
+        info_image_1 = reader.ReadString();
+        info_image_2 = reader.ReadString();
+        double_boss_title = reader.ReadInt32();
         challenge_boss_strong_skill_desc = reader.ReadInt32();
         result_score_list = reader.ReadInt32();
         result_score_name = reader.ReadInt32();
@@ -108,11 +177,19 @@
 
     private int event_sub_index;
 
-    private int group_hero_id;
+    private int event_boss_title;
+
+    private int group_hero_id_1;
+
+    private int group_hero_id_2;
 
     private int group_string;
 
-    private string info_image;
+    private string info_image_1;
+
+    private string info_image_2;
+
+    private int double_boss_title;
 
     private int challenge_boss_strong_skill_desc;
 
@@ -125,4 +202,8 @@
     private float group_monster_location_y;
 
     private float group_monster_location_x;
+
+    private List<int> list_group_hero_id;
+
+    private List<string> list_info_image;
 }
