@@ -1,4 +1,6 @@
 using Microsoft.Data.Sqlite;
+using System.Diagnostics;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace BundleManager
@@ -42,32 +44,54 @@ namespace BundleManager
                 _previousSqliteCommand.Parameters.Add(_previousParamById);
                 _previousSqliteCommand.Prepare();
             }
+
+            using (_previousSqliteCommandGetString = _previousSqliteConnection.CreateCommand())
+            {
+                _previousSqliteCommandGetString.CommandText = "SELECT translated FROM TRANSLATION WHERE id = @id limit 1";
+                _previousSqliteCommandGetString.Parameters.Add(_previousParamById);
+                _previousSqliteCommandGetString.Prepare();
+            }
         }
 
-        public void WriteNewStringsToFile(string dir)
+        public void WriteNewStringsToFile(string dir, bool isWriteChangedStrings)
         {
             Console.WriteLine("\nGetting the new string from the database...");
             SqliteCommand selectAllCommand = _sqliteConnection.CreateCommand();
             selectAllCommand.CommandText = "SELECT COUNT(*) FROM TRANSLATION";
             var count = selectAllCommand.ExecuteScalar();
-            selectAllCommand.CommandText = "SELECT * FROM TRANSLATION";
+            selectAllCommand.CommandText = "SELECT id, translated FROM TRANSLATION";
             SqliteDataReader sqliteDataReader = selectAllCommand.ExecuteReader();
             StringBuilder stringBuilder = new StringBuilder();
             for (int i = 1; i < Convert.ToInt32(count) + 1; i++)
             {
                 Console.Write($"\r{i}/{count}", Console.BufferWidth);
                 sqliteDataReader.Read();
-                string value = sqliteDataReader.GetString(0);
-                _paramById.Value = value;
-                _paramBySi.Value = sqliteDataReader.GetInt32(1);
-                string translated = StringDecryption(sqliteDataReader.GetString(2));
-                if (!IsExistId(value))
+                string id = sqliteDataReader.GetString(0);
+                _paramById.Value = id;
+                string encryptedString = sqliteDataReader.GetString(1);
+                if (!IsExistId(id) || (isWriteChangedStrings && IsStringChanged(id, encryptedString)))
                 {
-                    stringBuilder.AppendLine($"{value} : {translated}");
+                    stringBuilder.AppendLine($"{id} : {StringDecryption(encryptedString)}");
                 }
             }
             File.WriteAllText(Path.Join(dir, "Localization", "NewLocalizationString.txt"), stringBuilder.ToString());
             Console.WriteLine("\nDone !");
+        }
+
+        private bool IsStringChanged(string key, string newString)
+        {
+            _previousParamById.Value = key;
+            using (SqliteDataReader dataReader = _previousSqliteCommandGetString.ExecuteReader())
+            {
+                if (dataReader.Read())
+                {
+                    return dataReader.GetString(0) != newString;
+                }
+                else
+                {
+                    return false;
+                }
+            }
         }
 
         private bool IsExistId(string key)
@@ -173,6 +197,8 @@ namespace BundleManager
         private SqliteCommand _sqliteCommand;
 
         private SqliteCommand _previousSqliteCommand;
+
+        private SqliteCommand _previousSqliteCommandGetString;
 
         private readonly SqliteParameter _paramById = new("@id", SqliteType.Text);
 

@@ -7,6 +7,7 @@ using System.Reflection;
 using System.Text;
 using System.Runtime.InteropServices;
 using SixLabors.ImageSharp.ColorSpaces;
+using _7dsgcDatamine;
 
 namespace BundleManager
 {
@@ -71,7 +72,7 @@ namespace BundleManager
             }
         }
 
-        public void DownloadNew()
+        public void DownloadNew(bool isWriteChangedStrings)
         {
             Console.WriteLine("\nDownloading bundles...");
             string bmdataDirectory = Path.Join(_currentRootDirectory, "Bmdata");
@@ -123,7 +124,7 @@ namespace BundleManager
                 _assetExporter.ExportFolderFiles(folder, folderAssetsDictionary[folder]);
             }
             Localization.Localizer.Load(_currentRootDirectory, _previousRootDirectory);
-            Localization.Localizer.WriteNewStringsToFile(_currentRootDirectory);
+            Localization.Localizer.WriteNewStringsToFile(_currentRootDirectory, isWriteChangedStrings);
             TransformDatabase();
         }
 

@@ -9,27 +9,25 @@ namespace _7dsgcDatamine
     {
         static void Main(string[] args)
         {
-            Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");  // Needed to make sure the program writes decimal number with . and not ,
-            if (args.Length != 1 && args.Length != 3)
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");  // Needed to make sure the program writes decimal number with . and not , when exporting Mesh
+            Dictionary<string, string> parsedArguments = ParseArguments(args);
+            string? decryptionKey;
+            string? patchRelativeSub;
+            string? patchVersion;
+            bool isWriteChangedString = parsedArguments.ContainsKey("write_changed_string");
+            if (!parsedArguments.TryGetValue("decryption_key", out decryptionKey))
             {
-                Console.WriteLine("Usage: 7dsgcDatamine.exe decryption_key patch_relative_sub patch_version\nwhere patch_relative_sub and patch_version are optional.");
+                Usage();
                 return;
             }
-            string patchRelativeSub;
-            string patchVersion;
-            if (args.Length == 1)
+            if (!parsedArguments.TryGetValue("patch_relative_sub", out patchRelativeSub) || !parsedArguments.TryGetValue("patch_version", out patchVersion))
             {
                 string configuration = s_configurationDecryptor.Decrypt(BundleDownloader.GetConfiguration("configuration").Result);
                 GetRelativeSubAndVersion(configuration, out patchRelativeSub, out patchVersion);
             }
-            else
-            {
-                patchRelativeSub = args[1];
-                patchVersion = args[2];
-            }
             Console.WriteLine($"Relative sub : {patchRelativeSub}\nVersion : {patchVersion}\n");
             string previousVersionFolderName = GetLastVersionFolder(patchVersion).ToString();
-            BundleManager.BundleManager bundleManager = new BundleManager.BundleManager(patchRelativeSub, patchVersion, args[0], previousVersionFolderName);
+            BundleManager.BundleManager bundleManager = new BundleManager.BundleManager(patchRelativeSub, patchVersion, decryptionKey, previousVersionFolderName);
             if (Directory.Exists($"JP/{patchVersion}"))
             {
                 Console.Write($"The directory {patchVersion} already exists, do you want to delete it and do the process again ? (y/n) : ");
@@ -58,9 +56,57 @@ namespace _7dsgcDatamine
             else
             {
                 Console.WriteLine($"Comparing with {previousVersionFolderName}");
-                bundleManager.DownloadNew();
+                bundleManager.DownloadNew(isWriteChangedString);
             }
             Console.WriteLine("\nEverything was done successfully !");
+        }
+
+        public static void Usage()
+        {
+            Console.WriteLine("Usage: 7dsgcDatamine.exe -key=decryption_key -patch=patch_relative_sub:patch_version -write_changed_string");
+
+            Console.WriteLine("\n-key is mandatory");
+            Console.WriteLine("It's the AES decryption passphrase, hidden in the game code and this program can not run without it");
+            Console.WriteLine("See https://github.com/Alexis3857/The-Seven-Deadly-Sins-Key-Finder");
+
+            Console.WriteLine("\n-patch is optional");
+            Console.WriteLine("patch_relative_sub is the patch name, it changes every week when there's an update");
+            Console.WriteLine("patch_version changes when a bug is fixed in a patch");
+            Console.WriteLine("If no patch is given, the program will use the current game patch");
+
+            Console.WriteLine("\n-write_changed_string is optional");
+            Console.WriteLine("If used, the program will also write strings that got changed and not only new strings");
+        }
+
+        public static Dictionary<string, string> ParseArguments(string[] args)
+        {
+            Dictionary<string, string> arguments = new Dictionary<string, string>();
+            foreach (string arg in args)
+            {
+                if (arg.StartsWith("-key="))
+                {
+                    arguments.Add("decryption_key", arg.Split("=")[1]);
+                }
+                else if (arg.StartsWith("-patch="))
+                {
+                    string patch = arg.Split("=")[1];
+                    string[] splitPatch = patch.Split(":");
+                    if (splitPatch.Length == 2)
+                    {
+                        arguments.Add("patch_relative_sub", splitPatch[0]);
+                        arguments.Add("patch_version", splitPatch[1]);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Argument -patch couldn't be parsed.");
+                    }
+                }
+                else if (arg == "-write_changed_string")
+                {
+                    arguments.Add("write_changed_string", string.Empty);
+                }
+            }
+            return arguments;
         }
 
         // This folder will be compared with the new version of the game to filter the new files

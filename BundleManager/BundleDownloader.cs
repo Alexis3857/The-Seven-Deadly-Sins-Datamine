@@ -30,6 +30,10 @@ namespace BundleManager
         public async Task<byte[]> DownloadBmdataFile(string folder)
         {
             HttpResponseMessage response = await _httpClient.GetAsync($"{_downloadURL}/{_patchRelativeSub}/{_patchVersion}/{folder}/bmdata");
+            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            {
+                throw new Exception($"Bmdata files can't be downloaded, the patch \"{_patchRelativeSub}:{_patchVersion}\" probably doesn't exist.");
+            }
             byte[] responseBody = await response.Content.ReadAsByteArrayAsync();
             Console.WriteLine($"Downloaded {folder} bmdata");
             return responseBody;

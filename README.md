@@ -9,12 +9,36 @@ Get the current decryption key of the game with [The Seven Deadly Sins Key Finde
 
 Run the program and pass the decryption key as an argument, example :
 ```cmd
-7dsgcDatamine.exe 86C-vWbZEs-HIVqoZMt03DIYoUBQLTrg
+7dsgcDatamine.exe -key=decryption_key -patch=patch_relative_sub:patch_version -write_changed_string
 ```
 
-If it's your first time running the bot it will download the necessary files for it to work for the followings updates.
+-key is mandatory
+It's the AES decryption passphrase, hidden in the game code and this program can not run without it.
 
-If it's not your first time running the bot it will compare the new game version with the last version saved on your computer by the bot and export images, models, sounds and the database.
+-patch is optional
+patch_relative_sub is the patch name, it changes every week when there's an update.
+patch_version changes when a bug is fixed in a patch.
+If no patch is given, the program will use the current game patch.
+
+-write_changed_string is optional
+If used, the program will also write strings that got changed and not only new strings.
+
+Example if you only want to export the latest update of the game :
+```cmd
+7dsgcDatamine.exe -key=WfcpJydk4-U_Zdyr5jaxFskH1ewy5b5y
+```
+
+If you want to export the assets from the patch _fteaksskrhqlp version 3490 :
+```cmd
+7dsgcDatamine.exe -key=WfcpJydk4-U_Zdyr5jaxFskH1ewy5b5y -patch=_fteaksskrhqlp:3490
+```
+
+If you missed a patch there is no way to know its name.
+
+Using the current decryption key on an old patch isn't going to work, you need to pass the key that was being used by the game when the patch was issued.
+
+If it's your first time running the program, it will download the necessary files for it to work for the followings updates.
+If it's not your first time running the program, it will compare the new game version with the last version saved on your computer and export images, models, sounds and the database.
 
 
 ## Requirements
