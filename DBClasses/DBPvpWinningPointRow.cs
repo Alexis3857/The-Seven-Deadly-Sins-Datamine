@@ -1,4 +1,4 @@
-﻿public class DBPvpWinningPointRow
+﻿public class DBPvpWinningPointRow : ITableRowIndexer
 {
     public int Id
     {
@@ -102,6 +102,11 @@
         top100_def_battle_point = reader.ReadInt32();
         challenger_win_season_point = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

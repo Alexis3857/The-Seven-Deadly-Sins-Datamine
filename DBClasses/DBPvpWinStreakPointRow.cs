@@ -1,4 +1,4 @@
-﻿public class DBPvpWinStreakPointRow
+﻿public class DBPvpWinStreakPointRow : ITableRowIndexer
 {
     public int Id
     {
@@ -48,6 +48,11 @@
         win_streak_max = reader.ReadInt32();
         bonus_value = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

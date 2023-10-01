@@ -1,4 +1,4 @@
-﻿public class DBCoinShopSettingRow
+﻿public class DBCoinShopSettingRow : ITableRowIndexer
 {
     public int Id
     {
@@ -48,6 +48,11 @@
         coin_shop_menu = reader.ReadInt32();
         item_icon = reader.ReadString();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

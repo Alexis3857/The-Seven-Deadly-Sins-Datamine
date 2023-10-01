@@ -1,4 +1,4 @@
-﻿public class DBSkillRetryRow
+﻿public class DBSkillRetryRow : ITableRowIndexer
 {
     public int Id
     {

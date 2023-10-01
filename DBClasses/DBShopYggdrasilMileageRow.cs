@@ -1,4 +1,4 @@
-﻿public class DBShopYggdrasilMileageRow
+﻿public class DBShopYggdrasilMileageRow : ITableRowIndexer
 {
     public int Id
     {

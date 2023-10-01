@@ -1,4 +1,4 @@
-﻿public class DBStageWeekSetupRow
+﻿public class DBStageWeekSetupRow : ITableRowIndexer
 {
     public int Id
     {
@@ -213,6 +213,11 @@
         open_time_3 = reader.ReadInt32();
         close_time_3 = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

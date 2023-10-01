@@ -1,4 +1,4 @@
-﻿public class DBCardpackPackageInfoRow
+﻿public class DBCardpackPackageInfoRow : ITableRowIndexer
 {
     public int CardpackGroupId
     {
@@ -21,6 +21,11 @@
         cardpack_group_id = reader.ReadInt32();
         package_image = reader.ReadString();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return CardpackGroupId;
     }
 
     private int cardpack_group_id;

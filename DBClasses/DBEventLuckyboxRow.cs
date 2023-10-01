@@ -1,4 +1,4 @@
-public class DBEventLuckyboxRow
+public class DBEventLuckyboxRow : ITableRowIndexer
 {
     public int Id
     {
@@ -75,6 +75,11 @@ public class DBEventLuckyboxRow
         reward_icon = reader.ReadString();
         reward_name = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

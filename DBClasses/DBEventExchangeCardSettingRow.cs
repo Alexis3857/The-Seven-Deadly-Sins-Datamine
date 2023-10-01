@@ -1,4 +1,4 @@
-﻿public class DBEventExchangeCardSettingRow
+﻿public class DBEventExchangeCardSettingRow : ITableRowIndexer
 {
     public int Id
     {
@@ -66,6 +66,11 @@
         gamble_item_id = reader.ReadInt32();
         gamble_item_count = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

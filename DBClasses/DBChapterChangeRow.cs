@@ -1,4 +1,4 @@
-﻿public class DBChapterChangeRow
+﻿public class DBChapterChangeRow : ITableRowIndexer
 {
     public int Id
     {
@@ -84,6 +84,11 @@
         open_type = reader.ReadString();
         open_value = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

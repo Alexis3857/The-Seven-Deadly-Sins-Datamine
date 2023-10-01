@@ -1,4 +1,4 @@
-﻿public class DBStageRow
+﻿public class DBStageRow : ITableRowIndexer
 {
     public int Id
     {

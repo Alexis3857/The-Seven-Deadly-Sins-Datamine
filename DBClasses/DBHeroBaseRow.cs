@@ -1,4 +1,4 @@
-﻿public class DBHeroBaseRow : DataTableCryptographer
+﻿public class DBHeroBaseRow : DataTableCryptographer, ITableRowIndexer
 {
     protected override uint XOROperand
     {

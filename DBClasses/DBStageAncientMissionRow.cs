@@ -1,4 +1,4 @@
-﻿public class DBStageAncientMissionRow
+﻿public class DBStageAncientMissionRow : ITableRowIndexer
 {
     public int Id
     {

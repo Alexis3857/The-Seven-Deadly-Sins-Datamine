@@ -1,4 +1,4 @@
-﻿public class DBArtifactCardRow
+﻿public class DBArtifactCardRow : ITableRowIndexer
 {
     public int ArtifactId
     {

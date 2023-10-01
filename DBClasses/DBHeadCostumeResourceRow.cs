@@ -1,4 +1,4 @@
-﻿public class DBHeadCostumeResourceRow
+﻿public class DBHeadCostumeResourceRow : ITableRowIndexer
 {
     public int Id
     {

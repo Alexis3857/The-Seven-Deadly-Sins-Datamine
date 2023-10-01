@@ -1,4 +1,4 @@
-public class DBEventConquestTileRow
+public class DBEventConquestTileRow : ITableRowIndexer
 {
     public int Id
     {

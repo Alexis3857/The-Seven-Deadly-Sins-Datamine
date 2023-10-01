@@ -1,4 +1,4 @@
-﻿public class DBGameCenterAchievementRow
+﻿public class DBGameCenterAchievementRow : ITableRowIndexer
 {
     public int Id
     {

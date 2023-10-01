@@ -1,4 +1,4 @@
-﻿public class DBStageFinalBossRow
+﻿public class DBStageFinalBossRow : ITableRowIndexer
 {
     public int Id
     {
@@ -2187,6 +2187,11 @@
         boss_cinema_type = reader.ReadInt32();
         boss_cinema_variation = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

@@ -1,4 +1,4 @@
-﻿public class DBItemGotchaRatingPerRow
+﻿public class DBItemGotchaRatingPerRow : ITableRowIndexer
 {
     public int Id
     {

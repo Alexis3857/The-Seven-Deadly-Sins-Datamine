@@ -1,4 +1,4 @@
-﻿public class DBPvpSmashShopRow
+﻿public class DBPvpSmashShopRow : ITableRowIndexer
 {
     public int Id
     {
@@ -131,6 +131,11 @@
         price_count_1 = reader.ReadInt32();
         popular_item_check = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

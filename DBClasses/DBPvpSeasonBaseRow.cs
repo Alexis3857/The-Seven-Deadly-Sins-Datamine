@@ -1,6 +1,4 @@
-﻿using FMOD;
-
-public class DBPvpSeasonBaseRow
+﻿public class DBPvpSeasonBaseRow : ITableRowIndexer
 {
     public int Id
     {
@@ -104,6 +102,11 @@ public class DBPvpSeasonBaseRow
         button_effect = reader.ReadInt32();
         season_reward_group = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

@@ -1,4 +1,4 @@
-﻿public class DBPassMissionRewardRow
+﻿public class DBPassMissionRewardRow : ITableRowIndexer
 {
     public int MissionId
     {
@@ -156,6 +156,11 @@
         stack_3_reward_item_count = reader.ReadInt32();
         stack_3_reward_item_count_event = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return MissionId;
     }
 
     private int mission_id;

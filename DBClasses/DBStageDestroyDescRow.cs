@@ -1,4 +1,4 @@
-﻿public class DBStageDestroyDescRow
+﻿public class DBStageDestroyDescRow : ITableRowIndexer
 {
     public int Id
     {
@@ -75,6 +75,11 @@
         destroy_passive_desc = reader.ReadString();
         destroy_idle_path = reader.ReadString();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

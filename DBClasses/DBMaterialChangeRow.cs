@@ -1,4 +1,4 @@
-﻿public class DBMaterialChangeRow
+﻿public class DBMaterialChangeRow : ITableRowIndexer
 {
     public int Id
     {

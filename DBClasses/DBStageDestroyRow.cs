@@ -1,4 +1,4 @@
-﻿public class DBStageDestroyRow : DataTableCryptographer
+﻿public class DBStageDestroyRow : DataTableCryptographer, ITableRowIndexer
 {
     protected override uint XOROperand
     {

@@ -1,4 +1,4 @@
-﻿public class DBMonsterAiRow
+﻿public class DBMonsterAiRow : ITableRowIndexer
 {
     public int Id
     {

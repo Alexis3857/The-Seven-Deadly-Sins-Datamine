@@ -1,4 +1,4 @@
-﻿public class DBEventFurnitureRow
+﻿public class DBEventFurnitureRow : ITableRowIndexer
 {
     public int Id
     {
@@ -39,6 +39,11 @@
         lobby_type = reader.ReadString();
         furniture_id = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

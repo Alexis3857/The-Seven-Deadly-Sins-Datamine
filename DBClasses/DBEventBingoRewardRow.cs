@@ -1,4 +1,4 @@
-﻿public class DBEventBingoRewardRow
+﻿public class DBEventBingoRewardRow : ITableRowIndexer
 {
     public int Id
     {
@@ -84,6 +84,11 @@
         fix_reward = reader.ReadInt32();
         final_reward_id = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

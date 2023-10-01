@@ -1,4 +1,4 @@
-﻿public class DBLoadingTipRow
+﻿public class DBLoadingTipRow : ITableRowIndexer
 {
     public int Id
     {

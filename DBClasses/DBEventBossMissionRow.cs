@@ -1,4 +1,4 @@
-﻿public class DBEventBossMissionRow
+﻿public class DBEventBossMissionRow : ITableRowIndexer
 {
     public int Id
     {
@@ -93,6 +93,11 @@
         localize_display_type = reader.ReadInt32();
         mission_name = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

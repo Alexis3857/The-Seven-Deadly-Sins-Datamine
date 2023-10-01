@@ -1,4 +1,4 @@
-﻿public class DBSoundRow
+﻿public class DBSoundRow : ITableRowIndexer
 {
     public int Id
     {
@@ -39,6 +39,11 @@
         sub_path = reader.ReadString();
         filename = reader.ReadString();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

@@ -1,4 +1,4 @@
-﻿public class DBAttendanceHeroRow
+﻿public class DBAttendanceHeroRow : ITableRowIndexer
 {
     public int Id
     {
@@ -218,6 +218,11 @@
             list_array_hide_npc_id.Add(reader.ReadInt32());
         }
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

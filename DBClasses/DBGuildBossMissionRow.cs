@@ -1,4 +1,4 @@
-﻿public class DBGuildBossMissionRow
+﻿public class DBGuildBossMissionRow : ITableRowIndexer
 {
     public int Id
     {

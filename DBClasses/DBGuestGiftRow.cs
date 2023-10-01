@@ -1,4 +1,4 @@
-﻿public class DBGuestGiftRow
+﻿public class DBGuestGiftRow : ITableRowIndexer
 {
     public int Id
     {

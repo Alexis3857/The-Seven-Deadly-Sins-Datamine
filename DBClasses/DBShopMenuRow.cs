@@ -1,4 +1,4 @@
-﻿public class DBShopMenuRow
+﻿public class DBShopMenuRow : ITableRowIndexer
 {
     public int Id
     {

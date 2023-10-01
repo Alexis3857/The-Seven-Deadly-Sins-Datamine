@@ -1,4 +1,4 @@
-﻿public class DBEvolutionExchangeRow
+﻿public class DBEvolutionExchangeRow : ITableRowIndexer
 {
     public int Id
     {

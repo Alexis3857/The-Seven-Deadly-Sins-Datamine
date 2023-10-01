@@ -1,4 +1,4 @@
-﻿public class DBQuestCharacterRow
+﻿public class DBQuestCharacterRow : ITableRowIndexer
 {
     public int Id
     {
@@ -274,6 +274,11 @@
             list_array_controller_val.Add(reader.ReadSingle());
         }
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

@@ -1,4 +1,4 @@
-﻿public class DBEventPredictSpecialRewardRow
+﻿public class DBEventPredictSpecialRewardRow : ITableRowIndexer
 {
     public int Id
     {

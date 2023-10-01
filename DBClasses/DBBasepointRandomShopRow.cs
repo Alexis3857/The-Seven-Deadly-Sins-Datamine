@@ -1,4 +1,4 @@
-﻿public class DBBasepointRandomShopRow
+﻿public class DBBasepointRandomShopRow : ITableRowIndexer
 {
     public int Id
     {

@@ -1,4 +1,4 @@
-﻿public class DBCreaturePassiveRow
+﻿public class DBCreaturePassiveRow : ITableRowIndexer
 {
     public int Id
     {
@@ -57,6 +57,11 @@
         creature_ment = reader.ReadInt32();
         creature_passive_ani = reader.ReadString();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

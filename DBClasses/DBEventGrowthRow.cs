@@ -1,4 +1,4 @@
-﻿public class DBEventGrowthRow
+﻿public class DBEventGrowthRow : ITableRowIndexer
 {
     public int Id
     {
@@ -111,6 +111,11 @@
         focus_guide = reader.ReadInt32();
         time_exposure = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

@@ -1,4 +1,4 @@
-﻿public class DBGuildWarLeagueSignRow
+﻿public class DBGuildWarLeagueSignRow : ITableRowIndexer
 {
     public int Id
     {

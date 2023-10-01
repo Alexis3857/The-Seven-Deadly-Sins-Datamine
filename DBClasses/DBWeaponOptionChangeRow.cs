@@ -1,4 +1,4 @@
-﻿public class DBWeaponOptionChangeRow
+﻿public class DBWeaponOptionChangeRow : ITableRowIndexer
 {
     public int Id
     {
@@ -163,6 +163,11 @@
         option_change_min_3 = reader.ReadInt32();
         option_rate_3 = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

@@ -1,4 +1,4 @@
-﻿public class DBBlindContentRow
+﻿public class DBBlindContentRow : ITableRowIndexer
 {
     public int Id
     {
@@ -66,6 +66,11 @@
         blind_off_type = reader.ReadString();
         blind_off_value = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

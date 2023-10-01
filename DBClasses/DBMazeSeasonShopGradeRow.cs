@@ -1,4 +1,4 @@
-﻿public class DBMazeSeasonShopGradeRow
+﻿public class DBMazeSeasonShopGradeRow : ITableRowIndexer
 {
     public int Id
     {
@@ -30,6 +30,11 @@
         need_buy_point = reader.ReadInt32();
         grade_shop_name = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

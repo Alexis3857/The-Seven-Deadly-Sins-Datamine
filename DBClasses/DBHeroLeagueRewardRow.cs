@@ -1,4 +1,4 @@
-public class DBHeroLeagueRewardRow
+public class DBHeroLeagueRewardRow : ITableRowIndexer
 {
     public int Id
     {
@@ -98,6 +98,11 @@ public class DBHeroLeagueRewardRow
         reward_item_id_2 = reader.ReadInt32();
         reward_item_count_2 = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

@@ -1,4 +1,4 @@
-﻿public class DBHeroContentsPassiveRow
+﻿public class DBHeroContentsPassiveRow : ITableRowIndexer
 {
     public int Id
     {

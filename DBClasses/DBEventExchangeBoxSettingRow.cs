@@ -1,4 +1,4 @@
-﻿public class DBEventExchangeBoxSettingRow
+﻿public class DBEventExchangeBoxSettingRow : ITableRowIndexer
 {
     public int Id
     {
@@ -168,6 +168,11 @@
         event_start = reader.ReadString();
         event_reset = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

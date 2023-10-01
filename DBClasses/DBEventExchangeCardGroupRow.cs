@@ -1,4 +1,4 @@
-﻿public class DBEventExchangeCardGroupRow
+﻿public class DBEventExchangeCardGroupRow : ITableRowIndexer
 {
     public int Id
     {
@@ -98,6 +98,11 @@
         bonus_count_value = reader.ReadInt32();
         bonus_reward_check = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

@@ -1,4 +1,4 @@
-﻿public class DBEventCraftsLocalizationRow
+﻿public class DBEventCraftsLocalizationRow : ITableRowIndexer
 {
     public int Id
     {
@@ -39,6 +39,11 @@
         notice_not_selected_item = reader.ReadInt32();
         notice_not_enough_item = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

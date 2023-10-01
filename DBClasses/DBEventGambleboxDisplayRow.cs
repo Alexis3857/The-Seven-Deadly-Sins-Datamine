@@ -1,4 +1,4 @@
-public class DBEventGambleboxDisplayRow
+public class DBEventGambleboxDisplayRow : ITableRowIndexer
 {
     public int Id
     {
@@ -128,6 +128,11 @@ public class DBEventGambleboxDisplayRow
         gamblebox_background = reader.ReadInt32();
         gamblebox_texture = reader.ReadString();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

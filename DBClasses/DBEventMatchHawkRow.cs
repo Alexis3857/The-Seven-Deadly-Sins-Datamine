@@ -1,4 +1,4 @@
-﻿public class DBEventMatchHawkRow
+﻿public class DBEventMatchHawkRow : ITableRowIndexer
 {
     public int Id
     {
@@ -93,6 +93,11 @@
         bad = reader.ReadString();
         end = reader.ReadString();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

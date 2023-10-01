@@ -1,4 +1,4 @@
-﻿public class DBGlobalChannelSettingRow
+﻿public class DBGlobalChannelSettingRow : ITableRowIndexer
 {
     public int Id
     {

@@ -23,7 +23,7 @@ If no patch is given, the program will use the current game patch.
 -write_changed_string is optional
 If used, the program will also write strings that got changed and not only new strings.
 
-Example if you only want to export the latest update of the game :
+Example if you want to export the assets from the latest update of the game :
 ```cmd
 7dsgcDatamine.exe -key=WfcpJydk4-U_Zdyr5jaxFskH1ewy5b5y
 ```

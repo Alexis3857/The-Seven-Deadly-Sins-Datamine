@@ -1,4 +1,4 @@
-﻿public class DBEventCraftsMaterialRow
+﻿public class DBEventCraftsMaterialRow : ITableRowIndexer
 {
     public int Id
     {
@@ -39,6 +39,11 @@
         material_item_id = reader.ReadInt32();
         renderer_icon = reader.ReadString();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

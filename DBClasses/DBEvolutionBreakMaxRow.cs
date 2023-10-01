@@ -1,4 +1,4 @@
-﻿public class DBEvolutionBreakMaxRow
+﻿public class DBEvolutionBreakMaxRow : ITableRowIndexer
 {
     public int Id
     {

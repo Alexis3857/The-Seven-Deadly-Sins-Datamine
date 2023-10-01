@@ -1,4 +1,4 @@
-﻿public class DBSkinAniRow
+﻿public class DBSkinAniRow : ITableRowIndexer
 {
     public int Id
     {
@@ -200,6 +200,11 @@
         ani_item_2 = reader.ReadString();
         awaken_neck_ani_check = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

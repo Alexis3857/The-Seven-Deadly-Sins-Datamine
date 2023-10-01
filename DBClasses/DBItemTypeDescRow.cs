@@ -1,4 +1,4 @@
-﻿public class DBItemTypeDescRow
+﻿public class DBItemTypeDescRow : ITableRowIndexer
 {
     public int Id
     {

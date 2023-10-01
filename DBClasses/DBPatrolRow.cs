@@ -1,4 +1,4 @@
-﻿public class DBPatrolRow
+﻿public class DBPatrolRow : ITableRowIndexer
 {
     public int Id
     {
@@ -264,6 +264,11 @@
         reward_item_value_4 = reader.ReadInt32();
         reward_item_value_event_4 = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

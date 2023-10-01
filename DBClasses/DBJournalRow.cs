@@ -1,4 +1,4 @@
-﻿public class DBJournalRow
+﻿public class DBJournalRow : ITableRowIndexer
 {
     public int Id
     {

@@ -1,4 +1,4 @@
-﻿public class DBEventAutoMonsterRow
+﻿public class DBEventAutoMonsterRow : ITableRowIndexer
 {
     public int Id
     {
@@ -111,6 +111,11 @@
         back = reader.ReadString();
         end = reader.ReadString();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

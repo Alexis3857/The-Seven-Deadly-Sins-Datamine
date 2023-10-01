@@ -1,4 +1,4 @@
-﻿public class DBCostumeChangeSfxRow
+﻿public class DBCostumeChangeSfxRow : ITableRowIndexer
 {
     public int Id
     {
@@ -39,6 +39,11 @@
         sfx_id = reader.ReadInt32();
         change_effect_filename = reader.ReadString();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

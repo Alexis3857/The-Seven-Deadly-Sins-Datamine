@@ -1,4 +1,4 @@
-﻿public class DBSkillPassiveConditionIconRow
+﻿public class DBSkillPassiveConditionIconRow : ITableRowIndexer
 {
     public int Id
     {

@@ -1,4 +1,4 @@
-﻿public class DBStoryreviewStageRow
+﻿public class DBStoryreviewStageRow : ITableRowIndexer
 {
     public int Id
     {
@@ -72,6 +72,11 @@
             list_array_limited_stage_id.Add(reader.ReadInt32());
         }
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

@@ -1,4 +1,4 @@
-﻿public class DBStageGuildWarRow
+﻿public class DBStageGuildWarRow : ITableRowIndexer
 {
     public int Id
     {

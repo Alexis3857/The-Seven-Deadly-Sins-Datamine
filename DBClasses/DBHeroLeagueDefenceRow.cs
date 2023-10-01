@@ -1,4 +1,4 @@
-public class DBHeroLeagueDefenceRow
+public class DBHeroLeagueDefenceRow : ITableRowIndexer
 {
     public int Index { get => index; }
     public int LeagueTypeGroup { get => league_type_group; }
@@ -78,6 +78,11 @@ public class DBHeroLeagueDefenceRow
         hp_recovery_per = reader.ReadSingle();
         hp_steal_per = reader.ReadSingle();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Index;
     }
 
     private int index;

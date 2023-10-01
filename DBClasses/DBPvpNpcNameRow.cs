@@ -1,4 +1,4 @@
-﻿public class DBPvpNpcNameRow
+﻿public class DBPvpNpcNameRow : ITableRowIndexer
 {
     public int Id
     {

@@ -1,4 +1,4 @@
-﻿public class DBArtifactGroupRow
+﻿public class DBArtifactGroupRow : ITableRowIndexer
 {
     public int CardGroupId
     {
@@ -48,6 +48,11 @@
         group_name = reader.ReadString();
         group_icon = reader.ReadString();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return CardGroupId;
     }
 
     private int card_group_id;

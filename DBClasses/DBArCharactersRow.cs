@@ -1,4 +1,4 @@
-﻿public class DBArCharactersRow
+﻿public class DBArCharactersRow : ITableRowIndexer
 {
     public int Id
     {
@@ -415,6 +415,11 @@
         anim_dance_icon_4 = reader.ReadString();
         anim_dance_icon_5 = reader.ReadString();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

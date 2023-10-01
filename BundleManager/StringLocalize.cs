@@ -113,17 +113,17 @@ namespace BundleManager
         public string GetString(string key)
         {
             _paramBySi.Value = key;
-            using (SqliteDataReader dataReader = _sqliteCommand.ExecuteReader())
+            if (_sqliteCommand != null)
             {
-                if (dataReader.Read())
+                using (SqliteDataReader dataReader = _sqliteCommand.ExecuteReader())
                 {
-                    return StringDecryption(dataReader.GetString(0));
-                }
-                else
-                {
-                    return "NONE DB";
+                    if (dataReader.Read())
+                    {
+                        return StringDecryption(dataReader.GetString(0));
+                    }
                 }
             }
+            return "NONE DB";
         }
 
         private string StringDecryption(string str)

@@ -1,4 +1,4 @@
-public class DBGuildorderRewardboxRow
+public class DBGuildorderRewardboxRow : ITableRowIndexer
 {
     public int Id
     {
@@ -120,6 +120,11 @@ public class DBGuildorderRewardboxRow
         reward_item_id_4 = reader.ReadInt32();
         reward_item_count_4 = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

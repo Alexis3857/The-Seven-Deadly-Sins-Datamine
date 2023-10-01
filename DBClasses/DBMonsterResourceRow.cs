@@ -1,4 +1,4 @@
-﻿public class DBMonsterResourceRow : DataTableCryptographer
+﻿public class DBMonsterResourceRow : DataTableCryptographer, ITableRowIndexer
 {
     protected override uint XOROperand
     {

@@ -1,4 +1,4 @@
-﻿public class DBPvpLowLeagueRuleSettingRow
+﻿public class DBPvpLowLeagueRuleSettingRow : ITableRowIndexer
 {
     public int Id
     {
@@ -84,6 +84,11 @@
         add_combat_menu_label = reader.ReadString();
         change_speech_bubble_icon = reader.ReadString();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

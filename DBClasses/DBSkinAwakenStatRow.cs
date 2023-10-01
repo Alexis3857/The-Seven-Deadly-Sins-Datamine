@@ -1,4 +1,4 @@
-﻿public class DBSkinAwakenStatRow
+﻿public class DBSkinAwakenStatRow : ITableRowIndexer
 {
     public int Id
     {
@@ -147,6 +147,11 @@
         awaken_add_hp_recovery_per = reader.ReadSingle();
         awaken_add_hp_steal_per = reader.ReadSingle();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

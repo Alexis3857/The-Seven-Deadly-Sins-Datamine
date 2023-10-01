@@ -1,4 +1,4 @@
-﻿public class DBEventLadderRewardRow
+﻿public class DBEventLadderRewardRow : ITableRowIndexer
 {
     public int Id
     {
@@ -75,6 +75,11 @@
         top_reward = reader.ReadInt32();
         top_reward_count = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

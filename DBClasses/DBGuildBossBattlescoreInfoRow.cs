@@ -1,4 +1,4 @@
-﻿public class DBGuildBossBattlescoreInfoRow
+﻿public class DBGuildBossBattlescoreInfoRow : ITableRowIndexer
 {
     public int Id
     {

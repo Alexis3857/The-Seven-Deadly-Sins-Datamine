@@ -1,4 +1,4 @@
-﻿public class DBEventAutoLevelupRow
+﻿public class DBEventAutoLevelupRow : ITableRowIndexer
 {
     public int Id
     {
@@ -101,6 +101,11 @@
         critical_rate = reader.ReadInt32();
         enhance_count_3 = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

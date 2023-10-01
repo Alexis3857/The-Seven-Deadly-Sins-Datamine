@@ -1,4 +1,4 @@
-public class DBEventRoadHawkRow
+public class DBEventRoadHawkRow : ITableRowIndexer
 {
     public int Id
     {
@@ -93,6 +93,11 @@ public class DBEventRoadHawkRow
         info = reader.ReadString();
         reward = reader.ReadString();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

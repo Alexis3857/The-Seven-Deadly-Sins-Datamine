@@ -1,4 +1,4 @@
-﻿public class DBAiCustomizingMoveRow
+﻿public class DBAiCustomizingMoveRow : ITableRowIndexer
 {
     public int Id
     {
@@ -30,6 +30,11 @@
         skill_condition_enum = reader.ReadString();
         skill_condition_name = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

@@ -1,4 +1,4 @@
-﻿public class DBCheckNpcResourceRow
+﻿public class DBCheckNpcResourceRow : ITableRowIndexer
 {
     public int Id
     {
@@ -66,6 +66,11 @@
         npc_portrait_size = reader.ReadSingle();
         npc_portrait_base = reader.ReadString();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

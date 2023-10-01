@@ -1,4 +1,4 @@
-public class DBEventConquestFeverRow
+public class DBEventConquestFeverRow : ITableRowIndexer
 {
     public int Id
     {

@@ -1,4 +1,4 @@
-﻿public class DBContentsPassiveRow
+﻿public class DBContentsPassiveRow : ITableRowIndexer
 {
     public int Id
     {
@@ -93,6 +93,11 @@
         use_time_min = reader.ReadInt32();
         target_item_id = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

@@ -1,4 +1,4 @@
-﻿public class DBEventLuckybagSetRow
+﻿public class DBEventLuckybagSetRow : ITableRowIndexer
 {
     public int Id
     {
@@ -93,6 +93,11 @@
         luckybag_allclear_reward_item_id = reader.ReadInt32();
         luckybag_allclear_reward_item_count = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

@@ -1,4 +1,4 @@
-﻿public class DBStageSubdueTagRow
+﻿public class DBStageSubdueTagRow : ITableRowIndexer
 {
     public int Id
     {
@@ -205,6 +205,11 @@
         tag_change_ani_2 = reader.ReadString();
         tag_change_effect_2 = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

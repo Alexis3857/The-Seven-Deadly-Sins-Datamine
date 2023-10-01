@@ -1,4 +1,4 @@
-﻿public class DBStageChallengeBossGroupRow
+﻿public class DBStageChallengeBossGroupRow : ITableRowIndexer
 {
     public int GroupId
     {
@@ -171,6 +171,11 @@
         group_monster_location_y = reader.ReadSingle();
         group_monster_location_x = reader.ReadSingle();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return GroupId;
     }
 
     private int group_id;

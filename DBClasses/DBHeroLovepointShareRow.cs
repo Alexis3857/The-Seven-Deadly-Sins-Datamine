@@ -1,4 +1,4 @@
-﻿public class DBHeroLovepointShareRow
+﻿public class DBHeroLovepointShareRow : ITableRowIndexer
 {
     public int Id
     {

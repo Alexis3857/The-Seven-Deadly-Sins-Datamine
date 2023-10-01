@@ -1,4 +1,4 @@
-﻿public class DBMazeShopBuffRow
+﻿public class DBMazeShopBuffRow : ITableRowIndexer
 {
     public int Id => id;
 
@@ -57,6 +57,11 @@
         add_hp_recovery_per = reader.ReadSingle();
         add_hp_steal_per = reader.ReadSingle();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

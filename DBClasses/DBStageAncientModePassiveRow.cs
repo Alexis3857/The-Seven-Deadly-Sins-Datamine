@@ -1,4 +1,4 @@
-﻿public class DBStageAncientModePassiveRow
+﻿public class DBStageAncientModePassiveRow : ITableRowIndexer
 {
     public int Id
     {

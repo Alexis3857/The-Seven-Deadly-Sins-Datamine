@@ -1,4 +1,4 @@
-﻿public class DBStageGlobalDropRow
+﻿public class DBStageGlobalDropRow : ITableRowIndexer
 {
     public int GroupId
     {
@@ -504,6 +504,11 @@
         global_drop_item_per_10 = reader.ReadInt32();
         global_drop_item_box_10 = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return GroupId;
     }
 
     private int group_id;

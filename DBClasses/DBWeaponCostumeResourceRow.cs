@@ -1,4 +1,4 @@
-﻿public class DBWeaponCostumeResourceRow
+﻿public class DBWeaponCostumeResourceRow : ITableRowIndexer
 {
     public int Id
     {
@@ -39,6 +39,11 @@
         resource_weapon = reader.ReadString();
         weapon_model_type = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

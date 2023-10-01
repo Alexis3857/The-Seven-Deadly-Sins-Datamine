@@ -1,4 +1,4 @@
-﻿public class DBDirectSelectorRow
+﻿public class DBDirectSelectorRow : ITableRowIndexer
 {
     public int Id
     {
@@ -156,6 +156,11 @@
         skip_summary = reader.ReadInt32();
         dlg_next_episode = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

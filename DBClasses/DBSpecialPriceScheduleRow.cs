@@ -1,4 +1,4 @@
-﻿public class DBSpecialPriceScheduleRow
+﻿public class DBSpecialPriceScheduleRow : ITableRowIndexer
 {
     public int Id
     {
@@ -39,6 +39,11 @@
         special_price_group_index = reader.ReadInt32();
         special_price_package_id = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

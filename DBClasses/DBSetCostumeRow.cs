@@ -1,4 +1,4 @@
-﻿public class DBSetCostumeRow
+﻿public class DBSetCostumeRow : ITableRowIndexer
 {
     public int Id
     {

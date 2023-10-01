@@ -1,4 +1,4 @@
-﻿public class DBStageBossDestroyRow
+﻿public class DBStageBossDestroyRow : ITableRowIndexer
 {
     public int Id
     {
@@ -100,6 +100,11 @@
             list_array_area.Add(reader.ReadInt32());
         }
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

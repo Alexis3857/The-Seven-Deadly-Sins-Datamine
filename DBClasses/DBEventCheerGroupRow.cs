@@ -1,4 +1,4 @@
-﻿public class DBEventCheerGroupRow
+﻿public class DBEventCheerGroupRow : ITableRowIndexer
 {
     public int Id
     {
@@ -74,6 +74,11 @@
         exchange_limit = reader.ReadInt32();
         item_cheer = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

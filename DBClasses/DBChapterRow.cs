@@ -1,4 +1,4 @@
-﻿public class DBChapterRow
+﻿public class DBChapterRow : ITableRowIndexer
 {
     public int Id
     {
@@ -224,6 +224,11 @@
         reward_item_count = reader.ReadInt32();
         region_bgm = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

@@ -1,4 +1,4 @@
-﻿public class DBEventProvisionCutsceneRow
+﻿public class DBEventProvisionCutsceneRow : ITableRowIndexer
 {
     public int Id
     {

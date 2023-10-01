@@ -1,4 +1,4 @@
-﻿public class DBArDevicesRow
+﻿public class DBArDevicesRow : ITableRowIndexer
 {
     public int Id
     {
@@ -30,6 +30,11 @@
         device_model_name = reader.ReadString();
         device_min_api_level = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

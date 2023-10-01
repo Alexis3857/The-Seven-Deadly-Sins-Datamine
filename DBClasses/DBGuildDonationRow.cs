@@ -1,4 +1,4 @@
-﻿public class DBGuildDonationRow
+﻿public class DBGuildDonationRow : ITableRowIndexer
 {
     public int Index
     {

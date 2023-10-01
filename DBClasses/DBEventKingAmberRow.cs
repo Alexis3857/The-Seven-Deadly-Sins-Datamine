@@ -1,4 +1,4 @@
-﻿public class DBEventKingAmberRow
+﻿public class DBEventKingAmberRow : ITableRowIndexer
 {
     public int Id
     {
@@ -241,6 +241,11 @@
         reward_id_6 = reader.ReadInt32();
         reward_count_6 = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

@@ -1,4 +1,4 @@
-﻿public class DBGuildBossPersonalRewardRow
+﻿public class DBGuildBossPersonalRewardRow : ITableRowIndexer
 {
     public int Id
     {

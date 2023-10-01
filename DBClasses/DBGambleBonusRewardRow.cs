@@ -1,4 +1,4 @@
-﻿public class DBGambleBonusRewardRow
+﻿public class DBGambleBonusRewardRow : ITableRowIndexer
 {
     public int Index
     {
@@ -111,6 +111,11 @@
         skin_awaken = reader.ReadInt32();
         gacha_ssr_bonus_count = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Index;
     }
 
     private int index;

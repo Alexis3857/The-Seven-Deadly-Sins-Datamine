@@ -1,4 +1,4 @@
-﻿public class DBBasepointDropRow
+﻿public class DBBasepointDropRow : ITableRowIndexer
 {
     public int Id
     {

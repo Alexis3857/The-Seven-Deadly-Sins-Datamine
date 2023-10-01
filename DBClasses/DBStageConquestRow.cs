@@ -1,4 +1,4 @@
-﻿public class DBStageConquestRow
+﻿public class DBStageConquestRow : ITableRowIndexer
 {
     public int Id
     {
@@ -946,6 +946,11 @@
         BanCondition_6 = reader.ReadString();
         BanConditionValue_6 = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

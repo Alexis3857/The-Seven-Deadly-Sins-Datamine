@@ -1,4 +1,4 @@
-﻿public class DBStageTournamentRow
+﻿public class DBStageTournamentRow : ITableRowIndexer
 {
     public int Id
     {

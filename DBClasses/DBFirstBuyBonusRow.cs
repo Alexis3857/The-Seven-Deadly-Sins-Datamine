@@ -1,4 +1,4 @@
-﻿public class DBFirstBuyBonusRow
+﻿public class DBFirstBuyBonusRow : ITableRowIndexer
 {
     public int Id
     {

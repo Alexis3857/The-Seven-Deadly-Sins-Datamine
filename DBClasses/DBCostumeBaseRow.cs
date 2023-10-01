@@ -1,4 +1,4 @@
-﻿public class DBCostumeBaseRow
+﻿public class DBCostumeBaseRow : ITableRowIndexer
 {
     public int Id
     {
@@ -351,6 +351,11 @@
         }
         craft_costume_group = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

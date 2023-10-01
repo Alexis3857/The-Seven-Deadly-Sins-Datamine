@@ -1,4 +1,4 @@
-﻿public class DBEventLobbyGiftRow
+﻿public class DBEventLobbyGiftRow : ITableRowIndexer
 {
     public int Id
     {
@@ -48,6 +48,11 @@
         reward_item_id = reader.ReadInt32();
         reward_item_count = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

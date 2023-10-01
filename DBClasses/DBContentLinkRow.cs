@@ -1,4 +1,4 @@
-﻿public class DBContentLinkRow
+﻿public class DBContentLinkRow : ITableRowIndexer
 {
     public int Id
     {

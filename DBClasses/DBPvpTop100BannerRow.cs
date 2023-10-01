@@ -1,4 +1,4 @@
-﻿public class DBPvpTop100BannerRow
+﻿public class DBPvpTop100BannerRow : ITableRowIndexer
 {
     public int Id
     {

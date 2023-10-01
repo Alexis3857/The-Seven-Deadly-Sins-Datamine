@@ -1,4 +1,4 @@
-﻿public class DBTutorialRewardRow
+﻿public class DBTutorialRewardRow : ITableRowIndexer
 {
     public int Id
     {
@@ -262,6 +262,11 @@
         tutorial_reward_id_4 = reader.ReadInt32();
         tutorial_reward_count_4 = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

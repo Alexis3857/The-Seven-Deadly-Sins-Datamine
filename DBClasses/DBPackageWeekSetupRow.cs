@@ -1,4 +1,4 @@
-﻿public class DBPackageWeekSetupRow
+﻿public class DBPackageWeekSetupRow : ITableRowIndexer
 {
     public int Id
     {

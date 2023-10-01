@@ -1,4 +1,4 @@
-﻿public class DBEventBuffRow
+﻿public class DBEventBuffRow : ITableRowIndexer
 {
     public int Id
     {
@@ -57,6 +57,11 @@
         title = reader.ReadInt32();
         explain = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

@@ -1,4 +1,4 @@
-﻿public class DBStageAncientBossDescRow
+﻿public class DBStageAncientBossDescRow : ITableRowIndexer
 {
     public int Id
     {
@@ -30,6 +30,11 @@
         ancient_boss_strong_skill_desc = reader.ReadString();
         ancient_boss_pattern_desc = reader.ReadString();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

@@ -1,4 +1,4 @@
-﻿public class DBLoadingSettingRow
+﻿public class DBLoadingSettingRow : ITableRowIndexer
 {
     public int Id
     {

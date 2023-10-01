@@ -1,4 +1,4 @@
-﻿public class DBGameCenterLeaderboardRow
+﻿public class DBGameCenterLeaderboardRow : ITableRowIndexer
 {
     public int Id
     {

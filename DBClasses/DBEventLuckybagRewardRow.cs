@@ -1,4 +1,4 @@
-﻿public class DBEventLuckybagRewardRow
+﻿public class DBEventLuckybagRewardRow : ITableRowIndexer
 {
     public int Id
     {
@@ -268,6 +268,12 @@
         reward_item_count_10 = reader.ReadInt32();
         return true;
     }
+
+    public int GetRowIndex()
+    {
+        return Id;
+    }
+
 
     private int id;
 

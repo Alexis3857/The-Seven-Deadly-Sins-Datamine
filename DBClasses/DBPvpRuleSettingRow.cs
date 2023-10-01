@@ -1,4 +1,4 @@
-﻿public class DBPvpRuleSettingRow
+﻿public class DBPvpRuleSettingRow : ITableRowIndexer
 {
     public int Id
     {

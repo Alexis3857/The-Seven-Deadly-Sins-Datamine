@@ -1,4 +1,4 @@
-﻿public class DBAiCustomizingIconRow
+﻿public class DBAiCustomizingIconRow : ITableRowIndexer
 {
     public int Id
     {
@@ -39,6 +39,11 @@
         ai_icon_number = reader.ReadInt32();
         ai_customizing_icon = reader.ReadString();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

@@ -1,4 +1,4 @@
-﻿public class DBArtifactUnionFilterGroupRow
+﻿public class DBArtifactUnionFilterGroupRow : ITableRowIndexer
 {
     public int Id
     {
@@ -66,6 +66,11 @@
         union_filter_job_group = reader.ReadInt32();
         hero_filter_another = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

@@ -1,4 +1,4 @@
-﻿public class DBStageChallengeBossEventRow
+﻿public class DBStageChallengeBossEventRow : ITableRowIndexer
 {
     public int Id
     {

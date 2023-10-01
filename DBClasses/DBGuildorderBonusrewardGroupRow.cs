@@ -1,4 +1,4 @@
-public class DBGuildorderBonusrewardGroupRow
+public class DBGuildorderBonusrewardGroupRow : ITableRowIndexer
 {
     public int Id
     {
@@ -48,6 +48,11 @@ public class DBGuildorderBonusrewardGroupRow
         reward_item_count = reader.ReadInt32();
         gamble_rate = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

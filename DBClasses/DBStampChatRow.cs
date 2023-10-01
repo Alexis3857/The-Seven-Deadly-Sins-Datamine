@@ -1,4 +1,4 @@
-﻿public class DBStampChatRow
+﻿public class DBStampChatRow : ITableRowIndexer
 {
     public int Id
     {

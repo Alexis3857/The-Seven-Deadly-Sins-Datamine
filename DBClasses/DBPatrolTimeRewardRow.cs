@@ -1,4 +1,4 @@
-﻿public class DBPatrolTimeRewardRow
+﻿public class DBPatrolTimeRewardRow : ITableRowIndexer
 {
     public int Index
     {

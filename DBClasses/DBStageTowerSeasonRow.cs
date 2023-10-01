@@ -1,4 +1,4 @@
-﻿public class DBStageTowerSeasonRow
+﻿public class DBStageTowerSeasonRow : ITableRowIndexer
 {
     public int GroupId
     {
@@ -48,6 +48,11 @@
         bg_event_tower_lobby_route = reader.ReadString();
         bg_event_tower_lobby = reader.ReadString();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return GroupId;
     }
 
     private int group_id;

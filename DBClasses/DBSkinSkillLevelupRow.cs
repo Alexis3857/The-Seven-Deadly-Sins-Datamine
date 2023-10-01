@@ -1,4 +1,4 @@
-﻿public class DBSkinSkillLevelupRow
+﻿public class DBSkinSkillLevelupRow : ITableRowIndexer
 {
     public int Id
     {
@@ -243,6 +243,11 @@
         special_price_id_6 = reader.ReadInt32();
         special_price_count_6 = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

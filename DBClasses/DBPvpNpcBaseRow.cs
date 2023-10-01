@@ -1,4 +1,4 @@
-﻿public class DBPvpNpcBaseRow
+﻿public class DBPvpNpcBaseRow : ITableRowIndexer
 {
     public int NpcId
     {
@@ -93,6 +93,11 @@
         awaken_count = reader.ReadInt32();
         special_skill_level = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return NpcId;
     }
 
     private int npc_id;

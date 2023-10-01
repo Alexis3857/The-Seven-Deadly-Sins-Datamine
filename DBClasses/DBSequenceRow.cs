@@ -1,4 +1,4 @@
-﻿public class DBSequenceRow
+﻿public class DBSequenceRow : ITableRowIndexer
 {
     public int Id
     {
@@ -49,6 +49,11 @@
         }
         event_spawn_point_type = reader.ReadString();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

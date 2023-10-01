@@ -1,4 +1,4 @@
-﻿public class DBStageTrainingTaskOpenRow
+﻿public class DBStageTrainingTaskOpenRow : ITableRowIndexer
 {
     public int Id
     {
@@ -73,6 +73,11 @@
         open_rate = reader.ReadInt32();
         open_task_group_id = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

@@ -1,4 +1,4 @@
-﻿public class DBLobbyHousingShopRow
+﻿public class DBLobbyHousingShopRow : ITableRowIndexer
 {
     public int Id
     {

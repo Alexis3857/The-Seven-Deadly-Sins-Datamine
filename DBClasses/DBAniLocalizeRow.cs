@@ -1,4 +1,4 @@
-﻿public class DBAniLocalizeRow
+﻿public class DBAniLocalizeRow : ITableRowIndexer
 {
     public int Id
     {
@@ -188,6 +188,11 @@
         ani_clip_5 = reader.ReadString();
         ani_clip_6 = reader.ReadString();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

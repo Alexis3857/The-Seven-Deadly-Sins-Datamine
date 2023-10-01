@@ -1,4 +1,4 @@
-﻿public class DBStageCreaturenestInfoRow
+﻿public class DBStageCreaturenestInfoRow : ITableRowIndexer
 {
     public int Id
     {

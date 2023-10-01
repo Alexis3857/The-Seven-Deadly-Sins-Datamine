@@ -1,4 +1,4 @@
-﻿public class DBAiCustomizingEtcRow
+﻿public class DBAiCustomizingEtcRow : ITableRowIndexer
 {
     public int Id
     {
@@ -21,6 +21,11 @@
         id = reader.ReadInt32();
         etc_name = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

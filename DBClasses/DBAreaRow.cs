@@ -1,4 +1,4 @@
-﻿public class DBAreaRow
+﻿public class DBAreaRow : ITableRowIndexer
 {
     public int Id
     {
@@ -386,6 +386,11 @@
         root_basepoint_id = reader.ReadInt32();
         bgm_sound_id = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

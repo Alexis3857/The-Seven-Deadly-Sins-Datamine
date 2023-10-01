@@ -1,4 +1,4 @@
-﻿public class DBStageTrainingPlayCountRow
+﻿public class DBStageTrainingPlayCountRow : ITableRowIndexer
 {
     public int HeroSkinRating
     {
@@ -21,6 +21,11 @@
         hero_skin_rating = reader.ReadInt32();
         play_count = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return HeroSkinRating;
     }
 
     private int hero_skin_rating;

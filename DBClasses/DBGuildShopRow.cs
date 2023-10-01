@@ -1,4 +1,4 @@
-﻿public class DBGuildShopRow
+﻿public class DBGuildShopRow : ITableRowIndexer
 {
     public int Id
     {
@@ -102,6 +102,11 @@
         price_count = reader.ReadInt32();
         popular_item_check = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

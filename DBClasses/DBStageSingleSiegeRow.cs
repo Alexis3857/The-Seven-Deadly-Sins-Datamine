@@ -1,4 +1,4 @@
-﻿public class DBStageSingleSiegeRow
+﻿public class DBStageSingleSiegeRow : ITableRowIndexer
 {
     public int Id
     {

@@ -1,4 +1,4 @@
-﻿public class DBSkillSearchGroupRow
+﻿public class DBSkillSearchGroupRow : ITableRowIndexer
 {
     public int Id
     {
@@ -30,6 +30,11 @@
         skill_group_id = reader.ReadInt32();
         search_skill_group_name = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

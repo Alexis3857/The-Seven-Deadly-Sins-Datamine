@@ -1,4 +1,4 @@
-﻿public class DBPatrolScheduleRow
+﻿public class DBPatrolScheduleRow : ITableRowIndexer
 {
     public int Id
     {

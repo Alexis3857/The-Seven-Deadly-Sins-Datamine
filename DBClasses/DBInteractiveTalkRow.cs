@@ -1,4 +1,4 @@
-﻿public class DBInteractiveTalkRow
+﻿public class DBInteractiveTalkRow : ITableRowIndexer
 {
     public int Id
     {

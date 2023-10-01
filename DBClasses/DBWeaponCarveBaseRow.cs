@@ -1,4 +1,4 @@
-﻿public class DBWeaponCarveBaseRow
+﻿public class DBWeaponCarveBaseRow : ITableRowIndexer
 {
     public int Id
     {
@@ -186,6 +186,11 @@
         carve_clear_price_count = reader.ReadInt32();
         carve_clear_discount = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

@@ -1,4 +1,4 @@
-﻿public class DBCheckStoryRow
+﻿public class DBCheckStoryRow : ITableRowIndexer
 {
     public int Id
     {
@@ -57,6 +57,11 @@
         director_type = reader.ReadInt32();
         story_on = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

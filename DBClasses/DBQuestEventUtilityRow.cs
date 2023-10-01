@@ -1,4 +1,4 @@
-﻿public class DBQuestEventUtilityRow
+﻿public class DBQuestEventUtilityRow : ITableRowIndexer
 {
     public int Id
     {

@@ -1,4 +1,4 @@
-﻿public class DBPreviewAccountRow
+﻿public class DBPreviewAccountRow : ITableRowIndexer
 {
     public int Id
     {
@@ -30,6 +30,11 @@
         name = reader.ReadString();
         password = reader.ReadString();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

@@ -1,4 +1,4 @@
-﻿public class DBEventDiceRow
+﻿public class DBEventDiceRow : ITableRowIndexer
 {
     public int Id
     {
@@ -57,6 +57,11 @@
         base_value = reader.ReadInt32();
         reward_count = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

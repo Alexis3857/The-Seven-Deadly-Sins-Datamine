@@ -1,4 +1,4 @@
-﻿public class DBUpgradeRatingRow : DataTableCryptographer
+﻿public class DBUpgradeRatingRow : DataTableCryptographer, ITableRowIndexer
 {
     protected override uint XOROperand
     {
@@ -74,6 +74,11 @@
         rating_skin_rate = reader.ReadBytes(4);
         rating_skin_value = reader.ReadBytes(4);
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private byte[] id;

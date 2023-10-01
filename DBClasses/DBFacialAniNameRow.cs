@@ -1,4 +1,4 @@
-﻿public class DBFacialAniNameRow
+﻿public class DBFacialAniNameRow : ITableRowIndexer
 {
     public int Id
     {

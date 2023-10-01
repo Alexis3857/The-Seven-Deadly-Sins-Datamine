@@ -1,4 +1,4 @@
-﻿public class DBConstManastoneRandomRow
+﻿public class DBConstManastoneRandomRow : ITableRowIndexer
 {
     public int Id
     {
@@ -75,6 +75,11 @@
         stone_name = reader.ReadInt32();
         stone_image = reader.ReadString();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

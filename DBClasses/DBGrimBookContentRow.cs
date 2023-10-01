@@ -1,4 +1,4 @@
-﻿public class DBGrimBookContentRow
+﻿public class DBGrimBookContentRow : ITableRowIndexer
 {
     public int Id
     {

@@ -1,4 +1,4 @@
-﻿public class DBEventAutoSettingRow
+﻿public class DBEventAutoSettingRow : ITableRowIndexer
 {
     public int Id
     {
@@ -174,6 +174,11 @@
         exchange_open_stage_id = reader.ReadInt32();
         exchange_group = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

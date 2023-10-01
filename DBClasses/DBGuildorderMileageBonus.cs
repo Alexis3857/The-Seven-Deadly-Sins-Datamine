@@ -1,4 +1,4 @@
-public class DBGuildorderMileagebonusRow
+public class DBGuildorderMileagebonusRow : ITableRowIndexer
 {
     public int Id
     {
@@ -48,6 +48,11 @@ public class DBGuildorderMileagebonusRow
         reward_item = reader.ReadInt32();
         reward_item_count = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

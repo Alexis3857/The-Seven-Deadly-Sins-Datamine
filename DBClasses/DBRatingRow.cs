@@ -1,4 +1,4 @@
-﻿public class DBRatingRow : DataTableCryptographer
+﻿public class DBRatingRow : DataTableCryptographer, ITableRowIndexer
 {
     protected override uint XOROperand
     {
@@ -525,6 +525,11 @@
         grind_bonus_per_3 = reader.ReadBytes(4);
         grind_bonus_value_3 = reader.ReadBytes(4);
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private byte[] id;

@@ -1,4 +1,4 @@
-﻿public class DBConstellationBaseRow
+﻿public class DBConstellationBaseRow : ITableRowIndexer
 {
     public int Id
     {
@@ -242,6 +242,11 @@
         icon_next_symbol = reader.ReadString();
         chaos_enable = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

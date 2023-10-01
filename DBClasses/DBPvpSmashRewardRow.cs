@@ -1,4 +1,4 @@
-﻿public class DBPvpSmashRewardRow
+﻿public class DBPvpSmashRewardRow : ITableRowIndexer
 {
     public int Id
     {
@@ -96,6 +96,11 @@
         reward_id_1 = reader.ReadInt32();
         reward_count_1 = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

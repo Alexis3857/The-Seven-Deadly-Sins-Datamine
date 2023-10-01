@@ -1,4 +1,4 @@
-﻿public class DBCheckHeroResourceRow
+﻿public class DBCheckHeroResourceRow : ITableRowIndexer
 {
     public int Id
     {
@@ -89,6 +89,11 @@
         hero_portrait_size = reader.ReadSingle();
         hero_potrait_base = reader.ReadString();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

@@ -1,4 +1,4 @@
-﻿public class DBPvpSmashTeamsetCostRow
+﻿public class DBPvpSmashTeamsetCostRow : ITableRowIndexer
 {
     public int Id
     {
@@ -39,6 +39,11 @@
         need_item_id = reader.ReadInt32();
         need_item_count = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

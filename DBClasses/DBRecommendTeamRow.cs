@@ -1,4 +1,4 @@
-﻿public class DBRecommendTeamRow
+﻿public class DBRecommendTeamRow : ITableRowIndexer
 {
     public int Id
     {
@@ -48,6 +48,11 @@
         stage_mode = reader.ReadInt32();
         recommend_type = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

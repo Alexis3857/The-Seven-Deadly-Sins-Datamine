@@ -1,4 +1,4 @@
-﻿public class DBQuestSoundRow
+﻿public class DBQuestSoundRow : ITableRowIndexer
 {
     public int Id
     {
@@ -66,6 +66,11 @@
         bgm_close_type = reader.ReadString();
         bgm_close_value = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

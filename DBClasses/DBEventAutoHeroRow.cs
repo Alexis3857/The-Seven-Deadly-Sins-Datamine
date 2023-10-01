@@ -1,4 +1,4 @@
-﻿public class DBEventAutoHeroRow
+﻿public class DBEventAutoHeroRow : ITableRowIndexer
 {
     public int Id
     {
@@ -165,6 +165,11 @@
         critical_back = reader.ReadString();
         critical_end = reader.ReadString();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

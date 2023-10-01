@@ -1,4 +1,4 @@
-﻿public class DBEventChallengeDestroyRow
+﻿public class DBEventChallengeDestroyRow : ITableRowIndexer
 {
     public int Id
     {
@@ -92,6 +92,11 @@
         rewardpoint__hell = reader.ReadInt32();
         reward_need_count = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

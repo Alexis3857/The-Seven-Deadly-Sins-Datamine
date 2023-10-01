@@ -1,4 +1,4 @@
-﻿public class DBEventAutoBoxrewardRow
+﻿public class DBEventAutoBoxrewardRow : ITableRowIndexer
 {
     public int Id
     {
@@ -57,6 +57,11 @@
         reward_count = reader.ReadInt32();
         rate = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

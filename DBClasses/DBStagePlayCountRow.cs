@@ -1,4 +1,4 @@
-﻿public class DBStagePlayCountRow
+﻿public class DBStagePlayCountRow : ITableRowIndexer
 {
     public int Id
     {
@@ -39,6 +39,11 @@
         play_count = reader.ReadInt32();
         resetdaily_check = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

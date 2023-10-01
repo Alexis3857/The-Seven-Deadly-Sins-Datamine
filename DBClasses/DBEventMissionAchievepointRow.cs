@@ -1,4 +1,4 @@
-﻿public class DBEventMissionAchievepointRow
+﻿public class DBEventMissionAchievepointRow : ITableRowIndexer
 {
     public int Id
     {
@@ -87,6 +87,11 @@
         reward_item_count_1 = reader.ReadInt32();
         name = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

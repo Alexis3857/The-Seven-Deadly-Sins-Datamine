@@ -1,4 +1,4 @@
-﻿public class DBPassDesignSettingRow
+﻿public class DBPassDesignSettingRow : ITableRowIndexer
 {
     public int SettingId
     {
@@ -75,6 +75,11 @@
         food_special_empty_design = reader.ReadString();
         ground_design = reader.ReadString();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return SettingId;
     }
 
     private int setting_id;

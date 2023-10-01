@@ -1,4 +1,4 @@
-﻿public class DBRandomShopRatingPerRow
+﻿public class DBRandomShopRatingPerRow : ITableRowIndexer
 {
     public int Rating
     {
@@ -30,6 +30,11 @@
         normal_slot = reader.ReadInt32();
         special_slot = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Rating;
     }
 
     private int rating;

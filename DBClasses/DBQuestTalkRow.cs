@@ -1,4 +1,4 @@
-﻿public class DBQuestTalkRow
+﻿public class DBQuestTalkRow : ITableRowIndexer
 {
     public int Id
     {

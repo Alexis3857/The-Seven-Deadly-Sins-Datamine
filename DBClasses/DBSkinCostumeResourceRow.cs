@@ -1,4 +1,4 @@
-﻿public class DBSkinCostumeResourceRow
+﻿public class DBSkinCostumeResourceRow : ITableRowIndexer
 {
     public int Id
     {
@@ -211,6 +211,11 @@
         check_size = reader.ReadString();
         victory_prop = reader.ReadString();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

@@ -1,4 +1,4 @@
-﻿public class DBPvpPointRow
+﻿public class DBPvpPointRow : ITableRowIndexer
 {
     public int Id
     {

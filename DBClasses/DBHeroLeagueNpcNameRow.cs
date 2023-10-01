@@ -1,4 +1,4 @@
-public class DBHeroLeagueNpcNameRow
+public class DBHeroLeagueNpcNameRow : ITableRowIndexer
 {
     public int Index
     {
@@ -21,6 +21,11 @@ public class DBHeroLeagueNpcNameRow
         index = reader.ReadInt32();
         name_local = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Index;
     }
 
     private int index;

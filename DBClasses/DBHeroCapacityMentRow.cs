@@ -1,4 +1,4 @@
-﻿public class DBHeroCapacityMentRow
+﻿public class DBHeroCapacityMentRow : ITableRowIndexer
 {
     public int Id
     {
@@ -180,6 +180,11 @@
         hero_lr_capacity_ment_6 = reader.ReadInt32();
         hero_lr_capacity_ment_7 = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

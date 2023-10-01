@@ -1,4 +1,4 @@
-public class DBEventConquestProductionRow
+public class DBEventConquestProductionRow : ITableRowIndexer
 {
     public int Id
     {
@@ -129,6 +129,11 @@ public class DBEventConquestProductionRow
         product_item_time = reader.ReadInt32();
         product_item_save_max = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

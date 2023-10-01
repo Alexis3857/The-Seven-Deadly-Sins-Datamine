@@ -1,4 +1,4 @@
-﻿public class DBJukeboxListRow
+﻿public class DBJukeboxListRow : ITableRowIndexer
 {
     public int Id
     {

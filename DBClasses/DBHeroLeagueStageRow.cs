@@ -1,4 +1,4 @@
-public class DBHeroLeagueStageRow
+public class DBHeroLeagueStageRow : ITableRowIndexer
 {
     public int Id { get => id; }
     public string Type { get => type; }
@@ -33,6 +33,11 @@ public class DBHeroLeagueStageRow
         bgm_sound_id = reader.ReadInt32();
         boss_sound_id = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

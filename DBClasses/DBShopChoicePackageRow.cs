@@ -1,4 +1,4 @@
-﻿public class DBShopChoicePackageRow
+﻿public class DBShopChoicePackageRow : ITableRowIndexer
 {
     public int Id
     {
@@ -218,6 +218,11 @@
         item_id_8 = reader.ReadInt32();
         item_count_8 = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

@@ -1,4 +1,4 @@
-﻿public class DBFateMonsterRow
+﻿public class DBFateMonsterRow : ITableRowIndexer
 {
     public int Id
     {

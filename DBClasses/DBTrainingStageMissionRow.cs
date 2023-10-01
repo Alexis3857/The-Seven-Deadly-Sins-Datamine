@@ -1,4 +1,4 @@
-﻿public class DBTrainingStageMissionRow
+﻿public class DBTrainingStageMissionRow : ITableRowIndexer
 {
     public int Id
     {

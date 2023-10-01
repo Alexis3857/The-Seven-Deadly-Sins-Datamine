@@ -1,4 +1,4 @@
-﻿public class DBStageCreaturenestRow
+﻿public class DBStageCreaturenestRow : ITableRowIndexer
 {
     public int Id
     {
@@ -2999,6 +2999,11 @@
         BanCondition_6 = reader.ReadString();
         BanConditionValue_6 = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

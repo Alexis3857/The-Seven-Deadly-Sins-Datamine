@@ -1,4 +1,4 @@
-﻿public class DBTownChangeRow
+﻿public class DBTownChangeRow : ITableRowIndexer
 {
     public int Id
     {

@@ -1,4 +1,4 @@
-﻿public class DBSkinExclusivePassiveRow
+﻿public class DBSkinExclusivePassiveRow : ITableRowIndexer
 {
     public int HeroId
     {

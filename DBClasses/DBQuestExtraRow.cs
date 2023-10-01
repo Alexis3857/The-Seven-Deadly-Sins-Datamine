@@ -1,4 +1,4 @@
-﻿public class DBQuestExtraRow
+﻿public class DBQuestExtraRow : ITableRowIndexer
 {
     public int Id
     {
@@ -57,6 +57,11 @@
         event_banner = reader.ReadString();
         end_npc = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

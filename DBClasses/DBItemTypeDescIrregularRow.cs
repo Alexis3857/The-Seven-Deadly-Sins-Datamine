@@ -1,4 +1,4 @@
-﻿public class DBItemTypeDescIrregularRow
+﻿public class DBItemTypeDescIrregularRow : ITableRowIndexer
 {
     public int ItemID
     {

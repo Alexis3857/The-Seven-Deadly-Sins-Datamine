@@ -1,4 +1,4 @@
-﻿public class DBStageSubdueBossRewardRow
+﻿public class DBStageSubdueBossRewardRow : ITableRowIndexer
 {
     public int Index
     {
@@ -438,6 +438,11 @@
         reward_item_count_1p_2 = reader.ReadInt32();
         drop_item_box_1p_2 = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Index;
     }
 
     private int index;

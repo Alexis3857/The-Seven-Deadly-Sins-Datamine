@@ -1,4 +1,4 @@
-﻿public class DBBasepointShopRow
+﻿public class DBBasepointShopRow : ITableRowIndexer
 {
     public int Id
     {
@@ -111,6 +111,11 @@
         buy_limited_count = reader.ReadInt32();
         buy_limited_count_event = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

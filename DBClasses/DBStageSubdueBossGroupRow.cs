@@ -1,4 +1,4 @@
-﻿public class DBStageSubdueBossGroupRow
+﻿public class DBStageSubdueBossGroupRow : ITableRowIndexer
 {
     public int GroupId
     {

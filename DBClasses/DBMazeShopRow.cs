@@ -1,4 +1,4 @@
-﻿public class DBMazeShopRow
+﻿public class DBMazeShopRow : ITableRowIndexer
 {
     public int Id
     {

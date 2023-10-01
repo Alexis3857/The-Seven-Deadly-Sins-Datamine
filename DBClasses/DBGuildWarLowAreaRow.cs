@@ -1,4 +1,4 @@
-﻿public class DBGuildWarLowAreaRow
+﻿public class DBGuildWarLowAreaRow : ITableRowIndexer
 {
     public int Id
     {

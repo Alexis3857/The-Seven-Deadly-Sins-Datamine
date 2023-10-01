@@ -1,4 +1,4 @@
-﻿public class DBStoryRetryRow
+﻿public class DBStoryRetryRow : ITableRowIndexer
 {
     public int Id
     {
@@ -63,6 +63,11 @@
         check_version = reader.ReadInt32();
         retry_on = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

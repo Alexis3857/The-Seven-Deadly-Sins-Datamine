@@ -1,4 +1,4 @@
-﻿public class DBCostumeShopGroupRow
+﻿public class DBCostumeShopGroupRow : ITableRowIndexer
 {
     public int Id
     {
@@ -75,6 +75,11 @@
         costume_story_id = reader.ReadInt32();
         costume_resale = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

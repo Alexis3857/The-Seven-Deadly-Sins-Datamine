@@ -1,4 +1,4 @@
-﻿public class DBStageWeekRewardRow
+﻿public class DBStageWeekRewardRow : ITableRowIndexer
 {
     public int Id
     {
@@ -87,6 +87,11 @@
         item_id_1 = reader.ReadInt32();
         item_count_1 = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

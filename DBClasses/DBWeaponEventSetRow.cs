@@ -1,4 +1,4 @@
-﻿public class DBWeaponEventSetRow
+﻿public class DBWeaponEventSetRow : ITableRowIndexer
 {
     public int EventSetId
     {

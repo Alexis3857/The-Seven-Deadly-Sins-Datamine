@@ -1,4 +1,4 @@
-﻿public class DBAiCustomizingTargetRow
+﻿public class DBAiCustomizingTargetRow : ITableRowIndexer
 {
     public int Id
     {
@@ -44,6 +44,11 @@
             list_array_skill_target_type.Add(reader.ReadInt32());
         }
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

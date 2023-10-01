@@ -1,4 +1,4 @@
-﻿public class DBGambleRotationSetRow
+﻿public class DBGambleRotationSetRow : ITableRowIndexer
 {
     public int Id
     {

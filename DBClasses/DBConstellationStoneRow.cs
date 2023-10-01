@@ -1,4 +1,4 @@
-﻿public class DBConstellationStoneRow
+﻿public class DBConstellationStoneRow : ITableRowIndexer
 {
     public int Id
     {
@@ -116,6 +116,11 @@
         stone_desc = reader.ReadInt32();
         stone_image = reader.ReadString();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

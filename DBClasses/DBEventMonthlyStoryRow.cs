@@ -1,4 +1,4 @@
-﻿public class DBEventMonthlyStoryRow
+﻿public class DBEventMonthlyStoryRow : ITableRowIndexer
 {
     public int Id
     {

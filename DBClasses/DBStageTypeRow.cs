@@ -1,4 +1,4 @@
-﻿public class DBStageTypeRow
+﻿public class DBStageTypeRow : ITableRowIndexer
 {
     public int Id
     {
@@ -156,6 +156,11 @@
         rejoin_control = reader.ReadInt32();
         giveup_restart_control = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

@@ -1,4 +1,4 @@
-﻿public class DBAniAttachedNpcRow
+﻿public class DBAniAttachedNpcRow : ITableRowIndexer
 {
     public int Id
     {
@@ -58,6 +58,11 @@
             list_array_attached_ani_id.Add(reader.ReadInt32());
         }
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

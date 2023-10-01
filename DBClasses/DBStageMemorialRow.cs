@@ -1,4 +1,4 @@
-﻿public class DBStageMemorialRow
+﻿public class DBStageMemorialRow : ITableRowIndexer
 {
     public int Id
     {

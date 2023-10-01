@@ -1,4 +1,4 @@
-﻿public class DBEventAutoBuffRow
+﻿public class DBEventAutoBuffRow : ITableRowIndexer
 {
     public int Id
     {
@@ -66,6 +66,11 @@
         rate = reader.ReadInt32();
         buff_effect_id = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

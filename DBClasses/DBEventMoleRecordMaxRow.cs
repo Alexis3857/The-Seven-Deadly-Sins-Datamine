@@ -1,4 +1,4 @@
-﻿public class DBEventMoleRecordMaxRow
+﻿public class DBEventMoleRecordMaxRow : ITableRowIndexer
 {
     public int Id
     {

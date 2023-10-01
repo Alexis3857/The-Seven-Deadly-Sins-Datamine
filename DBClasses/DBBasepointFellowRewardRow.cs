@@ -1,4 +1,4 @@
-﻿public class DBBasepointFellowRewardRow
+﻿public class DBBasepointFellowRewardRow : ITableRowIndexer
 {
     public int Id
     {

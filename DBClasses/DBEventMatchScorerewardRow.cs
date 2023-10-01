@@ -1,4 +1,4 @@
-﻿public class DBEventMatchScorerewardRow
+﻿public class DBEventMatchScorerewardRow : ITableRowIndexer
 {
     public int Id
     {
@@ -48,6 +48,11 @@
         item_id = reader.ReadInt32();
         item_count = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

@@ -1,4 +1,4 @@
-﻿public class DBStageAncientMissionBuffRow
+﻿public class DBStageAncientMissionBuffRow : ITableRowIndexer
 {
     public int Id
     {
@@ -58,6 +58,11 @@
             list_array_enemy_use_buff_id.Add(reader.ReadInt32());
         }
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

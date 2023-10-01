@@ -1,4 +1,4 @@
-﻿public class DBEventPvpWincountWeekRow
+﻿public class DBEventPvpWincountWeekRow : ITableRowIndexer
 {
     public int Id
     {

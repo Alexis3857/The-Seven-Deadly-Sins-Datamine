@@ -1,4 +1,4 @@
-public class DBEventConfirmNoteRow
+public class DBEventConfirmNoteRow : ITableRowIndexer
 {
     public int Id
     {
@@ -57,6 +57,11 @@ public class DBEventConfirmNoteRow
         guide_left = reader.ReadInt32();
         guide_right = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

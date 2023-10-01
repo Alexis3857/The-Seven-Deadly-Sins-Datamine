@@ -1,4 +1,4 @@
-﻿public class DBLevelupPackageRow
+﻿public class DBLevelupPackageRow : ITableRowIndexer
 {
     public int Id
     {

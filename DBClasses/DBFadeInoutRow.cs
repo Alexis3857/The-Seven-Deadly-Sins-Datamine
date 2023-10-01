@@ -1,4 +1,4 @@
-﻿public class DBFadeInoutRow
+﻿public class DBFadeInoutRow : ITableRowIndexer
 {
     public int Id
     {

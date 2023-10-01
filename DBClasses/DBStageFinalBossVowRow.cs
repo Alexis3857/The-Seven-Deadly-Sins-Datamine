@@ -1,4 +1,4 @@
-﻿public class DBStageFinalBossVowRow
+﻿public class DBStageFinalBossVowRow : ITableRowIndexer
 {
     public int Id
     {
@@ -66,6 +66,11 @@
         localize_display_type = reader.ReadInt32();
         vow_reward_value = reader.ReadSingle();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

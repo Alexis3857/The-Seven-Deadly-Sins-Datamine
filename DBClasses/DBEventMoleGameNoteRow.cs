@@ -1,4 +1,4 @@
-﻿public class DBEventMoleGameNoteRow
+﻿public class DBEventMoleGameNoteRow : ITableRowIndexer
 {
     public int Id
     {

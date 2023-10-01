@@ -1,4 +1,4 @@
-﻿public class DBEventPredictUpgradeRow
+﻿public class DBEventPredictUpgradeRow : ITableRowIndexer
 {
     public int Id
     {

@@ -1,4 +1,4 @@
-﻿public class DBEventAutoGroupRow
+﻿public class DBEventAutoGroupRow : ITableRowIndexer
 {
     public int Id
     {
@@ -21,6 +21,11 @@
         id = reader.ReadInt32();
         background_name = reader.ReadString();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

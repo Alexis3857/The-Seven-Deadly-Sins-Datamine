@@ -1,4 +1,4 @@
-﻿public class DBEventPaybackRow
+﻿public class DBEventPaybackRow : ITableRowIndexer
 {
     public int Id
     {

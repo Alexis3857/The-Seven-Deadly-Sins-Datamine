@@ -1,4 +1,4 @@
-public class DBEventConquestLocalizationRow
+public class DBEventConquestLocalizationRow : ITableRowIndexer
 {
     public int Id
     {
@@ -273,6 +273,11 @@ public class DBEventConquestLocalizationRow
         ui_menu_btn_show_resources = reader.ReadInt32();
         ui_menu_btn_fever = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

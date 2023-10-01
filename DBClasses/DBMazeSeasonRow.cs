@@ -1,4 +1,4 @@
-﻿public class DBMazeSeasonRow
+﻿public class DBMazeSeasonRow : ITableRowIndexer
 {
     public int SeasonId
     {

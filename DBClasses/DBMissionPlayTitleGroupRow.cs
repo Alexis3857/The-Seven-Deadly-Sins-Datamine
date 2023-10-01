@@ -1,4 +1,4 @@
-﻿public class DBMissionPlayTitleGroupRow
+﻿public class DBMissionPlayTitleGroupRow : ITableRowIndexer
 {
     public int Id
     {
@@ -166,6 +166,11 @@
         play_title_mission_desc = reader.ReadInt32();
         play_title_passive_desc = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

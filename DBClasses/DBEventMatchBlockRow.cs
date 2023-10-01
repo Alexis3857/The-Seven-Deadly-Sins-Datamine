@@ -1,4 +1,4 @@
-﻿public class DBEventMatchBlockRow
+﻿public class DBEventMatchBlockRow : ITableRowIndexer
 {
     public int Id
     {
@@ -30,6 +30,11 @@
         block_icon = reader.ReadString();
         block_bg = reader.ReadString();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

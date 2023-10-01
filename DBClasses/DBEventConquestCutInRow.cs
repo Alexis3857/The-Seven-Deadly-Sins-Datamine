@@ -1,4 +1,4 @@
-﻿public class DBEventConquestCutInRow
+﻿public class DBEventConquestCutInRow : ITableRowIndexer
 {
     public int Id
     {
@@ -110,6 +110,11 @@
         cut_in_dialogue_bubble_type = reader.ReadInt32();
         cut_in_dialogue = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

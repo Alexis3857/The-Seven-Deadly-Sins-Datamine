@@ -1,4 +1,4 @@
-﻿public class DBWeaponMagicRow : DataTableCryptographer
+﻿public class DBWeaponMagicRow : DataTableCryptographer, ITableRowIndexer
 {
     protected override uint XOROperand
     {

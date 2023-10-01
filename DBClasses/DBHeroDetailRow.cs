@@ -1,4 +1,4 @@
-﻿public class DBHeroDetailRow
+﻿public class DBHeroDetailRow : ITableRowIndexer
 {
     public int Id
     {

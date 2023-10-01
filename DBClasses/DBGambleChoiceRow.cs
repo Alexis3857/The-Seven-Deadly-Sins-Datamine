@@ -1,4 +1,4 @@
-﻿public class DBGambleChoiceRow
+﻿public class DBGambleChoiceRow : ITableRowIndexer
 {
     public int Id
     {

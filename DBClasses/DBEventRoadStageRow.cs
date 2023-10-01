@@ -1,4 +1,4 @@
-public class DBEventRoadStageRow
+public class DBEventRoadStageRow : ITableRowIndexer
 {
     public int Id
     {
@@ -66,6 +66,11 @@ public class DBEventRoadStageRow
         tile_value2 = reader.ReadInt32();
         tile_reaction = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

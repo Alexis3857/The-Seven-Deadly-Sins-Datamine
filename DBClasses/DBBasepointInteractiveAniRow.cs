@@ -1,4 +1,4 @@
-﻿public class DBBasepointInteractiveAniRow
+﻿public class DBBasepointInteractiveAniRow : ITableRowIndexer
 {
     public int Id
     {

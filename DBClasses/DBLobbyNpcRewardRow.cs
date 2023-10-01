@@ -1,4 +1,4 @@
-﻿public class DBLobbyNpcRewardRow
+﻿public class DBLobbyNpcRewardRow : ITableRowIndexer
 {
     public int Id
     {

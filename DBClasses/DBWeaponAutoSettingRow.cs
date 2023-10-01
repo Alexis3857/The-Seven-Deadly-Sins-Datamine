@@ -1,4 +1,4 @@
-﻿public class DBWeaponAutoSettingRow
+﻿public class DBWeaponAutoSettingRow : ITableRowIndexer
 {
     public int SetAutoId
     {
@@ -26,6 +26,11 @@
             list_array_set_auto_priority.Add(reader.ReadInt32());
         }
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return SetAutoId;
     }
 
     private int set_auto_id;

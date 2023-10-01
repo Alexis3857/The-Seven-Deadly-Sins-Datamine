@@ -1,4 +1,4 @@
-﻿public class DBStageBossSeasonRow
+﻿public class DBStageBossSeasonRow : ITableRowIndexer
 {
     public int Id
     {

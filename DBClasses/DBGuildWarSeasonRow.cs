@@ -1,4 +1,4 @@
-﻿public class DBGuildWarSeasonRow
+﻿public class DBGuildWarSeasonRow : ITableRowIndexer
 {
     public int Season
     {

@@ -1,4 +1,4 @@
-﻿public class DBStepupSetRow
+﻿public class DBStepupSetRow : ITableRowIndexer
 {
     public int Id
     {

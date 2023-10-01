@@ -1,4 +1,4 @@
-﻿public class DBEventBossSettingRow
+﻿public class DBEventBossSettingRow : ITableRowIndexer
 {
     public int Id
     {
@@ -30,6 +30,11 @@
         event_start = reader.ReadString();
         event_use_hero_reset = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

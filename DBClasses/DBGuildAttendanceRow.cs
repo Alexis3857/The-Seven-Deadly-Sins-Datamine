@@ -1,4 +1,4 @@
-﻿public class DBGuildAttendanceRow
+﻿public class DBGuildAttendanceRow : ITableRowIndexer
 {
     public int Id
     {

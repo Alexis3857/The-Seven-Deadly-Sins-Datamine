@@ -1,4 +1,4 @@
-﻿public class DBEventCraftsRow
+﻿public class DBEventCraftsRow : ITableRowIndexer
 {
     public int Id
     {
@@ -127,6 +127,11 @@
         output_item_id = reader.ReadInt32();
         output_item_count = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

@@ -1,4 +1,4 @@
-public class DBCraftCostumeUpgradeFinishRow
+public class DBCraftCostumeUpgradeFinishRow : ITableRowIndexer
 {
     public int Id { get => id; }
     public int CraftCostumeGroup { get => craft_costume_group; }
@@ -12,6 +12,11 @@ public class DBCraftCostumeUpgradeFinishRow
         bonus_status_value = reader.ReadInt32();
         bonus_status_value = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

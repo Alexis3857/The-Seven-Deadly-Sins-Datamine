@@ -1,4 +1,4 @@
-﻿public class DBCookingMaterialRow
+﻿public class DBCookingMaterialRow : ITableRowIndexer
 {
     public int Id
     {
@@ -134,6 +134,11 @@
         recipe_exp = reader.ReadInt32();
         event_sub_index = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

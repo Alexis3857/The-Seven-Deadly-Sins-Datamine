@@ -1,4 +1,4 @@
-﻿public class DBCardpackArtifactInfoRow
+﻿public class DBCardpackArtifactInfoRow : ITableRowIndexer
 {
     public int CardpackId
     {
@@ -39,6 +39,11 @@
         artifact_id = reader.ReadInt32();
         artifact_rate = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return CardpackId;
     }
 
     private int cardpack_id;

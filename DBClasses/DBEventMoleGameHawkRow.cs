@@ -1,4 +1,4 @@
-﻿public class DBEventMoleGameHawkRow
+﻿public class DBEventMoleGameHawkRow : ITableRowIndexer
 {
     public int Id
     {

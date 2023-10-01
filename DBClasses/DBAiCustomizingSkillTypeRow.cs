@@ -1,4 +1,4 @@
-﻿public class DBAiCustomizingSkillTypeRow
+﻿public class DBAiCustomizingSkillTypeRow : ITableRowIndexer
 {
     public int Id
     {
@@ -53,6 +53,11 @@
             list_array_group_id.Add(reader.ReadInt32());
         }
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

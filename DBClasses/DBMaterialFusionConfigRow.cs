@@ -1,4 +1,4 @@
-﻿public class DBMaterialFusionConfigRow
+﻿public class DBMaterialFusionConfigRow : ITableRowIndexer
 {
     public int Id
     {

@@ -1,4 +1,4 @@
-public class DBEventConquestRow
+public class DBEventConquestRow : ITableRowIndexer
 {
     public int Id
     {
@@ -138,6 +138,11 @@ public class DBEventConquestRow
         fog_after_masking_rate = reader.ReadSingle();
         fog_masking_size = reader.ReadSingle();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

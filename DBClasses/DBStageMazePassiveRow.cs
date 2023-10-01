@@ -1,4 +1,4 @@
-﻿public class DBStageMazePassiveRow
+﻿public class DBStageMazePassiveRow : ITableRowIndexer
 {
     public int Id
     {
@@ -48,6 +48,11 @@
         random_passive_grade = reader.ReadInt32();
         basic_passive = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

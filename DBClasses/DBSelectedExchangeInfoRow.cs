@@ -1,4 +1,4 @@
-﻿public class DBSelectedExchangeInfoRow
+﻿public class DBSelectedExchangeInfoRow : ITableRowIndexer
 {
     public int Id
     {

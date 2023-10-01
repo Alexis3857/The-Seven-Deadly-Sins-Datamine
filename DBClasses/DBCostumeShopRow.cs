@@ -1,4 +1,4 @@
-﻿public class DBCostumeShopRow
+﻿public class DBCostumeShopRow : ITableRowIndexer
 {
     public int Id
     {
@@ -247,6 +247,11 @@
         hero_portrait_rotation = reader.ReadSingle();
         resale_check = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

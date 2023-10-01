@@ -1,4 +1,4 @@
-﻿public class DBMissionRow
+﻿public class DBMissionRow : ITableRowIndexer
 {
     public int Id
     {

@@ -1,4 +1,4 @@
-﻿public class DBEventBalloondartPinRow
+﻿public class DBEventBalloondartPinRow : ITableRowIndexer
 {
     public int Id => id;
 
@@ -12,6 +12,11 @@
         dart_type = reader.ReadString();
         dart_prefab = reader.ReadString();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

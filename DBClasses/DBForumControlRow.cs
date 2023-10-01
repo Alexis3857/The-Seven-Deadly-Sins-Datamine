@@ -1,4 +1,4 @@
-﻿public class DBForumControlRow
+﻿public class DBForumControlRow : ITableRowIndexer
 {
     public int Id
     {

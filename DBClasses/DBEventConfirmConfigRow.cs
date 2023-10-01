@@ -1,4 +1,4 @@
-public class DBEventConfirmConfigRow
+public class DBEventConfirmConfigRow : ITableRowIndexer
 {
     public int Id
     {
@@ -31,6 +31,12 @@ public class DBEventConfirmConfigRow
         value_int = reader.ReadInt32();
         return true;
     }
+
+    public int GetRowIndex()
+    {
+        return Id;
+    }
+
     private int id;
 
     private string contents;

@@ -1,4 +1,4 @@
-﻿public class DBHeroLovepointRewardRow
+﻿public class DBHeroLovepointRewardRow : ITableRowIndexer
 {
     public int Id
     {

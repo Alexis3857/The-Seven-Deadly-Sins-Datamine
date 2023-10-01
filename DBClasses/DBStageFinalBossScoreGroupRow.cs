@@ -1,4 +1,4 @@
-﻿public class DBStageFinalBossScoreGroupRow
+﻿public class DBStageFinalBossScoreGroupRow : ITableRowIndexer
 {
     public int FinalBossScoreGroupId
     {
@@ -77,6 +77,11 @@
         }
         lotation_period = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return FinalBossScoreGroupId;
     }
 
     private int final_boss_score_group_id;

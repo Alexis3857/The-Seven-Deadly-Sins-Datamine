@@ -1,4 +1,4 @@
-﻿public class DBShopMoneyRow
+﻿public class DBShopMoneyRow : ITableRowIndexer
 {
     public int Id
     {

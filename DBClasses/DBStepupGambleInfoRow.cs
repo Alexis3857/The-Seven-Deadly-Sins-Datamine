@@ -1,4 +1,4 @@
-﻿public class DBStepupGambleInfoRow
+﻿public class DBStepupGambleInfoRow : ITableRowIndexer
 {
     public int GroupId
     {

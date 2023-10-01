@@ -1,4 +1,4 @@
-public class DBPvpChaosRankRewardRow
+public class DBPvpChaosRankRewardRow : ITableRowIndexer
 {
     public int Id { get => id; }
     public int Season { get => season; }
@@ -61,6 +61,11 @@ public class DBPvpChaosRankRewardRow
         reward_id_3 = reader.ReadInt32();
         reward_count_3 = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

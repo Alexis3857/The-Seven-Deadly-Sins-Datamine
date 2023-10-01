@@ -1,4 +1,4 @@
-public class DBShopCreaturecolosseumRow
+public class DBShopCreaturecolosseumRow : ITableRowIndexer
 {
     public int Id
     {
@@ -84,6 +84,11 @@ public class DBShopCreaturecolosseumRow
         buy_limited_count = reader.ReadInt32();
         view_index = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

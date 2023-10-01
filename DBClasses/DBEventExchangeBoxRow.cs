@@ -1,4 +1,4 @@
-﻿public class DBEventExchangeBoxRow
+﻿public class DBEventExchangeBoxRow : ITableRowIndexer
 {
     public int Id
     {
@@ -84,6 +84,11 @@
         rate = reader.ReadInt32();
         grade = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

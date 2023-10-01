@@ -1,4 +1,4 @@
-﻿public class DBFinalBossShopRow
+﻿public class DBFinalBossShopRow : ITableRowIndexer
 {
     public int Id
     {

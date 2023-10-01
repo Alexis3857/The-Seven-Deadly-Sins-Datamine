@@ -1,4 +1,4 @@
-public class DBMazeReplayBonusRow
+public class DBMazeReplayBonusRow : ITableRowIndexer
 {
     public int Id
     {
@@ -57,6 +57,11 @@ public class DBMazeReplayBonusRow
         special_point = reader.ReadInt32();
         awaken_point = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

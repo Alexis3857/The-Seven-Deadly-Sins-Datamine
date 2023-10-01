@@ -1,4 +1,4 @@
-﻿public class DBWeaponGrindRow : DataTableCryptographer
+﻿public class DBWeaponGrindRow : DataTableCryptographer, ITableRowIndexer
 {
     protected override uint XOROperand
     {
@@ -262,6 +262,11 @@
         evolution_item_rate_5 = reader.ReadBytes(4);
         evolution_item_rate_6 = reader.ReadBytes(4);
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private byte[] id;

@@ -1,4 +1,4 @@
-﻿public class DBFoodBuffRow
+﻿public class DBFoodBuffRow : ITableRowIndexer
 {
     public int Id
     {

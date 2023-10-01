@@ -1,4 +1,4 @@
-﻿public class DBSfxRow
+﻿public class DBSfxRow : ITableRowIndexer
 {
     public int Id
     {
@@ -89,6 +89,11 @@
         path = reader.ReadString();
         filename = reader.ReadString();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

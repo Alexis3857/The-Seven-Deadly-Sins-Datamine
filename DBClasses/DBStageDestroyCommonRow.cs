@@ -1,4 +1,4 @@
-﻿public class DBStageDestroyCommonRow
+﻿public class DBStageDestroyCommonRow : ITableRowIndexer
 {
     public int BossId
     {
@@ -138,6 +138,11 @@
         UI_destroy_live_join_btn_file = reader.ReadString();
         destroy_onestep_clear = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return BossId;
     }
 
     private int boss_id;

@@ -1,4 +1,4 @@
-﻿public class DBCoinShopEventRow
+﻿public class DBCoinShopEventRow : ITableRowIndexer
 {
     public int Id
     {
@@ -147,6 +147,11 @@
         buy_limited_start = reader.ReadString();
         buy_limited_end = reader.ReadString();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

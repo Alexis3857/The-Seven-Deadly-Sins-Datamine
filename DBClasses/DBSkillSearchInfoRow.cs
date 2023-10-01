@@ -1,4 +1,4 @@
-﻿public class DBSkillSearchInfoRow
+﻿public class DBSkillSearchInfoRow : ITableRowIndexer
 {
     public int Id
     {

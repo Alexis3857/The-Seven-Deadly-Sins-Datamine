@@ -1,4 +1,4 @@
-﻿public class DBEventWishboxRow
+﻿public class DBEventWishboxRow : ITableRowIndexer
 {
     public int Id
     {
@@ -66,6 +66,11 @@
         skin_level = reader.ReadInt32();
         skin_awaken = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

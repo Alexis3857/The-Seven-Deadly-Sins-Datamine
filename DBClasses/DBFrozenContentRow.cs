@@ -1,4 +1,4 @@
-﻿public class DBFrozenContentRow
+﻿public class DBFrozenContentRow : ITableRowIndexer
 {
     public int Id
     {

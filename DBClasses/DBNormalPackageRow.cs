@@ -1,4 +1,4 @@
-﻿public class DBNormalPackageRow
+﻿public class DBNormalPackageRow : ITableRowIndexer
 {
     public int ProductId
     {

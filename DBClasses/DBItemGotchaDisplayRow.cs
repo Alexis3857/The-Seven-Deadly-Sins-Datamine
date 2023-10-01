@@ -1,4 +1,4 @@
-﻿public class DBItemGotchaDisplayRow
+﻿public class DBItemGotchaDisplayRow : ITableRowIndexer
 {
     public int Id
     {

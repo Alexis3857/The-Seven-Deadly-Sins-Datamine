@@ -1,4 +1,4 @@
-﻿public class DBControlAnotherRow
+﻿public class DBControlAnotherRow : ITableRowIndexer
 {
     public int Id
     {
@@ -57,6 +57,11 @@
         large_popup_name = reader.ReadString();
         direct_selector_id = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

@@ -1,6 +1,6 @@
-public class DBStageCreaturenestGaugeRow
+public class DBStageCreaturenestGaugeRow : ITableRowIndexer
 {
-    public int ID
+    public int Id
     {
         get
         {
@@ -108,6 +108,11 @@ public class DBStageCreaturenestGaugeRow
             list_array_gauge_val.Add(reader.ReadInt32());
         }
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

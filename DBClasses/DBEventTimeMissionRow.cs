@@ -1,4 +1,4 @@
-﻿public class DBEventTimeMissionRow
+﻿public class DBEventTimeMissionRow : ITableRowIndexer
 {
     public int Id
     {

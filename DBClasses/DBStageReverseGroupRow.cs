@@ -1,4 +1,4 @@
-﻿public class DBStageReverseGroupRow
+﻿public class DBStageReverseGroupRow : ITableRowIndexer
 {
     public int Id
     {

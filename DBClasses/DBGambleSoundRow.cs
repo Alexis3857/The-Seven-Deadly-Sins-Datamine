@@ -1,4 +1,4 @@
-﻿public class DBGambleSoundRow
+﻿public class DBGambleSoundRow : ITableRowIndexer
 {
     public int Id
     {

@@ -1,4 +1,4 @@
-﻿public class DBSkillCardResourceRow : DataTableCryptographer
+﻿public class DBSkillCardResourceRow : DataTableCryptographer, ITableRowIndexer
 {
     protected override uint XOROperand
     {

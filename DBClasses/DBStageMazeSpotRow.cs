@@ -1,4 +1,4 @@
-public class DBStageMazeSpotRow
+public class DBStageMazeSpotRow : ITableRowIndexer
 {
     public int Id
     {
@@ -212,6 +212,11 @@ public class DBStageMazeSpotRow
         badge_etc = reader.ReadInt32();
         random_stage_group = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

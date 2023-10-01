@@ -1,4 +1,4 @@
-﻿public class DBEventLabelInfoRow
+﻿public class DBEventLabelInfoRow : ITableRowIndexer
 {
     public int Id
     {
@@ -21,6 +21,11 @@
         id = reader.ReadInt32();
         event_highlight_name = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

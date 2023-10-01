@@ -1,4 +1,4 @@
-﻿public class DBCharacterLocalizeInfoRow
+﻿public class DBCharacterLocalizeInfoRow : ITableRowIndexer
 {
     public int Id
     {
@@ -48,6 +48,11 @@
         icon = reader.ReadString();
         icon_type = reader.ReadString();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

@@ -1,4 +1,4 @@
-﻿public class DBShopHawkMileageRow
+﻿public class DBShopHawkMileageRow : ITableRowIndexer
 {
     public int Id
     {

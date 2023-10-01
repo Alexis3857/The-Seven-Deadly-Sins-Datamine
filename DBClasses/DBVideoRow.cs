@@ -1,4 +1,4 @@
-﻿public class DBVideoRow
+﻿public class DBVideoRow : ITableRowIndexer
 {
     public int Id
     {

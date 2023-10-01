@@ -1,4 +1,4 @@
-﻿public class DBFreePackageRewardRow
+﻿public class DBFreePackageRewardRow : ITableRowIndexer
 {
     public int Id
     {

@@ -1,4 +1,4 @@
-public class DBHeroLeagueSeasonRow
+public class DBHeroLeagueSeasonRow : ITableRowIndexer
 {
     public int Index
     {
@@ -66,6 +66,11 @@ public class DBHeroLeagueSeasonRow
         season_title = reader.ReadInt32();
         season_price_id = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Index;
     }
 
     private int index;

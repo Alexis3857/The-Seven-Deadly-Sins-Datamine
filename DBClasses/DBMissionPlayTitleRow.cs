@@ -1,4 +1,4 @@
-﻿public class DBMissionPlayTitleRow
+﻿public class DBMissionPlayTitleRow : ITableRowIndexer
 {
     public int Id
     {

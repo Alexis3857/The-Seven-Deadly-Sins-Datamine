@@ -1,4 +1,4 @@
-﻿public class DBPopupPackageRow
+﻿public class DBPopupPackageRow : ITableRowIndexer
 {
     public int Id
     {

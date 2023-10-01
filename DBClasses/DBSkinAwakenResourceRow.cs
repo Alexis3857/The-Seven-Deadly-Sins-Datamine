@@ -1,4 +1,4 @@
-﻿public class DBSkinAwakenResourceRow
+﻿public class DBSkinAwakenResourceRow : ITableRowIndexer
 {
     public int Id
     {
@@ -174,6 +174,11 @@
         awaken_price_count = reader.ReadInt32();
         weapon_costume_id = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

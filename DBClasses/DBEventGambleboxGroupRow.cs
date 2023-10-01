@@ -1,4 +1,4 @@
-public class DBEventGambleboxGroupRow
+public class DBEventGambleboxGroupRow : ITableRowIndexer
 {
     public int Id
     {
@@ -102,6 +102,11 @@ public class DBEventGambleboxGroupRow
         skin_awaken = reader.ReadInt32();
         pick_up_info = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

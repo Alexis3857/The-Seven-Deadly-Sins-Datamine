@@ -1,4 +1,4 @@
-﻿public class DBAiCustomizingSkillSelectRow
+﻿public class DBAiCustomizingSkillSelectRow : ITableRowIndexer
 {
     public int Id
     {

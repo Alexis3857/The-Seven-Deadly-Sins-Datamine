@@ -1,4 +1,4 @@
-﻿public class DBStageNpcSettingRow
+﻿public class DBStageNpcSettingRow : ITableRowIndexer
 {
     public int Id
     {

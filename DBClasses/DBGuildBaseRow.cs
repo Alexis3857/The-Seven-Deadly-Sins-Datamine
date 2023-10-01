@@ -1,4 +1,4 @@
-﻿public class DBGuildBaseRow
+﻿public class DBGuildBaseRow : ITableRowIndexer
 {
     public int GuildLevel
     {

@@ -1,4 +1,4 @@
-﻿public class DBStepupGambleBonusRewardRow
+﻿public class DBStepupGambleBonusRewardRow : ITableRowIndexer
 {
     public int Index
     {
@@ -84,6 +84,11 @@
         skin_level = reader.ReadInt32();
         skin_awaken = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Index;
     }
 
     private int index;

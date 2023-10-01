@@ -1,4 +1,4 @@
-﻿public class DBQuestCharacterCostumeRow
+﻿public class DBQuestCharacterCostumeRow : ITableRowIndexer
 {
     public int Id
     {

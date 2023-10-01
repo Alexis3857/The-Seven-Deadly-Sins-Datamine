@@ -1,4 +1,4 @@
-﻿public class DBEventMissionScoreRow
+﻿public class DBEventMissionScoreRow : ITableRowIndexer
 {
     public int Id
     {

@@ -1,4 +1,4 @@
-﻿public class DBRegionChangeRow
+﻿public class DBRegionChangeRow : ITableRowIndexer
 {
     public int Id
     {
@@ -84,6 +84,11 @@
         close_type = reader.ReadString();
         close_value = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

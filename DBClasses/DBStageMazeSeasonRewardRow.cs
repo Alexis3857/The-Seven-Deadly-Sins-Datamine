@@ -1,4 +1,4 @@
-﻿public class DBStageMazeSeasonRewardRow
+﻿public class DBStageMazeSeasonRewardRow : ITableRowIndexer
 {
     public int Id
     {
@@ -57,6 +57,11 @@
         spot_group_reward_id = reader.ReadInt32();
         spot_group_reward_value = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

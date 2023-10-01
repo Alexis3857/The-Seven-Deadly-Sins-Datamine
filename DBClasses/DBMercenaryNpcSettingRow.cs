@@ -1,4 +1,4 @@
-﻿public class DBMercenaryNpcSettingRow
+﻿public class DBMercenaryNpcSettingRow : ITableRowIndexer
 {
     public int Id
     {

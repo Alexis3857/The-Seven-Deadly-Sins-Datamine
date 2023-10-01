@@ -1,4 +1,4 @@
-﻿public class DBStageGlobalTypeRow
+﻿public class DBStageGlobalTypeRow : ITableRowIndexer
 {
     public int Id
     {

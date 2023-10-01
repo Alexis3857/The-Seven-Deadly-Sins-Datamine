@@ -1,4 +1,4 @@
-﻿public class DBEventDisasterTripleRow
+﻿public class DBEventDisasterTripleRow : ITableRowIndexer
 {
     public int Id
     {
@@ -129,6 +129,11 @@
         first_reward_id_extreme = reader.ReadInt32();
         first_reward_value_extreme = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

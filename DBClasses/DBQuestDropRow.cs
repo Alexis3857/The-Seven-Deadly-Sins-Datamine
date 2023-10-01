@@ -1,4 +1,4 @@
-﻿public class DBQuestDropRow
+﻿public class DBQuestDropRow : ITableRowIndexer
 {
     public int Id
     {
@@ -84,6 +84,11 @@
         drop_count_min = reader.ReadInt32();
         drop_count_max = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

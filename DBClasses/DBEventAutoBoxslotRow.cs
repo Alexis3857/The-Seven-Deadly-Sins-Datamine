@@ -1,4 +1,4 @@
-﻿public class DBEventAutoBoxslotRow
+﻿public class DBEventAutoBoxslotRow : ITableRowIndexer
 {
     public int Id
     {
@@ -48,6 +48,11 @@
         slot_count = reader.ReadInt32();
         enhance_count = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

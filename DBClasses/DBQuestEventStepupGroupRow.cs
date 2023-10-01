@@ -1,4 +1,4 @@
-﻿public class DBQuestEventStepupGroupRow
+﻿public class DBQuestEventStepupGroupRow : ITableRowIndexer
 {
     public int Id
     {

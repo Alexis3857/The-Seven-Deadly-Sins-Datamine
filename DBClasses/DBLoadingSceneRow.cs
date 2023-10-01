@@ -1,4 +1,4 @@
-﻿public class DBLoadingSceneRow
+﻿public class DBLoadingSceneRow : ITableRowIndexer
 {
     public int Id
     {

@@ -1,4 +1,4 @@
-public class DBGuildorderMissionRow
+public class DBGuildorderMissionRow : ITableRowIndexer
 {
     public int Id
     {
@@ -57,6 +57,11 @@ public class DBGuildorderMissionRow
         mission_target_value = reader.ReadInt32();
         reward_iap = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

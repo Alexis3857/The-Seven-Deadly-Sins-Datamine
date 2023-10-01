@@ -1,4 +1,4 @@
-﻿public class DBVoiceRow
+﻿public class DBVoiceRow : ITableRowIndexer
 {
     public int Id
     {

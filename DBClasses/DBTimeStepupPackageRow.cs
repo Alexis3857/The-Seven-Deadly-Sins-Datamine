@@ -1,4 +1,4 @@
-﻿public class DBTimeStepupPackageRow
+﻿public class DBTimeStepupPackageRow : ITableRowIndexer
 {
     public int Id
     {
@@ -57,6 +57,11 @@
         limit_time = reader.ReadInt32();
         product_reset = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

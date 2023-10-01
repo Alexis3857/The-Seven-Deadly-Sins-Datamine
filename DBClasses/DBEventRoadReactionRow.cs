@@ -1,4 +1,4 @@
-public class DBEventRoadReactionRow
+public class DBEventRoadReactionRow : ITableRowIndexer
 {
     public int Id
     {
@@ -30,6 +30,11 @@ public class DBEventRoadReactionRow
         locale = reader.ReadInt32();
         animation = reader.ReadString();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

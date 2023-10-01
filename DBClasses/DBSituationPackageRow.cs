@@ -1,4 +1,4 @@
-﻿public class DBSituationPackageRow
+﻿public class DBSituationPackageRow : ITableRowIndexer
 {
     public int Id
     {

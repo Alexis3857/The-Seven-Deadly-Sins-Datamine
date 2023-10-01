@@ -1,4 +1,4 @@
-﻿public class DBSkinResearchRow
+﻿public class DBSkinResearchRow : ITableRowIndexer
 {
     public int Id
     {
@@ -288,6 +288,11 @@
         research_resource_count_6 = reader.ReadInt32();
         research_need_gold = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

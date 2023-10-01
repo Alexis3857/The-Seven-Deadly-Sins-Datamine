@@ -1,4 +1,4 @@
-﻿public class DBStageTowerModePassiveRow
+﻿public class DBStageTowerModePassiveRow : ITableRowIndexer
 {
     public int Id
     {

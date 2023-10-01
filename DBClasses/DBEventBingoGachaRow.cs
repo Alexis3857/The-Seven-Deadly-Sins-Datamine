@@ -1,4 +1,4 @@
-﻿public class DBEventBingoGachaRow
+﻿public class DBEventBingoGachaRow : ITableRowIndexer
 {
     public int Id
     {
@@ -66,6 +66,11 @@
         grade = reader.ReadInt32();
         need_item = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

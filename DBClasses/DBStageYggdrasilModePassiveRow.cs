@@ -1,4 +1,4 @@
-﻿public class DBStageYggdrasilModePassiveRow
+﻿public class DBStageYggdrasilModePassiveRow : ITableRowIndexer
 {
     public int Id
     {

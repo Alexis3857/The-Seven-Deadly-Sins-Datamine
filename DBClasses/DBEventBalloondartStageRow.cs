@@ -1,4 +1,4 @@
-﻿public class DBEventBalloondartStageRow
+﻿public class DBEventBalloondartStageRow : ITableRowIndexer
 {
     public int Id => id;
 
@@ -9,6 +9,11 @@
         id = reader.ReadInt32();
         stage_title = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

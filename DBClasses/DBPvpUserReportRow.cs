@@ -1,4 +1,4 @@
-﻿public class DBPvpUserReportRow
+﻿public class DBPvpUserReportRow : ITableRowIndexer
 {
     public int Id
     {
@@ -21,6 +21,11 @@
         id = reader.ReadInt32();
         user_report_explain = reader.ReadString();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

@@ -1,4 +1,4 @@
-public class DBPvpChaosHeroCostRow
+public class DBPvpChaosHeroCostRow : ITableRowIndexer
 {
     public int Id { get => id; }
     public int Season { get => season; }
@@ -14,6 +14,11 @@ public class DBPvpChaosHeroCostRow
         hero_cost = reader.ReadInt32();
         hero_id = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

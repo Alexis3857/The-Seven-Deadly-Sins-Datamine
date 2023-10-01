@@ -1,4 +1,4 @@
-﻿public class DBMailboxRow
+﻿public class DBMailboxRow : ITableRowIndexer
 {
     public int Id
     {

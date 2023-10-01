@@ -1,4 +1,4 @@
-﻿public class DBStageFinalBossRankRewardRow
+﻿public class DBStageFinalBossRankRewardRow : ITableRowIndexer
 {
     public int Id
     {
@@ -303,6 +303,11 @@
         reward_id_10 = reader.ReadInt32();
         reward_count_10 = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

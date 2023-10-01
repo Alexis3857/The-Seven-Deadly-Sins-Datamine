@@ -1,4 +1,4 @@
-﻿public class DBStageWeekRow
+﻿public class DBStageWeekRow : ITableRowIndexer
 {
     public int Id
     {

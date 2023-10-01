@@ -1,4 +1,4 @@
-﻿public class DBEventMatchBuffRow
+﻿public class DBEventMatchBuffRow : ITableRowIndexer
 {
     public int Id
     {
@@ -72,6 +72,11 @@
         value_int_1 = reader.ReadInt32();
         rate = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

@@ -1,4 +1,4 @@
-﻿public class DBStoryreviewListRow
+﻿public class DBStoryreviewListRow : ITableRowIndexer
 {
     public int Id
     {

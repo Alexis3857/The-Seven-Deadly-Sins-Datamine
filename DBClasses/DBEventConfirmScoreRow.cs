@@ -1,4 +1,4 @@
-public class DBEventConfirmScoreRow
+public class DBEventConfirmScoreRow : ITableRowIndexer
 {
     public int Id
     {
@@ -48,6 +48,11 @@ public class DBEventConfirmScoreRow
         score_item_id = reader.ReadInt32();
         score_item_count = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

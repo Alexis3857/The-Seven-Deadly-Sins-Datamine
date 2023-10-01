@@ -1,4 +1,4 @@
-﻿public class DBEventMissionRow
+﻿public class DBEventMissionRow : ITableRowIndexer
 {
     public int Id
     {
@@ -426,6 +426,11 @@
         mission_name = reader.ReadInt32();
         mission_quick_link = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

@@ -1,4 +1,4 @@
-﻿public class DBPvpTopRankRow
+﻿public class DBPvpTopRankRow : ITableRowIndexer
 {
     public int Id
     {

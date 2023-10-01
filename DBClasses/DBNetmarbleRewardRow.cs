@@ -1,4 +1,4 @@
-﻿public class DBNetmarbleRewardRow
+﻿public class DBNetmarbleRewardRow : ITableRowIndexer
 {
     public int Id
     {

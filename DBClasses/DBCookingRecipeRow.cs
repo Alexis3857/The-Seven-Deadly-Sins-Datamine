@@ -1,4 +1,4 @@
-﻿public class DBCookingRecipeRow
+﻿public class DBCookingRecipeRow : ITableRowIndexer
 {
     public int Id
     {
@@ -157,6 +157,11 @@
         cooking_pvp_top_100_def_team_buff = reader.ReadInt32();
         event_sub_index = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

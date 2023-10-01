@@ -1,4 +1,4 @@
-﻿public class DBStageDescentBossGroupRow
+﻿public class DBStageDescentBossGroupRow : ITableRowIndexer
 {
     public int GroupId
     {
@@ -181,6 +181,11 @@
         group_monster_location_y = reader.ReadInt32();
         group_monster_location_x = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return GroupId;
     }
 
     private int group_id;

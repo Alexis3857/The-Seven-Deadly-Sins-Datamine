@@ -1,4 +1,4 @@
-﻿public class DBLoseGuideRow
+﻿public class DBLoseGuideRow : ITableRowIndexer
 {
     public int Id
     {

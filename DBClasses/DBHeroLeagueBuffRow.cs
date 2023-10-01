@@ -1,4 +1,4 @@
-public class DBHeroLeagueBuffRow
+public class DBHeroLeagueBuffRow : ITableRowIndexer
 {
     public int Id
     {
@@ -48,6 +48,11 @@ public class DBHeroLeagueBuffRow
         special_buff_passive_id = reader.ReadInt32();
         season_buff_passive_id = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

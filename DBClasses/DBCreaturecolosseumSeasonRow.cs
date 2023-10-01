@@ -1,4 +1,4 @@
-public class DBCreaturecolosseumSeasonRow
+public class DBCreaturecolosseumSeasonRow : ITableRowIndexer
 {
     public int Id { get => id; }
 
@@ -27,6 +27,11 @@ public class DBCreaturecolosseumSeasonRow
         combat_menu_label = reader.ReadInt32();
         button_effect = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

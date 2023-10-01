@@ -1,4 +1,4 @@
-﻿public class DBInteractiveVrRow
+﻿public class DBInteractiveVrRow : ITableRowIndexer
 {
     public int Id
     {

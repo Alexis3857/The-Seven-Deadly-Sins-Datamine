@@ -1,4 +1,4 @@
-﻿public class DBBasepointCollisionNpcRow
+﻿public class DBBasepointCollisionNpcRow : ITableRowIndexer
 {
     public int Id
     {
@@ -129,6 +129,11 @@
         npc_cinema_id = reader.ReadInt32();
         guide_local = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

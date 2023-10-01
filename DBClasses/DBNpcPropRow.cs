@@ -1,4 +1,4 @@
-﻿public class DBNpcPropRow
+﻿public class DBNpcPropRow : ITableRowIndexer
 {
     public int Id
     {

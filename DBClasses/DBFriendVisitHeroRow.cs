@@ -1,4 +1,4 @@
-﻿public class DBFriendVisitHeroRow
+﻿public class DBFriendVisitHeroRow : ITableRowIndexer
 {
     public int Id
     {

@@ -1,4 +1,4 @@
-﻿public class DBAiCustomizingCostRow
+﻿public class DBAiCustomizingCostRow : ITableRowIndexer
 {
     public int Id
     {
@@ -30,6 +30,11 @@
         skill_cost_enum = reader.ReadString();
         skill_cost_name = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

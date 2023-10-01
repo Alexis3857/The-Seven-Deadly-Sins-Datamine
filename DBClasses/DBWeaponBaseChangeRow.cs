@@ -1,4 +1,4 @@
-﻿public class DBWeaponBaseChangeRow
+﻿public class DBWeaponBaseChangeRow : ITableRowIndexer
 {
     public int Id
     {
@@ -118,6 +118,11 @@
         need_material_id_3 = reader.ReadInt32();
         need_material_count_3 = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

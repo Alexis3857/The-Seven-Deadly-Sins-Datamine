@@ -1,4 +1,4 @@
-﻿public class DBGambleTimeSwitchRow
+﻿public class DBGambleTimeSwitchRow : ITableRowIndexer
 {
     public int Id
     {

@@ -1,4 +1,4 @@
-﻿public class DBHeroFilterGroupRow
+﻿public class DBHeroFilterGroupRow : ITableRowIndexer
 {
     public int Id
     {

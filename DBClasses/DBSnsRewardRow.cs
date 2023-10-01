@@ -1,4 +1,4 @@
-﻿public class DBSnsRewardRow
+﻿public class DBSnsRewardRow : ITableRowIndexer
 {
     public int Id
     {

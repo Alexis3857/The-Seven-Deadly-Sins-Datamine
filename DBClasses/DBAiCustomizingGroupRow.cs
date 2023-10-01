@@ -1,4 +1,4 @@
-﻿public class DBAiCustomizingGroupRow
+﻿public class DBAiCustomizingGroupRow : ITableRowIndexer
 {
     public int Id
     {
@@ -48,6 +48,11 @@
         action_check = reader.ReadInt32();
         group_type_icon = reader.ReadString();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

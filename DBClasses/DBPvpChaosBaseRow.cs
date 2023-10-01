@@ -1,4 +1,4 @@
-public class DBPvpChaosBaseRow
+public class DBPvpChaosBaseRow : ITableRowIndexer
 {
     public int Id { get => id; }
     public string SeasonStartData { get => season_start_date; }
@@ -31,6 +31,11 @@ public class DBPvpChaosBaseRow
         daily_reward_count = reader.ReadInt32();
         daily_reward_limit = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

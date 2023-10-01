@@ -1,4 +1,4 @@
-﻿public class DBGuideRecommendListRow
+﻿public class DBGuideRecommendListRow : ITableRowIndexer
 {
     public int Id
     {

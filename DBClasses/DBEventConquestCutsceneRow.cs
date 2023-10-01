@@ -1,4 +1,4 @@
-public class DBEventConquestCutsceneRow
+public class DBEventConquestCutsceneRow : ITableRowIndexer
 {
     public int Id
     {
@@ -85,6 +85,12 @@ public class DBEventConquestCutsceneRow
         cutscene_id = reader.ReadInt32();
         return true;
     }
+
+    public int GetRowIndex()
+    {
+        return Id;
+    }
+
     private int id;
 
     private int event_sub_index;

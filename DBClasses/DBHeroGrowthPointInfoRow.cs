@@ -1,4 +1,4 @@
-﻿public class DBHeroGrowthPointInfoRow
+﻿public class DBHeroGrowthPointInfoRow : ITableRowIndexer
 {
     public int Id
     {

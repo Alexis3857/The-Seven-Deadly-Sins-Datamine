@@ -1,4 +1,4 @@
-﻿public class DBStageGuildWarLowRow
+﻿public class DBStageGuildWarLowRow : ITableRowIndexer
 {
     public int Id
     {
@@ -260,6 +260,11 @@
         Hrun_bg = reader.ReadString();
         npc_team_id = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

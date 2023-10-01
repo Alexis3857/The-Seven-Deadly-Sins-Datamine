@@ -1,4 +1,4 @@
-﻿public class DBGuildWarConfigRow
+﻿public class DBGuildWarConfigRow : ITableRowIndexer
 {
     public int Id
     {

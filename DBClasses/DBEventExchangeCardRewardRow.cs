@@ -1,4 +1,4 @@
-﻿public class DBEventExchangeCardRewardRow
+﻿public class DBEventExchangeCardRewardRow : ITableRowIndexer
 {
     public int Id
     {
@@ -89,6 +89,11 @@
         }
         jackpot_value = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

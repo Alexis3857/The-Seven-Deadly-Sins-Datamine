@@ -1,4 +1,4 @@
-﻿public class DBPackageWeaponGrowthRow
+﻿public class DBPackageWeaponGrowthRow : ITableRowIndexer
 {
     public int Id
     {

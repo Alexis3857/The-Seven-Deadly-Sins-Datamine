@@ -1,4 +1,4 @@
-﻿public class DBArtifactCardUnionRow
+﻿public class DBArtifactCardUnionRow : ITableRowIndexer
 {
     public int UnionId
     {
@@ -250,6 +250,11 @@
             list_array_union_another.Add(reader.ReadByte());
         }
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return UnionId;
     }
 
     private int union_id;

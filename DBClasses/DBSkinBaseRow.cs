@@ -1,4 +1,4 @@
-﻿public class DBSkinBaseRow
+﻿public class DBSkinBaseRow : ITableRowIndexer
 {
     public int Id
     {

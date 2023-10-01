@@ -1,4 +1,4 @@
-﻿public class DBKingAmberRow
+﻿public class DBKingAmberRow : ITableRowIndexer
 {
     public int Id
     {

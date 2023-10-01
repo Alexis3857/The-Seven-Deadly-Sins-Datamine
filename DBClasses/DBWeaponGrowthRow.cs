@@ -1,4 +1,4 @@
-﻿public class DBWeaponGrowthRow
+﻿public class DBWeaponGrowthRow : ITableRowIndexer
 {
     public int Id
     {
@@ -130,6 +130,11 @@
         evolution_option_amount_set = reader.ReadSingle();
         weapon_upgrade_count = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

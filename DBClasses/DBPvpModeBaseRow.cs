@@ -1,4 +1,4 @@
-﻿public class DBPvpModeBaseRow
+﻿public class DBPvpModeBaseRow : ITableRowIndexer
 {
     public int Id
     {

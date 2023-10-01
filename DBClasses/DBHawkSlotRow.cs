@@ -1,4 +1,4 @@
-﻿public class DBHawkSlotRow
+﻿public class DBHawkSlotRow : ITableRowIndexer
 {
     public int Id
     {

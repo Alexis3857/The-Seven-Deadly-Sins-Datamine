@@ -1,4 +1,4 @@
-﻿public class DBStageReverseSeasonRewardRow
+﻿public class DBStageReverseSeasonRewardRow : ITableRowIndexer
 {
     public int SeasonId
     {

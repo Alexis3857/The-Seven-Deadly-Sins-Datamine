@@ -1,4 +1,4 @@
-﻿public class DBEventMissionRewardRow
+﻿public class DBEventMissionRewardRow : ITableRowIndexer
 {
     public int Id
     {
@@ -117,6 +117,11 @@
         skin_level_1 = reader.ReadInt32();
         skin_awaken_1 = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

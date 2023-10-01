@@ -1,4 +1,4 @@
-public class DBMazeSeasonShopRow
+public class DBMazeSeasonShopRow : ITableRowIndexer
 {
     public int Id
     {
@@ -120,6 +120,11 @@ public class DBMazeSeasonShopRow
         buy_limited_season_count = reader.ReadInt32();
         product_condition = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

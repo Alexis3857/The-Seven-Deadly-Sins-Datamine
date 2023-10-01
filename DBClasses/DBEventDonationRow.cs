@@ -1,4 +1,4 @@
-﻿public class DBEventDonationRow
+﻿public class DBEventDonationRow : ITableRowIndexer
 {
     public int Id
     {
@@ -211,6 +211,11 @@
         reward_item_id_5 = reader.ReadInt32();
         reward_item_count_5 = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

@@ -1,4 +1,4 @@
-﻿public class DBStageTrainingGroupRow
+﻿public class DBStageTrainingGroupRow : ITableRowIndexer
 {
     public int GroupId
     {
@@ -84,6 +84,11 @@
         stage_id_4 = reader.ReadInt32();
         stage_rate = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return GroupId;
     }
 
     private int group_id;

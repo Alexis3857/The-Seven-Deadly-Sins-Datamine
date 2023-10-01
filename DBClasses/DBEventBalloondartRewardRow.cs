@@ -1,4 +1,4 @@
-﻿public class DBEventBalloondartRewardRow
+﻿public class DBEventBalloondartRewardRow : ITableRowIndexer
 {
     public int Id => id;
 
@@ -12,6 +12,11 @@
         item_id = reader.ReadInt32();
         item_count = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

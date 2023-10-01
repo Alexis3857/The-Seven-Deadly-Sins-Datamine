@@ -1,4 +1,4 @@
-﻿public class DBEventAutoStageRow
+﻿public class DBEventAutoStageRow : ITableRowIndexer
 {
     public int Id
     {
@@ -93,6 +93,11 @@
         box_reward_grade = reader.ReadInt32();
         box_reward_count = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

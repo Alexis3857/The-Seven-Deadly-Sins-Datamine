@@ -1,4 +1,4 @@
-﻿public class DBCookingListRow
+﻿public class DBCookingListRow : ITableRowIndexer
 {
     public int Id
     {
@@ -175,6 +175,11 @@
         quest_item_count = reader.ReadInt32();
         event_sub_index = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

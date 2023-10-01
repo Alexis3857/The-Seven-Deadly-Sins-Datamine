@@ -1,4 +1,4 @@
-﻿public class DBRegionRow
+﻿public class DBRegionRow : ITableRowIndexer
 {
     public int Id
     {
@@ -48,6 +48,11 @@
         grim_open_state = reader.ReadInt32();
         boarhat_type = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

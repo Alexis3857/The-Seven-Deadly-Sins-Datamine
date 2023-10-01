@@ -1,4 +1,4 @@
-﻿public class DBBirthdayRow
+﻿public class DBBirthdayRow : ITableRowIndexer
 {
     public int Id
     {

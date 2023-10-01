@@ -1,4 +1,4 @@
-﻿public class DBCostumeStatRow
+﻿public class DBCostumeStatRow : ITableRowIndexer
 {
     public int Id
     {
@@ -318,6 +318,11 @@
         upgrade_price_id_tier_4 = reader.ReadInt32();
         upgrade_price_count_tier_4 = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

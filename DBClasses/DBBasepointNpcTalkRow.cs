@@ -1,4 +1,4 @@
-﻿public class DBBasepointNpcTalkRow
+﻿public class DBBasepointNpcTalkRow : ITableRowIndexer
 {
     public int Id
     {

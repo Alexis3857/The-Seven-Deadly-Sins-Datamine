@@ -1,4 +1,4 @@
-﻿public class DBArtifactCategoryRow
+﻿public class DBArtifactCategoryRow : ITableRowIndexer
 {
     public int CardCategoryId
     {
@@ -39,6 +39,11 @@
         category_name = reader.ReadInt32();
         category_type = reader.ReadByte();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return CardCategoryId;
     }
 
     private int card_category_id;

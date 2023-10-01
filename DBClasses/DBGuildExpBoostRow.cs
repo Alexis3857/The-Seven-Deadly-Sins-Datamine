@@ -1,4 +1,4 @@
-﻿public class DBGuildExpBoostRow
+﻿public class DBGuildExpBoostRow : ITableRowIndexer
 {
     public int Id
     {

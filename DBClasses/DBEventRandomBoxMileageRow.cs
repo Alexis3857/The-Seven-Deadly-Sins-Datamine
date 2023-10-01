@@ -1,4 +1,4 @@
-﻿public class DBEventRandomBoxMileageRow
+﻿public class DBEventRandomBoxMileageRow : ITableRowIndexer
 {
     public int Id
     {

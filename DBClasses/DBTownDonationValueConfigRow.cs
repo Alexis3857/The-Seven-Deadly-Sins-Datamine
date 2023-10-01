@@ -1,4 +1,4 @@
-﻿public class DBTownDonationValueConfigRow
+﻿public class DBTownDonationValueConfigRow : ITableRowIndexer
 {
     public int Id
     {
@@ -21,6 +21,11 @@
         id = reader.ReadInt32();
         town_donation_value_config = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

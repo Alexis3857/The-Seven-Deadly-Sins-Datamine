@@ -1,4 +1,4 @@
-﻿public class DBArtifactEventGroupRow
+﻿public class DBArtifactEventGroupRow : ITableRowIndexer
 {
     public int EventId
     {
@@ -85,6 +85,11 @@
         artifact_id_4 = reader.ReadInt32();
         artifact_id_5 = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return EventId;
     }
 
     private int event_id;

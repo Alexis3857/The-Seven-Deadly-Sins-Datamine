@@ -1,4 +1,4 @@
-﻿public class DBEventProvisionLocalizationRow
+﻿public class DBEventProvisionLocalizationRow : ITableRowIndexer
 {
     public int Id
     {

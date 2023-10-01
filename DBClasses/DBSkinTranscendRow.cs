@@ -1,4 +1,4 @@
-﻿public class DBSkinTranscendRow
+﻿public class DBSkinTranscendRow : ITableRowIndexer
 {
     public int Id
     {
@@ -206,6 +206,11 @@
         transcend_add_hp_recovery_per = reader.ReadSingle();
         transcend_add_hp_steal_per = reader.ReadSingle();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

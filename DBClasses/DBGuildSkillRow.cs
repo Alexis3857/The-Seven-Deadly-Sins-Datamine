@@ -1,4 +1,4 @@
-﻿public class DBGuildSkillRow
+﻿public class DBGuildSkillRow : ITableRowIndexer
 {
     public int Id
     {

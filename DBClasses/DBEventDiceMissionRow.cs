@@ -1,4 +1,4 @@
-﻿public class DBEventDiceMissionRow
+﻿public class DBEventDiceMissionRow : ITableRowIndexer
 {
     public int Id
     {
@@ -35,6 +35,11 @@
             list_array_matching_dice_combo.Add(reader.ReadInt32());
         }
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

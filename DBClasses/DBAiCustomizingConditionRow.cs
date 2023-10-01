@@ -1,4 +1,4 @@
-﻿public class DBAiCustomizingConditionRow
+﻿public class DBAiCustomizingConditionRow : ITableRowIndexer
 {
     public int Id
     {
@@ -58,6 +58,11 @@
             list_array_condition_order.Add(reader.ReadInt32());
         }
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

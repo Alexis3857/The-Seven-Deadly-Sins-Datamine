@@ -1,4 +1,4 @@
-﻿public class DBWeaponEvolutionRow
+﻿public class DBWeaponEvolutionRow : ITableRowIndexer
 {
     public int Id
     {
@@ -66,6 +66,11 @@
         evolution_price_id = reader.ReadInt32();
         evolution_price_count = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

@@ -1,4 +1,4 @@
-﻿public class DBFinalBossSeasonRow
+﻿public class DBFinalBossSeasonRow : ITableRowIndexer
 {
     public int Id
     {

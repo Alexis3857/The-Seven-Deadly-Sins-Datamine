@@ -1,4 +1,4 @@
-﻿public class DBEventPredictSettingRow
+﻿public class DBEventPredictSettingRow : ITableRowIndexer
 {
     public int Id
     {

@@ -1,4 +1,4 @@
-﻿public class DBContentControlRow
+﻿public class DBContentControlRow : ITableRowIndexer
 {
     public int Id
     {
@@ -45,6 +45,11 @@
         contents = reader.ReadString();
         value_int_1 = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

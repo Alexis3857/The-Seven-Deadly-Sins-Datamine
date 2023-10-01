@@ -1,4 +1,4 @@
-﻿public class DBGuildBossSeasonRow
+﻿public class DBGuildBossSeasonRow : ITableRowIndexer
 {
     public int Id
     {

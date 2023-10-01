@@ -1,4 +1,4 @@
-﻿public class DBStageTowerSeasonResetRow
+﻿public class DBStageTowerSeasonResetRow : ITableRowIndexer
 {
     public int Id
     {
@@ -21,6 +21,11 @@
         id = reader.ReadInt32();
         init_day = reader.ReadString();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

@@ -1,4 +1,4 @@
-﻿public class DBFinalBossSettingRow
+﻿public class DBFinalBossSettingRow : ITableRowIndexer
 {
     public int Id
     {

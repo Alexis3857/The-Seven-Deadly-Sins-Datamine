@@ -1,4 +1,4 @@
-﻿public class DBEvolutionBreakBaseRow
+﻿public class DBEvolutionBreakBaseRow : ITableRowIndexer
 {
     public int Id
     {

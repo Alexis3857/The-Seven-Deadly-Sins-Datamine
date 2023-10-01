@@ -1,4 +1,4 @@
-﻿public class DBPassMissionRankRewardRow
+﻿public class DBPassMissionRankRewardRow : ITableRowIndexer
 {
     public int Index
     {

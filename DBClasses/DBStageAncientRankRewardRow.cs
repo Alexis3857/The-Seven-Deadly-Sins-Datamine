@@ -1,4 +1,4 @@
-﻿public class DBStageAncientRankRewardRow
+﻿public class DBStageAncientRankRewardRow : ITableRowIndexer
 {
     public int Id
     {
@@ -194,6 +194,11 @@
         reward_id_5 = reader.ReadInt32();
         reward_count_5 = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

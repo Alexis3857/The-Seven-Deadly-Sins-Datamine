@@ -1,4 +1,4 @@
-﻿public class DBEventLobbyRow
+﻿public class DBEventLobbyRow : ITableRowIndexer
 {
     public int Id
     {
@@ -156,6 +156,11 @@
         banner_description = reader.ReadInt32();
         complete_check = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

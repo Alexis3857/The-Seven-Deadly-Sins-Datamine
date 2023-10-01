@@ -1,4 +1,4 @@
-public class DBSellItemInfoRow
+public class DBSellItemInfoRow : ITableRowIndexer
 {
     public int ItemId
     {

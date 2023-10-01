@@ -1,4 +1,4 @@
-﻿public class DBEventBingoRandomRow
+﻿public class DBEventBingoRandomRow : ITableRowIndexer
 {
     public int Id
     {
@@ -57,6 +57,11 @@
         bingo_event_numberitem = reader.ReadInt32();
         Highlight_numbers = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

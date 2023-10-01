@@ -1,4 +1,4 @@
-﻿public class DBNoticeRow
+﻿public class DBNoticeRow : ITableRowIndexer
 {
     public int Id
     {

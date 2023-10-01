@@ -1,4 +1,4 @@
-﻿public class DBAiCustomizingTypeRow
+﻿public class DBAiCustomizingTypeRow : ITableRowIndexer
 {
     public int Id
     {
@@ -39,6 +39,11 @@
         skill_type_icon = reader.ReadString();
         skill_type_name = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

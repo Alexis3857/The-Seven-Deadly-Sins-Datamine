@@ -1,4 +1,4 @@
-﻿public class DBGambleSignRow
+﻿public class DBGambleSignRow : ITableRowIndexer
 {
     public int Id
     {

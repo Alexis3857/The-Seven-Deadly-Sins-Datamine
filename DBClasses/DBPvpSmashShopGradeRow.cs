@@ -1,4 +1,4 @@
-﻿public class DBPvpSmashShopGradeRow
+﻿public class DBPvpSmashShopGradeRow : ITableRowIndexer
 {
     public int Id
     {
@@ -21,6 +21,11 @@
         id = reader.ReadInt32();
         need_buy_point = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

@@ -1,4 +1,4 @@
-﻿public class DBFinalBossHallOfFameRow
+﻿public class DBFinalBossHallOfFameRow : ITableRowIndexer
 {
     public int Id
     {

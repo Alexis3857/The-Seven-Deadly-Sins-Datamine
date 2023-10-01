@@ -1,4 +1,4 @@
-﻿public class DBSkinAwakenRow
+﻿public class DBSkinAwakenRow : ITableRowIndexer
 {
     public int Id
     {
@@ -30,6 +30,11 @@
         skin_awaken_count = reader.ReadInt32();
         skin_awaken_level = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

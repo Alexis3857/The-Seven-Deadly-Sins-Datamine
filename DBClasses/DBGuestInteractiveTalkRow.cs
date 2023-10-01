@@ -1,4 +1,4 @@
-﻿public class DBGuestInteractiveTalkRow
+﻿public class DBGuestInteractiveTalkRow : ITableRowIndexer
 {
     public int Id
     {

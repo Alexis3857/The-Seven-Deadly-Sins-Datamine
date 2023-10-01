@@ -1,4 +1,4 @@
-﻿public class DBArSystemsRow
+﻿public class DBArSystemsRow : ITableRowIndexer
 {
     public int Id
     {
@@ -66,6 +66,11 @@
         is_unlocked_lobby_ar_record = reader.ReadInt32();
         android_min_api_level = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

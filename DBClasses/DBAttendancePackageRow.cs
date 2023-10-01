@@ -1,4 +1,4 @@
-﻿public class DBAttendancePackageRow
+﻿public class DBAttendancePackageRow : ITableRowIndexer
 {
     public int Id
     {
@@ -118,6 +118,11 @@
         reward_item_id_3 = reader.ReadInt32();
         reward_item_count_3 = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

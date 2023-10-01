@@ -1,4 +1,4 @@
-﻿public class DBWeaponBaseRow : DataTableCryptographer
+﻿public class DBWeaponBaseRow : DataTableCryptographer, ITableRowIndexer
 {
     protected override uint XOROperand
     {
@@ -110,6 +110,11 @@
         random_option_count = reader.ReadBytes(4);
         evolution_add_value = reader.ReadBytes(4);
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private byte[] id;

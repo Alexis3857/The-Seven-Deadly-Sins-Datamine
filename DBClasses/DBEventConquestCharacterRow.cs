@@ -1,4 +1,4 @@
-﻿public class DBEventConquestCharacterRow
+﻿public class DBEventConquestCharacterRow : ITableRowIndexer
 {
     public int Id
     {
@@ -49,6 +49,11 @@
         opening_character_position = reader.ReadInt32();
         ending_character_position = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

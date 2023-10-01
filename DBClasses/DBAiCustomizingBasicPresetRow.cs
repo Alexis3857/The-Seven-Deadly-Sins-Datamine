@@ -1,4 +1,4 @@
-﻿public class DBAiCustomizingBasicPresetRow
+﻿public class DBAiCustomizingBasicPresetRow : ITableRowIndexer
 {
     public int Id
     {
@@ -128,6 +128,11 @@
         ai_move_type = reader.ReadByte();
         ai_move_condition = reader.ReadByte();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

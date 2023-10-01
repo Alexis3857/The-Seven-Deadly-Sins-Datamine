@@ -1,4 +1,4 @@
-﻿public class DBRestBonusRow
+﻿public class DBRestBonusRow : ITableRowIndexer
 {
     public int Id
     {
@@ -100,6 +100,11 @@
         bonus_item_id_3 = reader.ReadInt32();
         bonus_item_count_3 = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

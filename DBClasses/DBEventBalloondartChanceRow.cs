@@ -1,4 +1,4 @@
-﻿public class DBEventBalloondartChanceRow
+﻿public class DBEventBalloondartChanceRow : ITableRowIndexer
 {
     public int Id => id;
 
@@ -15,6 +15,11 @@
         chance_title = reader.ReadInt32();
         chance_desc = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

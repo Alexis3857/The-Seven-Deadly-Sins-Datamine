@@ -1,4 +1,4 @@
-public class DBEventConfirmImageRow
+public class DBEventConfirmImageRow : ITableRowIndexer
 {
     public int Id
     {
@@ -131,6 +131,11 @@ public class DBEventConfirmImageRow
         image_hold = reader.ReadString();
         image_down = reader.ReadString();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

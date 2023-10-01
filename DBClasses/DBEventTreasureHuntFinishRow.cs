@@ -1,4 +1,4 @@
-﻿public class DBEventTreasureHuntFinishRow
+﻿public class DBEventTreasureHuntFinishRow : ITableRowIndexer
 {
     public int Id
     {

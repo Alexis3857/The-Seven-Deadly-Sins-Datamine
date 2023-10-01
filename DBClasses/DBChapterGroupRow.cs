@@ -1,4 +1,4 @@
-﻿public class DBChapterGroupRow
+﻿public class DBChapterGroupRow : ITableRowIndexer
 {
     public int GroupId
     {
@@ -30,6 +30,11 @@
         group_name = reader.ReadInt32();
         renderer_name = reader.ReadString();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return GroupId;
     }
 
     private int group_id;

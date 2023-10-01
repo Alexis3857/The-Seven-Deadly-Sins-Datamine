@@ -1,4 +1,4 @@
-﻿public class DBEventBuffLobbyRow
+﻿public class DBEventBuffLobbyRow : ITableRowIndexer
 {
     public int Id
     {
@@ -84,6 +84,11 @@
         level_group = reader.ReadInt32();
         exp_group = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

@@ -1,4 +1,4 @@
-﻿public class DBEventExchangeRow
+﻿public class DBEventExchangeRow : ITableRowIndexer
 {
     public int Id
     {
@@ -224,6 +224,11 @@
         reward_1 = reader.ReadInt32();
         reward_count_1 = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

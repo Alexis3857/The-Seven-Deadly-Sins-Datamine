@@ -1,4 +1,4 @@
-public class DBEventCheerFinishRow
+public class DBEventCheerFinishRow : ITableRowIndexer
 {
     public int Id
     {
@@ -75,6 +75,11 @@ public class DBEventCheerFinishRow
         item_id_3 = reader.ReadInt32();
         item_count_3 = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

@@ -1,4 +1,4 @@
-public class DBHeroLeagueRankRow
+public class DBHeroLeagueRankRow : ITableRowIndexer
 {
     public int Index
     {
@@ -66,6 +66,11 @@ public class DBHeroLeagueRankRow
         league_type_group = reader.ReadInt32();
         fate_use = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Index;
     }
 
     private int index;

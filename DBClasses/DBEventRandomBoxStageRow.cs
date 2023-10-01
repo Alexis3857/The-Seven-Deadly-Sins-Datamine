@@ -1,4 +1,4 @@
-﻿public class DBEventRandomBoxStageRow
+﻿public class DBEventRandomBoxStageRow : ITableRowIndexer
 {
     public int Id
     {

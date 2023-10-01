@@ -1,4 +1,4 @@
-﻿public class DBCheckMonsterResourceRow
+﻿public class DBCheckMonsterResourceRow : ITableRowIndexer
 {
     public int Id
     {
@@ -103,6 +103,11 @@
         monster_portrait_size = reader.ReadSingle();
         monster_portrait_base = reader.ReadString();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

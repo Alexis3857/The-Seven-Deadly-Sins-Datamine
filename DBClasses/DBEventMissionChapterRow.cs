@@ -1,4 +1,4 @@
-﻿public class DBEventMissionChapterRow
+﻿public class DBEventMissionChapterRow : ITableRowIndexer
 {
     public int Id
     {
@@ -159,6 +159,11 @@
         reward_id_3 = reader.ReadInt32();
         reward_count_3 = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private int id;

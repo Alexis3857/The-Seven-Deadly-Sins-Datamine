@@ -1,4 +1,4 @@
-﻿public class DBMazeNeedHeroRow
+﻿public class DBMazeNeedHeroRow : ITableRowIndexer
 {
     public int Id
     {

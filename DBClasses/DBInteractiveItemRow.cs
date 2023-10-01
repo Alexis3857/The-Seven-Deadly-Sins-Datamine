@@ -1,4 +1,4 @@
-﻿public class DBInteractiveItemRow
+﻿public class DBInteractiveItemRow : ITableRowIndexer
 {
     public int Id
     {

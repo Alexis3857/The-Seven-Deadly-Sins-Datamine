@@ -1,4 +1,4 @@
-﻿public class DBWeaponUpgradeRow : DataTableCryptographer
+﻿public class DBWeaponUpgradeRow : DataTableCryptographer, ITableRowIndexer
 {
     protected override uint XOROperand
     {
@@ -101,6 +101,11 @@
         upgrade_fail_gauge = reader.ReadBytes(4);
         discount_event_mode = reader.ReadBytes(4);
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return Id;
     }
 
     private byte[] id;

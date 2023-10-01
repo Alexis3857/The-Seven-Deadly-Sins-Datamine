@@ -1,4 +1,4 @@
-﻿public class DBConfigGameRow : DataTableCryptographer
+﻿public class DBConfigGameRow : DataTableCryptographer, ITableRowIndexer
 {
     protected override uint XOROperand
     {
@@ -133,6 +133,11 @@
         return true;
     }
 
+    public int GetRowIndex()
+    {
+        return Id;
+
+    }
     private byte[] id;
 
     private string contents;

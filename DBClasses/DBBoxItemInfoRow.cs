@@ -1,4 +1,4 @@
-﻿public class DBBoxItemInfoRow
+﻿public class DBBoxItemInfoRow : ITableRowIndexer
 {
     public int ItemId
     {
@@ -549,6 +549,11 @@
         item_count_13 = reader.ReadInt32();
         item_rate_13 = reader.ReadInt32();
         return true;
+    }
+
+    public int GetRowIndex()
+    {
+        return ItemId;
     }
 
     private int item_id;

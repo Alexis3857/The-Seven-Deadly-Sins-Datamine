@@ -1,4 +1,4 @@
-﻿public class DBStageReverseMissionRow
+﻿public class DBStageReverseMissionRow : ITableRowIndexer
 {
     public int Id
     {
