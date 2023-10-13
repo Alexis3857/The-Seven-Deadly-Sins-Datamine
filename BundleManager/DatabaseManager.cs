@@ -1,4 +1,8 @@
 ﻿using Newtonsoft.Json;
+using System.Diagnostics.Tracing;
+using System.Reflection;
+using System.Text;
+using System.Text.RegularExpressions;
 
 namespace BundleManager
 {
@@ -384,6 +388,7 @@ namespace BundleManager
             ProcessDatabase<DBPatrolTimeRewardRow>(Path.Combine(databasePath, "DB_patrol_time_reward"));
             ProcessDatabase<DBPopupPackageRow>(Path.Combine(databasePath, "DB_popup_package"));
             ProcessDatabase<DBPvpChaosBaseRow>(Path.Combine(databasePath, "DB_pvp_chaos_base"));
+            ProcessDatabase<DBPvpChaosGradeChangeRow>(Path.Combine(databasePath, "DB_pvp_chaos_grade_change"));
             ProcessDatabase<DBPvpChaosHeroCostRow>(Path.Combine(databasePath, "DB_pvp_chaos_hero_cost"));
             ProcessDatabase<DBPvpChaosRankRewardRow>(Path.Combine(databasePath, "DB_pvp_chaos_rank_reward"));
             ProcessDatabase<DBPvpLowLeagueRewardGroupRow>(Path.Combine(databasePath, "DB_pvp_low_league_reward_group"));

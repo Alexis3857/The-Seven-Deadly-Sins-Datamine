@@ -1,16 +1,16 @@
 public class DBPvpChaosHeroCostRow : ITableRowIndexer
 {
     public int Id { get => id; }
-    public int Season { get => season; }
     public int Rank { get => rank; }
+    public int Grade { get => grade; }
     public int HeroCost { get => hero_cost; }
     public int HeroId { get => hero_id; }
 
     public bool ReadToStream(BinaryReader reader)
     {
         id = reader.ReadInt32();
-        season = reader.ReadInt32();
         rank = reader.ReadInt32();
+        grade = reader.ReadInt32();
         hero_cost = reader.ReadInt32();
         hero_id = reader.ReadInt32();
         return true;
@@ -23,9 +23,9 @@ public class DBPvpChaosHeroCostRow : ITableRowIndexer
 
     private int id;
 
-    private int season;
-
     private int rank;
+
+    private int grade;
 
     private int hero_cost;
 
