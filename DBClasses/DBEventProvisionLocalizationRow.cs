@@ -16,6 +16,22 @@
         }
     }
 
+    public string ProvisionEventPrefab
+    {
+        get
+        {
+            return provision_event_prefab;
+        }
+    }
+
+    public string ProvisionEventGuidePrefab
+    {
+        get
+        {
+            return provision_event_guide_prefab;
+        }
+    }
+
     public string NoticeNotSelectedItem
     {
         get
@@ -60,6 +76,8 @@
     {
         id = reader.ReadInt32();
         event_sub_index = reader.ReadInt32();
+        provision_event_prefab = reader.ReadString();
+        provision_event_guide_prefab = reader.ReadString();
         notice_not_selected_item = reader.ReadInt32();
         notice_not_enough_item = reader.ReadInt32();
         notice_section_clear = reader.ReadInt32();
@@ -76,6 +94,10 @@
     private int id;
 
     private int event_sub_index;
+
+    private string provision_event_prefab;
+
+    private string provision_event_guide_prefab;
 
     private int notice_not_selected_item;
 

@@ -2,6 +2,8 @@
 {
     public int Id => id;
 
+    public int ChancePer => chance_per;
+
     public string ImagePrefab => image_prefab;
 
     public string ChanceTitle => chance_title.Localize();
@@ -11,6 +13,7 @@
     public bool ReadToStream(BinaryReader reader)
     {
         id = reader.ReadInt32();
+        chance_per = reader.ReadInt32();
         image_prefab = reader.ReadString();
         chance_title = reader.ReadInt32();
         chance_desc = reader.ReadInt32();
@@ -23,6 +26,8 @@
     }
 
     private int id;
+
+    private int chance_per;
 
     private string image_prefab;
 

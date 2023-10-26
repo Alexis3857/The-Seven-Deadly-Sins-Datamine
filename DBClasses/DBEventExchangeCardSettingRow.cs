@@ -16,6 +16,14 @@
         }
     }
 
+    public string EventPrefab
+    {
+        get
+        {
+            return event_prefab;
+        }
+    }
+
     public string EventNameLocalKey
     {
         get
@@ -60,6 +68,7 @@
     {
         id = reader.ReadInt32();
         event_sub_index = reader.ReadInt32();
+        event_prefab = reader.ReadString();
         event_name_local_key = reader.ReadString();
         card_count = reader.ReadInt32();
         list_reset_count = reader.ReadInt32();
@@ -76,6 +85,8 @@
     private int id;
 
     private int event_sub_index;
+
+    private string event_prefab;
 
     private string event_name_local_key;
 

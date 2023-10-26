@@ -106,9 +106,13 @@ namespace BundleManager
             ProcessDatabase<DBCraftCostumeUpgradeRow>(Path.Combine(databasePath, "DB_craft_costume_upgrade"));
             ProcessDatabase<DBCraftCostumeUpgradeFinishRow>(Path.Combine(databasePath, "DB_craft_costume_upgrade_finish"));
             ProcessDatabase<DBShopCreaturecolosseumRow>(Path.Combine(databasePath, "DB_shop_creaturecolosseum"));
+            ProcessDatabase<DBShopDemonlordRow>(Path.Combine(databasePath, "DB_shop_demonlord"));
             ProcessDatabase<DBCreaturecolosseumSeasonRow>(Path.Combine(databasePath, "DB_creaturecolosseum_season"));
             ProcessDatabase<DBCreaturePassiveRow>(Path.Combine(databasePath, "DB_creature_passive"));
             ProcessDatabase<DBDailyAttendanceRow>(Path.Combine(databasePath, "DB_daily_attendance"));
+            ProcessDatabase<DBDemonpointStageRow>(Path.Combine(databasePath, "DB_demonpoint_stage"));
+            ProcessDatabase<DBDemonlordRuleRow>(Path.Combine(databasePath, "DB_demonlord_rule"));
+            ProcessDatabase<DBDemonlordPassiveRow>(Path.Combine(databasePath, "DB_demonlord_passive"));
             ProcessDatabase<DBDirectSelectorRow>(Path.Combine(databasePath, "DB_direct_selector"));
             ProcessDatabase<DBEventRow>(Path.Combine(databasePath, "DB_event"));
             ProcessDatabase<DBEventAdditionalPaymentRow>(Path.Combine(databasePath, "DB_event_additional_payment"));
@@ -228,6 +232,7 @@ namespace BundleManager
             ProcessDatabase<DBEventRoadTileRow>(Path.Combine(databasePath, "DB_event_road_tile"));
             ProcessDatabase<DBEventSetupRow>(Path.Combine(databasePath, "DB_event_setup"));
             ProcessDatabase<DBEventTimeMissionRow>(Path.Combine(databasePath, "DB_event_time_mission"));
+            ProcessDatabase<DBEventTimeMissionSettingRow>(Path.Combine(databasePath, "DB_event_time_mission_setting"));
             ProcessDatabase<DBEventTreasureHuntFinishRow>(Path.Combine(databasePath, "DB_event_treasure_hunt_finish"));
             ProcessDatabase<DBEventTreasureHuntGroupRow>(Path.Combine(databasePath, "DB_event_treasure_hunt_group"));
             ProcessDatabase<DBEventTreasureHuntPointRow>(Path.Combine(databasePath, "DB_event_treasure_hunt_point"));
@@ -475,6 +480,7 @@ namespace BundleManager
             ProcessDatabase<DBStageConquestRow>(Path.Combine(databasePath, "DB_stage_conquest"));
             ProcessDatabase<DBStageCreaturenestRow>(Path.Combine(databasePath, "DB_stage_creaturenest"));
             ProcessDatabase<DBStageCreaturenestGaugeRow>(Path.Combine(databasePath, "DB_stage_creaturenest_gauge"));
+            ProcessDatabase<DBStageDemonlordGroupRow>(Path.Combine(databasePath, "DB_stage_demonlord_group"));
             ProcessDatabase<DBStageCreaturenestInfoRow>(Path.Combine(databasePath, "DB_stage_creaturenest_info"));
             ProcessDatabase<DBStageDescentBossRow>(Path.Combine(databasePath, "DB_stage_descent_boss"));
             ProcessDatabase<DBStageDescentBossGroupRow>(Path.Combine(databasePath, "DB_stage_descent_boss_group"));

@@ -16,6 +16,14 @@ public class DBShopCreaturecolosseumRow : ITableRowIndexer
         }
     }
 
+    public int PriceId
+    {
+        get
+        {
+            return price_id;
+        }
+    }
+
     public int ProductId
     {
         get
@@ -29,14 +37,6 @@ public class DBShopCreaturecolosseumRow : ITableRowIndexer
         get
         {
             return product_count;
-        }
-    }
-
-    public int PriceId
-    {
-        get
-        {
-            return price_id;
         }
     }
 
@@ -76,9 +76,9 @@ public class DBShopCreaturecolosseumRow : ITableRowIndexer
     {
         id = reader.ReadInt32();
         product_category = reader.ReadInt32();
+        price_id = reader.ReadInt32();
         product_id = reader.ReadInt32();
         product_count = reader.ReadInt32();
-        price_id = reader.ReadInt32();
         price_count = reader.ReadInt32();
         buy_limited_daily_count = reader.ReadInt32();
         buy_limited_count = reader.ReadInt32();
@@ -95,11 +95,11 @@ public class DBShopCreaturecolosseumRow : ITableRowIndexer
 
     private int product_category;
 
+    private int price_id;
+
     private int product_id;
 
     private int product_count;
-
-    private int price_id;
 
     private int price_count;
 

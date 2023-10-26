@@ -24,6 +24,14 @@
         }
     }
 
+    public int HighlightNumbers
+    {
+        get
+        {
+            return highlight_numbers;
+        }
+    }
+
     public int BingoEventBoardViewNumber
     {
         get
@@ -40,22 +48,14 @@
         }
     }
 
-    public int HighlightNumbers
-    {
-        get
-        {
-            return Highlight_numbers;
-        }
-    }
-
     public bool ReadToStream(BinaryReader reader)
     {
         id = reader.ReadInt32();
         event_sub_index = reader.ReadInt32();
         bingo_event_type = reader.ReadInt32();
+        highlight_numbers = reader.ReadInt32();
         bingo_event_board_view_number = reader.ReadInt32();
         bingo_event_numberitem = reader.ReadInt32();
-        Highlight_numbers = reader.ReadInt32();
         return true;
     }
 
@@ -70,9 +70,9 @@
 
     private int bingo_event_type;
 
+    private int highlight_numbers;
+
     private int bingo_event_board_view_number;
 
     private int bingo_event_numberitem;
-
-    private int Highlight_numbers;
 }

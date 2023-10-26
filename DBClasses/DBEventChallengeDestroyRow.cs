@@ -79,6 +79,40 @@
             return reward_need_count;
         }
     }
+
+    public int RewardNeedCountKR
+    {
+        get
+        {
+            return reward_need_count_KR;
+        }
+    }
+
+    public int RewardNeedCountJP
+    {
+        get
+        {
+            return reward_need_count_JP;
+        }
+    }
+
+    public int RewardNeedCountASIA
+    {
+        get
+        {
+            return reward_need_count_ASIA;
+        }
+    }
+
+    public int RewardNeedCountGLOBAL
+    {
+        get
+        {
+            return reward_need_count_GLOBAL;
+        }
+    }
+
+
     public bool ReadToStream(BinaryReader reader)
     {
         id = reader.ReadInt32();
@@ -91,6 +125,10 @@
         rewardpoint_extreme = reader.ReadInt32();
         rewardpoint__hell = reader.ReadInt32();
         reward_need_count = reader.ReadInt32();
+        reward_need_count_KR = reader.ReadInt32();
+        reward_need_count_JP = reader.ReadInt32();
+        reward_need_count_ASIA = reader.ReadInt32();
+        reward_need_count_GLOBAL = reader.ReadInt32();
         return true;
     }
 
@@ -118,4 +156,12 @@
     private int rewardpoint__hell;
 
     private int reward_need_count;
+
+    private int reward_need_count_KR;
+
+    private int reward_need_count_JP;
+
+    private int reward_need_count_ASIA;
+
+    private int reward_need_count_GLOBAL;
 }

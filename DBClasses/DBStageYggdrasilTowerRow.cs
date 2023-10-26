@@ -232,6 +232,14 @@
         }
     }
 
+    public int RewardValueEvent1
+    {
+        get
+        {
+            return reward_value_event_1;
+        }
+    }
+
     public int RewardValueBox1
     {
         get
@@ -253,6 +261,14 @@
         get
         {
             return reward_value_2;
+        }
+    }
+
+    public int RewardValueEvent2
+    {
+        get
+        {
+            return reward_value_event_2;
         }
     }
 
@@ -280,6 +296,14 @@
         }
     }
 
+    public int RewardValueEvent3
+    {
+        get
+        {
+            return reward_value_event_3;
+        }
+    }
+
     public int RewardValueBox3
     {
         get
@@ -301,6 +325,14 @@
         get
         {
             return reward_value_4;
+        }
+    }
+
+    public int RewardValueEvent4
+    {
+        get
+        {
+            return reward_value_event_4;
         }
     }
 
@@ -328,6 +360,14 @@
         }
     }
 
+    public int RewardValueEvent5
+    {
+        get
+        {
+            return reward_value_event_5;
+        }
+    }
+
     public int RewardValueBox5
     {
         get
@@ -349,6 +389,14 @@
         get
         {
             return reward_value_6;
+        }
+    }
+
+    public int RewardValueEvent6
+    {
+        get
+        {
+            return reward_value_event_6;
         }
     }
 
@@ -376,6 +424,14 @@
         }
     }
 
+    public int RewardValueEvent7
+    {
+        get
+        {
+            return reward_value_event_7;
+        }
+    }
+
     public int RewardValueBox7
     {
         get
@@ -397,6 +453,14 @@
         get
         {
             return reward_value_8;
+        }
+    }
+
+    public int RewardValueEvent8
+    {
+        get
+        {
+            return reward_value_event_8;
         }
     }
 
@@ -1460,6 +1524,28 @@
             return list_reward_value;
         }
     }
+    
+    public List<int> ListRewardValueEvent
+    {
+        get
+        {
+            if (list_reward_value_event == null)
+            {
+                list_reward_value_event = new List<int>()
+                {
+                    RewardValueEvent1,
+                    RewardValueEvent2,
+                    RewardValueEvent3,
+                    RewardValueEvent4,
+                    RewardValueEvent5,
+                    RewardValueEvent6,
+                    RewardValueEvent7,
+                    RewardValueEvent8
+                };
+            }
+            return list_reward_value_event;
+        }
+    }
 
     public List<int> ListRewardValueBox
     {
@@ -1785,27 +1871,35 @@
         first_reward_value = reader.ReadInt32();
         reward_id_1 = reader.ReadInt32();
         reward_value_1 = reader.ReadInt32();
+        reward_value_event_1 = reader.ReadInt32();
         reward_value_box_1 = reader.ReadInt32();
         reward_id_2 = reader.ReadInt32();
         reward_value_2 = reader.ReadInt32();
+        reward_value_event_2 = reader.ReadInt32();
         reward_value_box_2 = reader.ReadInt32();
         reward_id_3 = reader.ReadInt32();
         reward_value_3 = reader.ReadInt32();
+        reward_value_event_3 = reader.ReadInt32();
         reward_value_box_3 = reader.ReadInt32();
         reward_id_4 = reader.ReadInt32();
         reward_value_4 = reader.ReadInt32();
+        reward_value_event_4 = reader.ReadInt32();
         reward_value_box_4 = reader.ReadInt32();
         reward_id_5 = reader.ReadInt32();
         reward_value_5 = reader.ReadInt32();
+        reward_value_event_5 = reader.ReadInt32();
         reward_value_box_5 = reader.ReadInt32();
         reward_id_6 = reader.ReadInt32();
         reward_value_6 = reader.ReadInt32();
+        reward_value_event_6 = reader.ReadInt32();
         reward_value_box_6 = reader.ReadInt32();
         reward_id_7 = reader.ReadInt32();
         reward_value_7 = reader.ReadInt32();
+        reward_value_event_7 = reader.ReadInt32();
         reward_value_box_7 = reader.ReadInt32();
         reward_id_8 = reader.ReadInt32();
         reward_value_8 = reader.ReadInt32();
+        reward_value_event_8 = reader.ReadInt32();
         reward_value_box_8 = reader.ReadInt32();
         drop_item_normal_min_count = reader.ReadInt32();
         drop_item_normal_max_count = reader.ReadInt32();
@@ -2037,11 +2131,15 @@
 
     private int reward_value_1;
 
+    private int reward_value_event_1;
+
     private int reward_value_box_1;
 
     private int reward_id_2;
 
     private int reward_value_2;
+
+    private int reward_value_event_2;
 
     private int reward_value_box_2;
 
@@ -2049,11 +2147,15 @@
 
     private int reward_value_3;
 
+    private int reward_value_event_3;
+
     private int reward_value_box_3;
 
     private int reward_id_4;
 
     private int reward_value_4;
+
+    private int reward_value_event_4;
 
     private int reward_value_box_4;
 
@@ -2061,11 +2163,15 @@
 
     private int reward_value_5;
 
+    private int reward_value_event_5;
+
     private int reward_value_box_5;
 
     private int reward_id_6;
 
     private int reward_value_6;
+
+    private int reward_value_event_6;
 
     private int reward_value_box_6;
 
@@ -2073,11 +2179,15 @@
 
     private int reward_value_7;
 
+    private int reward_value_event_7;
+
     private int reward_value_box_7;
 
     private int reward_id_8;
 
     private int reward_value_8;
+
+    private int reward_value_event_8;
 
     private int reward_value_box_8;
 
@@ -2334,6 +2444,8 @@
     private List<int> list_reward_id;
 
     private List<int> list_reward_value;
+
+    private List<int> list_reward_value_event;
 
     private List<int> list_reward_value_box;
 
