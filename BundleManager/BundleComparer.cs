@@ -13,8 +13,7 @@ namespace BundleManager
         // Compares new and previous versions checksums to know which files to download and which assets to export
         public List<BundleData> GetNewAssetList(string folderName)
         {
-            //StringBuilder sb = new StringBuilder();
-            List<BundleData> checksumAssetsDictionary = new List<BundleData>();
+            List<BundleData> newBundlesList = new List<BundleData>();
             Dictionary<string, BundleData> previousBundleDataDictionary = GetPreviousBundleDataDictionary(folderName);
             using (BinaryReader newBundleReader = new BinaryReader(File.Open(Path.Join(_currentRootDirectory, "Bmdata", "Exported", folderName + "_BundleData.bytes"), FileMode.Open)))
             {
@@ -24,47 +23,44 @@ namespace BundleManager
                     BundleData bundleData = new BundleData(newBundleReader);
                     if (_specialBundleNames.Contains(bundleData.Name))
                     {
-                        checksumAssetsDictionary.Add(bundleData);
+                        newBundlesList.Add(bundleData);
                         continue;
                     }
                     BundleData? previousBundleData;
-                    if (previousBundleDataDictionary.TryGetValue(bundleData.Name, out previousBundleData) && !bundleData.Checksum.Equals(previousBundleData))  // if the bundle content changed
+                    if (previousBundleDataDictionary.TryGetValue(bundleData.Name, out previousBundleData))  // if the bundle already existed
                     {
-                        foreach (string asset in bundleData.Assets)
+                        if (!bundleData.Version.Equals(previousBundleData.Version))  // and its content changed
                         {
-                            if (_allowedAssetExtensions.Contains(Path.GetExtension(asset)) && !previousBundleData.Assets.Contains(asset))
+                            foreach (string asset in bundleData.Assets)
                             {
-                                bundleData.NewAssetsList.Add(Path.GetFileName(asset));
-                                //sb.AppendLine(asset);
+                                if (_allowedAssetExtensions.Contains(Path.GetExtension(asset)) && !previousBundleData.Assets.Contains(asset))
+                                {
+                                    bundleData.NewAssetsList.Add(Path.GetFileName(asset));
+                                }
+                            }
+                            if (bundleData.NewAssetsList.Count != 0)
+                            {
+                                newBundlesList.Add(bundleData);
                             }
                         }
-                        if (bundleData.NewAssetsList.Count != 0)
-                        {
-                            checksumAssetsDictionary.Add(bundleData);
-                        }
                     }
-                    else  // if the bundle is new
+                    else
                     {
                         foreach (string asset in bundleData.Assets)
                         {
                             if (_allowedAssetExtensions.Contains(Path.GetExtension(asset)))
                             {
                                 bundleData.NewAssetsList.Add(Path.GetFileName(asset));
-                                //sb.AppendLine(asset);
                             }
                         }
                         if (bundleData.NewAssetsList.Count != 0)
                         {
-                            checksumAssetsDictionary.Add(bundleData);
+                            newBundlesList.Add(bundleData);
                         }
                     }
                 }
             }
-            //if (sb.Length != 0)
-            //{
-            //    File.WriteAllText($"{_currentRootDirectory}/{folderName}_list.txt", sb.ToString());
-            //}
-            return checksumAssetsDictionary;
+            return newBundlesList;
         }
 
         private Dictionary<string, BundleData> GetPreviousBundleDataDictionary(string folderName)
