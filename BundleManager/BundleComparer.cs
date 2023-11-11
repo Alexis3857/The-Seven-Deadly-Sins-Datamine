@@ -13,6 +13,7 @@ namespace BundleManager
         // Compares new and previous versions checksums to know which files to download and which assets to export
         public List<BundleData> GetNewAssetList(string folderName)
         {
+            StringBuilder sb = new StringBuilder();
             List<BundleData> newBundlesList = new List<BundleData>();
             Dictionary<string, BundleData> previousBundleDataDictionary = GetPreviousBundleDataDictionary(folderName);
             using (BinaryReader newBundleReader = new BinaryReader(File.Open(Path.Join(_currentRootDirectory, "Bmdata", "Exported", folderName + "_BundleData.bytes"), FileMode.Open)))
@@ -31,11 +32,16 @@ namespace BundleManager
                     {
                         if (!bundleData.Version.Equals(previousBundleData.Version))  // and its content changed
                         {
+                            sb.AppendLine($"\n{bundleData.Name} : Version {previousBundleData.Version} -> {bundleData.Version}");
                             foreach (string asset in bundleData.Assets)
                             {
-                                if (_allowedAssetExtensions.Contains(Path.GetExtension(asset)) && !previousBundleData.Assets.Contains(asset))
+                                if (!previousBundleData.Assets.Contains(asset))
                                 {
-                                    bundleData.NewAssetsList.Add(Path.GetFileName(asset));
+                                    sb.AppendLine($"\t{asset}");
+                                    if (_allowedAssetExtensions.Contains(Path.GetExtension(asset)))
+                                    {
+                                        bundleData.NewAssetsList.Add(Path.GetFileName(asset));
+                                    }
                                 }
                             }
                             if (bundleData.NewAssetsList.Count != 0)
@@ -46,11 +52,13 @@ namespace BundleManager
                     }
                     else
                     {
+                        sb.AppendLine($"\n{bundleData.Name} : New");
                         foreach (string asset in bundleData.Assets)
                         {
                             if (_allowedAssetExtensions.Contains(Path.GetExtension(asset)))
                             {
                                 bundleData.NewAssetsList.Add(Path.GetFileName(asset));
+                                sb.AppendLine($"\t{asset}");
                             }
                         }
                         if (bundleData.NewAssetsList.Count != 0)
@@ -59,6 +67,10 @@ namespace BundleManager
                         }
                     }
                 }
+            }
+            if (sb.Length != 0)
+            {
+                File.WriteAllText($"{_currentRootDirectory}/{folderName}_output.txt", sb.ToString());
             }
             return newBundlesList;
         }
