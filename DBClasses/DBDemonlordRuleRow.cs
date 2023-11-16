@@ -2,11 +2,9 @@
 {
     public int Id => id;
 
-    public int RuleGroupId => rule_group_id;
+    public int RuleStageId => rule_stage_id;
 
     public int RulePhase => rule_phase;
-
-    public int RuleUseTurn => rule_use_turn;
 
     public string RuleType => rule_type;
 
@@ -19,9 +17,8 @@
     public bool ReadToStream(BinaryReader reader)
     {
         id = reader.ReadInt32();
-        rule_group_id = reader.ReadInt32();
+        rule_stage_id = reader.ReadInt32();
         rule_phase = reader.ReadInt32();
-        rule_use_turn = reader.ReadInt32();
         rule_type = reader.ReadString();
         list_array_rule_value_first = new List<int>();
         int count = reader.ReadInt32();
@@ -51,11 +48,9 @@
 
     private int id;
 
-    private int rule_group_id;
+    private int rule_stage_id;
 
     private int rule_phase;
-
-    private int rule_use_turn;
 
     private string rule_type;
 

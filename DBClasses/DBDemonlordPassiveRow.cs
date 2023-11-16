@@ -2,7 +2,7 @@
 {
     public int Id => id;
 
-    public int PassiveGroupId => passive_group_id;
+    public int PassiveStageId => passive_stage_id;
 
     public int PassiveStep => passive_step;
 
@@ -13,7 +13,7 @@
     public bool ReadToStream(BinaryReader reader)
     {
         id = reader.ReadInt32();
-        passive_group_id = reader.ReadInt32();
+        passive_stage_id = reader.ReadInt32();
         passive_step = reader.ReadInt32();
         skill_passive_id = reader.ReadInt32();
         demonlord_passive_notify = reader.ReadInt32();
@@ -27,7 +27,7 @@
 
     private int id;
 
-    private int passive_group_id;
+    private int passive_stage_id;
 
     private int passive_step;
 

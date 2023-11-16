@@ -136,6 +136,14 @@
         }
     }
 
+    public float CounterPortraitDelayTime
+    {
+        get
+        {
+            return DecryptFloat(counter_portrait_delay_time);
+        }
+    }
+
     public bool ReadToStream(BinaryReader reader)
     {
         id = reader.ReadBytes(4);
@@ -164,6 +172,7 @@
         }
         counter_portrait_ani = reader.ReadString();
         counter_portrait_local = reader.ReadString();
+        counter_portrait_delay_time = reader.ReadBytes(4);
         return true;
     }
 
@@ -203,4 +212,6 @@
     private string counter_portrait_ani;
 
     private string counter_portrait_local;
+
+    private byte[] counter_portrait_delay_time;
 }

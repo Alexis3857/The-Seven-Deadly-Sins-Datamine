@@ -1,8 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System.Diagnostics.Tracing;
-using System.Reflection;
-using System.Text;
-using System.Text.RegularExpressions;
 
 namespace BundleManager
 {
@@ -328,6 +324,7 @@ namespace BundleManager
             ProcessDatabase<DBHeroLeagueInfoRow>(Path.Combine(databasePath, "DB_hero_league_info"));
             ProcessDatabase<DBHeroLeagueNpcNameRow>(Path.Combine(databasePath, "DB_hero_league_npc_name"));
             ProcessDatabase<DBHeroLeagueRankRow>(Path.Combine(databasePath, "DB_hero_league_rank"));
+            ProcessDatabase<DBHeroLeagueScoreRow>(Path.Combine(databasePath, "DB_hero_league_score"));
             ProcessDatabase<DBHeroLeagueRewardRow>(Path.Combine(databasePath, "DB_hero_league_reward"));
             ProcessDatabase<DBHeroLeagueSeasonRow>(Path.Combine(databasePath, "DB_hero_league_season"));
             ProcessDatabase<DBHeroLeagueSeasonShopRow>(Path.Combine(databasePath, "DB_hero_league_season_shop"));
@@ -480,7 +477,7 @@ namespace BundleManager
             ProcessDatabase<DBStageConquestRow>(Path.Combine(databasePath, "DB_stage_conquest"));
             ProcessDatabase<DBStageCreaturenestRow>(Path.Combine(databasePath, "DB_stage_creaturenest"));
             ProcessDatabase<DBStageCreaturenestGaugeRow>(Path.Combine(databasePath, "DB_stage_creaturenest_gauge"));
-            ProcessDatabase<DBStageDemonlordGroupRow>(Path.Combine(databasePath, "DB_stage_demonlord_group"));
+            ProcessDatabase<DBStageDemonlordDescRow>(Path.Combine(databasePath, "DB_stage_demonlord_desc"));
             ProcessDatabase<DBStageCreaturenestInfoRow>(Path.Combine(databasePath, "DB_stage_creaturenest_info"));
             ProcessDatabase<DBStageDescentBossRow>(Path.Combine(databasePath, "DB_stage_descent_boss"));
             ProcessDatabase<DBStageDescentBossGroupRow>(Path.Combine(databasePath, "DB_stage_descent_boss_group"));
