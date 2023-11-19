@@ -478,6 +478,7 @@ namespace BundleManager
             ProcessDatabase<DBStageCreaturenestRow>(Path.Combine(databasePath, "DB_stage_creaturenest"));
             ProcessDatabase<DBStageCreaturenestGaugeRow>(Path.Combine(databasePath, "DB_stage_creaturenest_gauge"));
             ProcessDatabase<DBStageDemonlordDescRow>(Path.Combine(databasePath, "DB_stage_demonlord_desc"));
+            ProcessDatabase<DBStageDemonlordRow>(Path.Combine(databasePath, "DB_stage_demonlord"));
             ProcessDatabase<DBStageCreaturenestInfoRow>(Path.Combine(databasePath, "DB_stage_creaturenest_info"));
             ProcessDatabase<DBStageDescentBossRow>(Path.Combine(databasePath, "DB_stage_descent_boss"));
             ProcessDatabase<DBStageDescentBossGroupRow>(Path.Combine(databasePath, "DB_stage_descent_boss_group"));
