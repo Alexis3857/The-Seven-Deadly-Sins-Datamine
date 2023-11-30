@@ -6,6 +6,7 @@
     public string ControlType => control_type;
     public string InfoImage => info_image;
     public string StageString => stage_string.Localize();
+    public int WildCount => wild_count;
     public int LimitIndex => limit_index;
     public int Region => region;
     public int Area => area;
@@ -721,6 +722,7 @@
         control_type = reader.ReadString();
         info_image = reader.ReadString();
         stage_string = reader.ReadInt32();
+        wild_count = reader.ReadInt32();
         limit_index = reader.ReadInt32();
         region = reader.ReadInt32();
         area = reader.ReadInt32();
@@ -1018,6 +1020,8 @@
     private string info_image;
 
     private int stage_string;
+
+    private int wild_count;
 
     private int limit_index;
 

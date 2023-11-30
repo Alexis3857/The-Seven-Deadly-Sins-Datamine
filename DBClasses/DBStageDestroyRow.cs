@@ -1208,6 +1208,38 @@
         }
     }
 
+    public int AddDropItemId1
+    {
+        get
+        {
+            return base.DecryptInt32(add_drop_item_id_1);
+        }
+    }
+
+    public int AddDropItemValue1
+    {
+        get
+        {
+            return base.DecryptInt32(add_drop_item_value_1);
+        }
+    }
+
+    public int AddDropItemPer1
+    {
+        get
+        {
+            return base.DecryptInt32(add_drop_item_per_1);
+        }
+    }
+
+    public int AddDropItemBox1
+    {
+        get
+        {
+            return base.DecryptInt32(add_drop_item_box_1);
+        }
+    }
+
     public byte BossHitLookEnemyCheck
     {
         get
@@ -2367,6 +2399,10 @@
         chief_drop_item_value_6 = reader.ReadBytes(4);
         chief_drop_item_per_6 = reader.ReadBytes(4);
         chief_drop_item_box_6 = reader.ReadBytes(4);
+        add_drop_item_id_1 = reader.ReadBytes(4);
+        add_drop_item_value_1 = reader.ReadBytes(4);
+        add_drop_item_per_1 = reader.ReadBytes(4);
+        add_drop_item_box_1 = reader.ReadBytes(4);
         boss_hit_look_enemy_check = reader.ReadByte();
         phase_shift_cinema_two_boss = reader.ReadBytes(4);
         stage_placement = reader.ReadString();
@@ -2792,6 +2828,14 @@
     private byte[] chief_drop_item_per_6;
 
     private byte[] chief_drop_item_box_6;
+
+    private byte[] add_drop_item_id_1;
+
+    private byte[] add_drop_item_value_1;
+
+    private byte[] add_drop_item_per_1;
+
+    private byte[] add_drop_item_box_1;
 
     private byte boss_hit_look_enemy_check;
 

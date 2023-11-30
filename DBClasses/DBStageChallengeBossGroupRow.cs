@@ -40,6 +40,14 @@
         }
     }
 
+    public int BossPosition
+    {
+        get
+        {
+            return boss_position;
+        }
+    }
+
     public string GroupString
     {
         get
@@ -160,6 +168,7 @@
         event_boss_title = reader.ReadInt32();
         group_hero_id_1 = reader.ReadInt32();
         group_hero_id_2 = reader.ReadInt32();
+        boss_position = reader.ReadInt32();
         group_string = reader.ReadInt32();
         info_image_1 = reader.ReadString();
         info_image_2 = reader.ReadString();
@@ -187,6 +196,8 @@
     private int group_hero_id_1;
 
     private int group_hero_id_2;
+
+    private int boss_position;
 
     private int group_string;
 

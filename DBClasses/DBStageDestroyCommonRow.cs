@@ -64,6 +64,30 @@
         }
     }
 
+    public int AddRepulseDropItemId
+    {
+        get
+        {
+            return add_repulse_drop_item_id;
+        }
+    }
+
+    public int AddRepulseDropItemValue
+    {
+        get
+        {
+            return add_repulse_drop_item_value;
+        }
+    }
+
+    public int AddRepulseDropItemBox
+    {
+        get
+        {
+            return add_repulse_drop_item_box;
+        }
+    }
+
     public int StartCut
     {
         get
@@ -130,6 +154,9 @@
         repulse_drop_item_id = reader.ReadInt32();
         repulse_drop_item_value = reader.ReadInt32();
         repulse_drop_item_box = reader.ReadInt32();
+        add_repulse_drop_item_id = reader.ReadInt32();
+        add_repulse_drop_item_value = reader.ReadInt32();
+        add_repulse_drop_item_box = reader.ReadInt32();
         start_cut = reader.ReadInt32();
         model_scale = reader.ReadSingle();
         monster_info_location_x = reader.ReadSingle();
@@ -160,6 +187,12 @@
     private int repulse_drop_item_value;
 
     private int repulse_drop_item_box;
+
+    private int add_repulse_drop_item_id;
+
+    private int add_repulse_drop_item_value;
+
+    private int add_repulse_drop_item_box;
 
     private int start_cut;
 

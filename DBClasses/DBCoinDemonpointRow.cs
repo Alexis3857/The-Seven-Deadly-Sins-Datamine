@@ -1,27 +1,32 @@
-﻿public class DBDemonpointStageRow : ITableRowIndexer
+﻿public class DBCoinDemonpointRow : ITableRowIndexer
 {
     public int Id => id;
 
-    public string ControlType => control_type;
-
     public int Demonpoint => demonpoint;
+
+    public byte ItemType => item_type;
+
+    public byte ItemRating => item_rating;
 
     public bool ReadToStream(BinaryReader reader)
     {
         id = reader.ReadInt32();
-        control_type = reader.ReadString();
         demonpoint = reader.ReadInt32();
+        item_type = reader.ReadByte();
+        item_rating = reader.ReadByte();
         return true;
     }
 
     public int GetRowIndex()
     {
-        return Id;
+        return id;
     }
 
     private int id;
 
-    private string control_type;
-
     private int demonpoint;
+
+    private byte item_type;
+
+    private byte item_rating;
 }

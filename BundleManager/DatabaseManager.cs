@@ -74,6 +74,7 @@ namespace BundleManager
             ProcessDatabase<DBChapterChangeRow>(Path.Combine(databasePath, "DB_chapter_change"));
             ProcessDatabase<DBChapterGroupRow>(Path.Combine(databasePath, "DB_chapter_group"));
             ProcessDatabase<DBCharacterLocalizeInfoRow>(Path.Combine(databasePath, "DB_character_localize_info"));
+            ProcessDatabase<DBCoinDemonpointRow>(Path.Combine(databasePath, "DB_coin_demonpoint"));
             ProcessDatabase<DBCoinShopRow>(Path.Combine(databasePath, "DB_coin_shop"));
             ProcessDatabase<DBCoinShopEventRow>(Path.Combine(databasePath, "DB_coin_shop_event"));
             ProcessDatabase<DBCoinShopSettingRow>(Path.Combine(databasePath, "DB_coin_shop_setting"));
