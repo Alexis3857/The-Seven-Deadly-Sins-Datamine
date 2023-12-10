@@ -1,6 +1,4 @@
-﻿using AssetStudio;
-
-public class DBEventBingoExchangeRow : ITableRowIndexer
+﻿public class DBEventBingoExchangeRow : ITableRowIndexer
 {
     public int Id
     {

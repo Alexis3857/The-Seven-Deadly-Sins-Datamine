@@ -7,10 +7,13 @@ Program to download and exports new update's assets of the japanese version of T
 
 Get the current decryption key of the game with [The Seven Deadly Sins Key Finder](https://github.com/Alexis3857/The-Seven-Deadly-Sins-Key-Finder).
 
-Run the program and pass the decryption key as an argument, example :
+Run the program and pass the decryption key as an argument :
 ```cmd
-7dsgcDatamine.exe -key=decryption_key -patch=patch_relative_sub:patch_version -write_changed_string
+7dsgcDatamine.exe -game=game -key=decryption_key -patch=patch_relative_sub:patch_version -write_changed_string
 ```
+
+-game is mandatory
+It's the game version to datamine, it must be either JP, KR or GB
 
 -key is mandatory
 It's the AES decryption passphrase, hidden in the game code and this program can not run without it.
@@ -23,14 +26,14 @@ If no patch is given, the program will use the current game patch.
 -write_changed_string is optional
 If used, the program will also write strings that got changed and not only new strings.
 
-Example if you want to export the assets from the latest update of the game :
+Example if you want to export the assets from the latest JP update :
 ```cmd
-7dsgcDatamine.exe -key=WfcpJydk4-U_Zdyr5jaxFskH1ewy5b5y
+7dsgcDatamine.exe -game=JP -key=WfcpJydk4-U_Zdyr5jaxFskH1ewy5b5y
 ```
 
-If you want to export the assets from the patch _fteaksskrhqlp version 3490 :
+If you want to export the assets from the KR game patch _fteaksskrhqlp version 3490 :
 ```cmd
-7dsgcDatamine.exe -key=WfcpJydk4-U_Zdyr5jaxFskH1ewy5b5y -patch=_fteaksskrhqlp:3490
+7dsgcDatamine.exe -game=KR -key=WfcpJydk4-U_Zdyr5jaxFskH1ewy5b5y -patch=_fteaksskrhqlp:3490
 ```
 
 If you missed a patch there is no way to know its name.
@@ -41,7 +44,7 @@ If it's your first time running the program, it will download the necessary file
 If it's not your first time running the program, it will compare the new game version with the last version saved on your computer and export images, models, sounds and the database.
 
 
-## Requirements
+## Build
 
 Open the 7dsgcDatamine.csproj in Visual Studio.
 

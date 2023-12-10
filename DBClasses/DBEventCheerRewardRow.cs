@@ -1,4 +1,4 @@
-﻿public class DBEventCheerRewardRow :ITableRowIndexer
+﻿public class DBEventCheerRewardRow : ITableRowIndexer
 {
     public int Id
     {

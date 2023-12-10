@@ -1,31 +1,34 @@
 using Microsoft.Data.Sqlite;
-using System.Diagnostics;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
-namespace BundleManager
+namespace _7dsgcDatamine
 {
     public class StringLocalize
     {
         public StringLocalize()
         {
-            string text = "NetmarbleFun&Cherry";
-            decryptionKeySize = text.Length;
+            string key = "NetmarbleFun&Cherry";
+            decryptionKeySize = key.Length;
             decryptionKey = new int[decryptionKeySize];
             for (int i = 0; i < decryptionKeySize; i++)
             {
-                decryptionKey[i] = char.ConvertToUtf32(text, i);
+                decryptionKey[i] = char.ConvertToUtf32(key, i);
             }
         }
 
-        public void Load(string dir, string oldDir)
+        public bool Load(string newLocalizationPath, string previousLocalizationPath)
         {
+            if (!File.Exists(newLocalizationPath) || !File.Exists(previousLocalizationPath))
+            {
+                Console.WriteLine("Impossible to compare the localization database because the required file does not exist");
+                return false;
+            }
             string text = "Data Source=";
-            _sqliteConnection = new SqliteConnection(text + Path.Combine(dir, "Localization", "LocalizeString_Japanese.bytes"));
+            _sqliteConnection = new SqliteConnection(text + newLocalizationPath);
             _sqliteConnection.Open();
 
-            _previousSqliteConnection = new SqliteConnection(text + Path.Join(oldDir, "Localization", "LocalizeString_Japanese.bytes"));
-            _previousSqliteConnection.Open();
+            _prevSqliteConnection = new SqliteConnection(text + previousLocalizationPath);
+            _prevSqliteConnection.Open();
 
             using (_sqliteCommand = _sqliteConnection.CreateCommand())
             {
@@ -38,22 +41,24 @@ namespace BundleManager
                 _sqliteCommand.Prepare();
             }
 
-            using (_previousSqliteCommand = _previousSqliteConnection.CreateCommand())
+            using (_prevSqliteCommand = _prevSqliteConnection.CreateCommand())
             {
-                _previousSqliteCommand.CommandText = "SELECT COUNT(1) FROM TRANSLATION WHERE id = @id LIMIT 1";
-                _previousSqliteCommand.Parameters.Add(_previousParamById);
-                _previousSqliteCommand.Prepare();
+                _prevSqliteCommand.CommandText = "SELECT COUNT(1) FROM TRANSLATION WHERE id = @id LIMIT 1";
+                _prevSqliteCommand.Parameters.Add(_previousParamById);
+                _prevSqliteCommand.Prepare();
             }
 
-            using (_previousSqliteCommandGetString = _previousSqliteConnection.CreateCommand())
+            using (_prevSqliteCommandGetString = _prevSqliteConnection.CreateCommand())
             {
-                _previousSqliteCommandGetString.CommandText = "SELECT translated FROM TRANSLATION WHERE id = @id limit 1";
-                _previousSqliteCommandGetString.Parameters.Add(_previousParamById);
-                _previousSqliteCommandGetString.Prepare();
+                _prevSqliteCommandGetString.CommandText = "SELECT translated FROM TRANSLATION WHERE id = @id limit 1";
+                _prevSqliteCommandGetString.Parameters.Add(_previousParamById);
+                _prevSqliteCommandGetString.Prepare();
             }
+
+            return true;
         }
 
-        public void WriteNewStringsToFile(string dir, bool isWriteChangedStrings)
+        public void WriteNewStringsToFile(string outputDirectory, bool isWriteChangedStrings)
         {
             Console.WriteLine("\nGetting the new string from the database...");
             SqliteCommand selectAllCommand = _sqliteConnection.CreateCommand();
@@ -74,14 +79,14 @@ namespace BundleManager
                     stringBuilder.AppendLine($"{id} : {StringDecryption(encryptedString)}");
                 }
             }
-            File.WriteAllText(Path.Join(dir, "Localization", "NewLocalizationString.txt"), stringBuilder.ToString());
+            File.WriteAllText(Path.Combine(outputDirectory, "NewLocalizationString.txt"), stringBuilder.ToString());
             Console.WriteLine("\nDone !");
         }
 
         private bool IsStringChanged(string key, string newString)
         {
             _previousParamById.Value = key;
-            using (SqliteDataReader dataReader = _previousSqliteCommandGetString.ExecuteReader())
+            using (SqliteDataReader dataReader = _prevSqliteCommandGetString.ExecuteReader())
             {
                 if (dataReader.Read())
                 {
@@ -97,7 +102,7 @@ namespace BundleManager
         private bool IsExistId(string key)
         {
             _previousParamById.Value = key;
-            using (SqliteDataReader dataReader = _previousSqliteCommand.ExecuteReader())
+            using (SqliteDataReader dataReader = _prevSqliteCommand.ExecuteReader())
             {
                 if (dataReader.Read())
                 {
@@ -188,7 +193,7 @@ namespace BundleManager
 
         private SqliteConnection _sqliteConnection;
 
-        private SqliteConnection _previousSqliteConnection;
+        private SqliteConnection _prevSqliteConnection;
 
         private readonly int[] decryptionKey;
 
@@ -196,9 +201,9 @@ namespace BundleManager
 
         private SqliteCommand _sqliteCommand;
 
-        private SqliteCommand _previousSqliteCommand;
+        private SqliteCommand _prevSqliteCommand;
 
-        private SqliteCommand _previousSqliteCommandGetString;
+        private SqliteCommand _prevSqliteCommandGetString;
 
         private readonly SqliteParameter _paramById = new("@id", SqliteType.Text);
 

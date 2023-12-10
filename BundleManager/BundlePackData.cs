@@ -1,4 +1,4 @@
-﻿namespace BundleManager
+﻿namespace _7dsgcDatamine
 {
     public class BundlePackData
     {

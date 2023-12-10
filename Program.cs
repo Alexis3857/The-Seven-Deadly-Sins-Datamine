@@ -1,7 +1,5 @@
-﻿using Decryptor;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using System.Globalization;
-using BundleManager;
 
 namespace _7dsgcDatamine
 {
@@ -10,60 +8,63 @@ namespace _7dsgcDatamine
         static void Main(string[] args)
         {
             Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");  // Needed to make sure the program writes decimal number with . and not , when exporting Mesh
-            Dictionary<string, string> parsedArguments = ParseArguments(args);
-            string? decryptionKey;
-            string? patchRelativeSub;
-            string? patchVersion;
-            bool isWriteChangedString = parsedArguments.ContainsKey("write_changed_string");
-            if (!parsedArguments.TryGetValue("decryption_key", out decryptionKey))
+            GameCode gameCode;
+            string? decryptionKey, patchRelativeSub, patchVersion;
+            bool isWriteChangedString;
+            ParseArguments(args, out gameCode, out decryptionKey, out patchRelativeSub, out patchVersion, out isWriteChangedString);
+            if (string.IsNullOrEmpty(decryptionKey) || gameCode == GameCode.none)
             {
                 Usage();
                 return;
             }
-            if (!parsedArguments.TryGetValue("patch_relative_sub", out patchRelativeSub) || !parsedArguments.TryGetValue("patch_version", out patchVersion))
+            if (patchRelativeSub is null || patchVersion is null)  // If the user didn't provide a relative sub or a version, we get the latest ones
             {
-                string configuration = s_configurationDecryptor.Decrypt(BundleDownloader.GetConfiguration("configuration").Result);
-                GetRelativeSubAndVersion(configuration, out patchRelativeSub, out patchVersion);
+                string config = ConfigDecryptor.Decrypt(BundleDownloader.GetConfiguration(gameCode, "configuration").Result);
+                ParseConfiguration(config, out patchRelativeSub, out patchVersion);
             }
             Console.WriteLine($"Relative sub : {patchRelativeSub}\nVersion : {patchVersion}\n");
-            string previousVersionFolderName = GetLastVersionFolder(patchVersion).ToString();
-            BundleManager.BundleManager bundleManager = new BundleManager.BundleManager(patchRelativeSub, patchVersion, decryptionKey, previousVersionFolderName);
-            if (Directory.Exists($"JP/{patchVersion}"))
+            string currentBaseDirectory = Path.Combine(Directory.GetCurrentDirectory(), gameCode.ToString(), patchVersion);
+            string? previousBaseDirectory;
+            int lastSavedVersion = GetLastVersionFolder(gameCode, patchVersion);
+            if (lastSavedVersion == -1)
+                previousBaseDirectory = null;
+            else
+                previousBaseDirectory = Path.Combine(Directory.GetCurrentDirectory(), gameCode.ToString(), lastSavedVersion.ToString());
+            BundleManager bundleManager = new BundleManager(gameCode, new BundleDownloader(gameCode, patchRelativeSub, patchVersion), new BundleDecryptor(decryptionKey), currentBaseDirectory, previousBaseDirectory);
+
+            if (Directory.Exists($"{gameCode}/{patchVersion}"))
             {
                 Console.Write($"The directory {patchVersion} already exists, do you want to delete it and do the process again ? (y/n) : ");
                 string? userInput = Console.ReadLine();
-                while (string.IsNullOrEmpty(userInput) || !userInput.ToLower().Equals("y") && !userInput.ToLower().Equals("n"))
+                while (string.IsNullOrEmpty(userInput) || !userInput.Equals("y", StringComparison.OrdinalIgnoreCase) && !userInput.Equals("n", StringComparison.OrdinalIgnoreCase))
                 {
                     Console.Write("Invalid answer, try again : ");
                     userInput = Console.ReadLine();
                 }
-                if (userInput.ToLower().Equals("y"))
-                {
-                    Directory.Delete($"JP/{patchVersion}", true);
-                }
-                else
-                {
-                    Console.WriteLine($"The directory {patchVersion} already exists.");
+                if (userInput.Equals("n", StringComparison.OrdinalIgnoreCase))
                     return;
-                }
+                Directory.Delete($"{gameCode}/{patchVersion}", true);
             }
-            Directory.CreateDirectory($"JP/{patchVersion}");
-            if (previousVersionFolderName.Equals("-1"))
+
+            Directory.CreateDirectory($"{gameCode}/{patchVersion}");
+            if (lastSavedVersion == -1)
             {
                 Console.WriteLine("No other version was found to compare with, only the necessary files will be downloaded so this version can be used for the next update.");
-                bundleManager.DownloadBaseOnly();
+                bundleManager.DownloadBase();
             }
             else
             {
-                Console.WriteLine($"Comparing with {previousVersionFolderName}");
+                Console.WriteLine($"Comparing with {lastSavedVersion}");
                 bundleManager.DownloadNew(isWriteChangedString);
             }
-            Console.WriteLine("\nEverything was done successfully !");
         }
 
-        public static void Usage()
+        private static void Usage()
         {
-            Console.WriteLine("Usage: 7dsgcDatamine.exe -key=decryption_key -patch=patch_relative_sub:patch_version -write_changed_string");
+            Console.WriteLine("Usage: 7dsgcDatamine.exe -game=game -key=decryption_key -patch=patch_relative_sub:patch_version -write_changed_string");
+
+            Console.WriteLine("\n-game is mandatory");
+            Console.WriteLine("It's the game version to datamine, it must be either JP, KR or GB");
 
             Console.WriteLine("\n-key is mandatory");
             Console.WriteLine("It's the AES decryption passphrase, hidden in the game code and this program can not run without it");
@@ -78,14 +79,33 @@ namespace _7dsgcDatamine
             Console.WriteLine("If used, the program will also write strings that got changed and not only new strings");
         }
 
-        public static Dictionary<string, string> ParseArguments(string[] args)
+        private static void ParseArguments(string[] args, out GameCode gameCode, out string? decKey, out string? relSub, out string? version, out bool writeChangedStr)
         {
-            Dictionary<string, string> arguments = new Dictionary<string, string>();
+            gameCode = GameCode.none;
+            decKey = null;
+            relSub = null;
+            version = null;
+            writeChangedStr = false;
             foreach (string arg in args)
             {
                 if (arg.StartsWith("-key="))
                 {
-                    arguments.Add("decryption_key", arg.Split("=")[1]);
+                    decKey = arg.Split("=")[1];
+                }
+                else if (arg.StartsWith("-game"))
+                {
+                    switch (arg.Split("=")[1].ToUpper())
+                    {
+                        case "JP":
+                            gameCode = GameCode.nanatsunotaizai;
+                            break;
+                        case "KR":
+                            gameCode = GameCode.nanakr;
+                            break;
+                        case "GB":
+                            gameCode = GameCode.nanagb;
+                            break;
+                    }
                 }
                 else if (arg.StartsWith("-patch="))
                 {
@@ -93,8 +113,8 @@ namespace _7dsgcDatamine
                     string[] splitPatch = patch.Split(":");
                     if (splitPatch.Length == 2)
                     {
-                        arguments.Add("patch_relative_sub", splitPatch[0]);
-                        arguments.Add("patch_version", splitPatch[1]);
+                        relSub = splitPatch[0];
+                        version = splitPatch[1];
                     }
                     else
                     {
@@ -103,22 +123,30 @@ namespace _7dsgcDatamine
                 }
                 else if (arg == "-write_changed_string")
                 {
-                    arguments.Add("write_changed_string", string.Empty);
+                    writeChangedStr = true;
+
                 }
             }
-            return arguments;
         }
 
-        // This folder will be compared with the new version of the game to filter the new files
-        public static int GetLastVersionFolder(string patchVersion)
+        private static void ParseConfiguration(string jsonText, out string patchRelativeSub, out string patchVersion)
         {
+            JObject json = JObject.Parse(jsonText);  // TODO : null check
+            patchRelativeSub = (string)json["patch"]["windows"]["relative_sub"];
+            patchVersion = (string)json["patch"]["windows"]["version"];
+        }
+
+        // This data saved in this folder will be compared with the new update data
+        public static int GetLastVersionFolder(GameCode gameCode, string patchVersion)
+        {
+            string gameDir = gameCode.ToString();
             int highestDir = -1;
-            if (!Directory.Exists("JP"))
+            if (!Directory.Exists(gameDir))
             {
-                Directory.CreateDirectory("JP");
+                Directory.CreateDirectory(gameDir);
                 return highestDir;
             }
-            foreach (DirectoryInfo directoryInfo in new DirectoryInfo("JP").GetDirectories())
+            foreach (DirectoryInfo directoryInfo in new DirectoryInfo(gameDir).GetDirectories())
             {
                 if (!patchVersion.Equals(directoryInfo.Name) && int.TryParse(directoryInfo.Name, out int directoryName) && directoryName > highestDir)
                 {
@@ -127,14 +155,32 @@ namespace _7dsgcDatamine
             }
             return highestDir;
         }
-
-        public static void GetRelativeSubAndVersion(string jsonText, out string patchRelativeSub, out string patchVersion)
-        {
-            JObject json = JObject.Parse(jsonText);
-            patchRelativeSub = (string)json["patch"]["windows"]["relative_sub"];
-            patchVersion = (string)json["patch"]["windows"]["version"];
-        }
-
-        private static readonly ConfigDecryptor s_configurationDecryptor = new ConfigDecryptor();
     }
+
+    public enum GameCode
+    {
+        none,
+        nanatsunotaizai,
+        nanakr,
+        nanagb
+    }
+
+    // The bundles are splitted in several folders
+    public enum Section
+    {
+        m,  // models + most images
+        b,  // database
+        s,  // sounds
+        w,  // weapons models
+        jal, kol, enl,  // japanese, korean and english localization
+        jas, kos,  // japanese and korean voices (there is no english voice)
+        jau, kou, enu,  // japanese, korean and english banners (images with text on it that differ for each version)
+    }
+
+    // Unused sections found in the game code : 
+    /* kr (contains censored assets)
+     * us (?)
+     * n (?)
+     * dbg (debug) 
+     */
 }

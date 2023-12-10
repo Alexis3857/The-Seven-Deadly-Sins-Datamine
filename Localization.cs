@@ -1,4 +1,4 @@
-using BundleManager;
+using _7dsgcDatamine;
 
 public static class Localization
 {

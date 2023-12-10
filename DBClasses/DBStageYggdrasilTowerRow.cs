@@ -1524,7 +1524,7 @@
             return list_reward_value;
         }
     }
-    
+
     public List<int> ListRewardValueEvent
     {
         get

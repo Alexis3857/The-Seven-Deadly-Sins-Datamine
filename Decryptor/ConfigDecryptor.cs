@@ -1,22 +1,22 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Decryptor
+namespace _7dsgcDatamine
 {
-    public class ConfigDecryptor
+    public static class ConfigDecryptor
     {
-        public string Decrypt(string encrypted)
+        public static string Decrypt(string encrypted)
         {
             byte[] data = Convert.FromBase64String(encrypted);
             byte[] salt = new byte[8];
             byte[] content = new byte[data.Length - salt.Length - 8];
             Buffer.BlockCopy(data, 8, salt, 0, salt.Length);
             Buffer.BlockCopy(data, salt.Length + 8, content, 0, content.Length);
-            DeriveKeyAndIV(_passphrase, salt, out byte[] key, out byte[] iv);
+            DeriveKeyAndIV("funnypaw-Nanatsunotaizai-CDN-key", salt, out byte[] key, out byte[] iv);
             return DecryptStringFromBytesAes(content, key, iv);
         }
 
-        private void DeriveKeyAndIV(string passphrase, byte[] salt, out byte[] key, out byte[] iv)
+        private static void DeriveKeyAndIV(string passphrase, byte[] salt, out byte[] key, out byte[] iv)
         {
             List<byte> list = new List<byte>(48);
             byte[] bytes = Encoding.UTF8.GetBytes(passphrase);
@@ -42,7 +42,7 @@ namespace Decryptor
             list.CopyTo(32, iv, 0, 16);
         }
 
-        private string DecryptStringFromBytesAes(byte[] cipherText, byte[] key, byte[] iv)
+        private static string DecryptStringFromBytesAes(byte[] cipherText, byte[] key, byte[] iv)
         {
             Aes aes = Aes.Create();
             aes.Mode = CipherMode.CBC;
@@ -56,7 +56,5 @@ namespace Decryptor
             StreamReader streamReader = new StreamReader(cryptoStream);
             return streamReader.ReadToEnd();
         }
-
-        private const string _passphrase = "funnypaw-Nanatsunotaizai-CDN-key";
     }
 }

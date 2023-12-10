@@ -1,6 +1,4 @@
-﻿using Newtonsoft.Json.Linq;
-
-public class DBExpRow : DataTableCryptographer, ITableRowIndexer
+﻿public class DBExpRow : DataTableCryptographer, ITableRowIndexer
 {
     protected override uint XOROperand
     {

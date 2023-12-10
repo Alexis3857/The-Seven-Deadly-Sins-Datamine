@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace BundleManager
+namespace _7dsgcDatamine
 {
     public static class DatabaseManager
     {
@@ -21,12 +21,19 @@ namespace BundleManager
 
         private static void ProcessDatabase<T>(string dbName) where T : ITableRowIndexer, new()
         {
-            string inputFile = dbName + ".csv";
-            string outputFile = dbName + ".json";
-            List<T> newList = GetDatabaseListFromCsv<T>(inputFile);
-            string str = JsonConvert.SerializeObject(newList, Formatting.Indented);
-            File.WriteAllText(outputFile, str);
-            File.Delete(inputFile);
+            try
+            {
+                string inputFile = dbName + ".csv";
+                string outputFile = dbName + ".json";
+                List<T> newList = GetDatabaseListFromCsv<T>(inputFile);
+                string str = JsonConvert.SerializeObject(newList, Formatting.Indented);
+                File.WriteAllText(outputFile, str);
+                File.Delete(inputFile);
+            }
+            catch
+            {
+                Console.WriteLine(dbName + " crashed.");
+            }
         }
 
         // The database contains binary files that have to be transformed in order to be understood 

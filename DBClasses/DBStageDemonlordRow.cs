@@ -898,7 +898,7 @@
         phase2_boss_material_box_1 = reader.ReadInt32();
         phase2_boss_id_2 = reader.ReadInt32();
         phase2_boss_level_2 = reader.ReadInt32();
-        int num98= reader.ReadInt32();
+        int num98 = reader.ReadInt32();
         list_phase2_array_passive2 = new List<int>();
         for (int j = 0; j < num98; j++)
         {

@@ -1,6 +1,4 @@
-using ServiceStack;
-
-namespace BundleManager
+namespace _7dsgcDatamine
 {
     public class BundleData
     {
@@ -33,7 +31,7 @@ namespace BundleManager
             }
         }
 
-        public BundleType Type
+        public byte Type  // 0 = Scene bundle, 1 = Asset bundle
         {
             get
             {
@@ -142,7 +140,7 @@ namespace BundleManager
             m_compressed = reader.ReadBoolean();
             m_encrypt = reader.ReadBoolean();
             m_useStreamingLoad = reader.ReadBoolean();
-            m_type = (BundleType)reader.ReadByte();
+            m_type = reader.ReadByte();
             m_crc = reader.ReadUInt32();
             m_crc16 = reader.ReadUInt16();
             m_priority = reader.ReadInt32();
@@ -174,7 +172,7 @@ namespace BundleManager
 
         private bool m_useStreamingLoad;
 
-        private BundleType m_type;
+        private byte m_type;
 
         private uint m_crc;
 

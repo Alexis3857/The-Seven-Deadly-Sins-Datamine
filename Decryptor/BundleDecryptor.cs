@@ -1,6 +1,6 @@
 using System.Security.Cryptography;
 
-namespace Decryptor
+namespace _7dsgcDatamine
 {
     public class BundleDecryptor
     {

@@ -11,7 +11,7 @@ public class DBHeroLeagueStageRow : ITableRowIndexer
     public int MatchTeamNumber { get => match_team_number; }
     public int IsTurnPivot { get => is_turn_pivot; }
     public int PlayBossSpawn { get => play_boss_spawn; }
-    public string BossEntryType { get =>boss_entry_type; }
+    public string BossEntryType { get => boss_entry_type; }
     public string MapFilename { get => map_filename; }
     public int BgmSoundId { get => bgm_sound_id; }
     public int BossSoundId { get => boss_sound_id; }
