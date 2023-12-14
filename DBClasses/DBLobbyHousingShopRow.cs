@@ -24,6 +24,14 @@
         }
     }
 
+    public int EventCheck
+    {
+        get
+        {
+            return event_check;
+        }
+    }
+
     public int PriceId
     {
         get
@@ -45,6 +53,7 @@
         id = reader.ReadInt32();
         shop_type = reader.ReadString();
         product_id = reader.ReadInt32();
+        event_check = reader.ReadInt32();
         price_id = reader.ReadInt32();
         price_count = reader.ReadInt32();
         return true;
@@ -60,6 +69,8 @@
     private string shop_type;
 
     private int product_id;
+
+    private int event_check;
 
     private int price_id;
 

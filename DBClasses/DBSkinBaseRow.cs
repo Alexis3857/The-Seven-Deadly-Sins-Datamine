@@ -296,6 +296,14 @@
         }
     }
 
+    public float AttrEnhancePer
+    {
+        get
+        {
+            return attr_enhance_per;
+        }
+    }
+
     public float AtkAdd
     {
         get
@@ -447,6 +455,7 @@
         hp_regen_per = reader.ReadSingle();
         hp_recovery_per = reader.ReadSingle();
         hp_steal_per = reader.ReadSingle();
+        attr_enhance_per = reader.ReadSingle();
         atk_add = reader.ReadSingle();
         def_add = reader.ReadSingle();
         hp_add = reader.ReadSingle();
@@ -542,6 +551,8 @@
     private float hp_recovery_per;
 
     private float hp_steal_per;
+
+    private float attr_enhance_per;
 
     private float atk_add;
 

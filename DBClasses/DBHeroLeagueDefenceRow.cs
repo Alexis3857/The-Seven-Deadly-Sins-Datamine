@@ -16,6 +16,7 @@ public class DBHeroLeagueDefenceRow : ITableRowIndexer
     public int HeroLevel { get => hero_level; }
     public int HeroAwaken { get => hero_awaken; }
     public int HeroTranscend { get => hero_transcend; }
+    public int HeroExceed { get => hero_exceed; }
     public int HeroSkillLevel { get => hero_skill_level; }
     public int SkinCostume { get => skin_costume; }
     public int HeadCostume { get => head_costume; }
@@ -37,6 +38,7 @@ public class DBHeroLeagueDefenceRow : ITableRowIndexer
     public float HpRegenPer { get => hp_regen_per; }
     public float HpRecoveryPer { get => hp_recovery_per; }
     public float HpStealPer { get => hp_steal_per; }
+    public float AttrEnhancePer { get => attr_enhance_per;  }
 
     public bool ReadToStream(BinaryReader reader)
     {
@@ -56,6 +58,7 @@ public class DBHeroLeagueDefenceRow : ITableRowIndexer
         hero_level = reader.ReadInt32();
         hero_awaken = reader.ReadInt32();
         hero_transcend = reader.ReadInt32();
+        hero_exceed = reader.ReadInt32();
         hero_skill_level = reader.ReadInt32();
         skin_costume = reader.ReadInt32();
         head_costume = reader.ReadInt32();
@@ -77,6 +80,7 @@ public class DBHeroLeagueDefenceRow : ITableRowIndexer
         hp_regen_per = reader.ReadSingle();
         hp_recovery_per = reader.ReadSingle();
         hp_steal_per = reader.ReadSingle();
+        attr_enhance_per = reader.ReadSingle();
         return true;
     }
 
@@ -116,6 +120,8 @@ public class DBHeroLeagueDefenceRow : ITableRowIndexer
     private int hero_awaken;
 
     private int hero_transcend;
+
+    private int hero_exceed;
 
     private int hero_skill_level;
 
@@ -158,4 +164,6 @@ public class DBHeroLeagueDefenceRow : ITableRowIndexer
     private float hp_recovery_per;
 
     private float hp_steal_per;
+
+    private float attr_enhance_per;
 }

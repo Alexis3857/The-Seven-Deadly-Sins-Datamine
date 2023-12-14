@@ -32,6 +32,14 @@
         }
     }
 
+    public int ShowIndex
+    {
+        get
+        {
+            return show_index;
+        }
+    }
+
     public string ConsumeType
     {
         get
@@ -152,12 +160,29 @@
         }
     }
 
+    public string BuyStartDate
+    {
+        get
+        {
+            return buy_start_date;
+        }
+    }
+
+    public string BuyEndDate
+    {
+        get
+        {
+            return buy_end_date;
+        }
+    }
+
     public bool ReadToStream(BinaryReader reader)
     {
         id = reader.ReadInt32();
         item_icon_name = reader.ReadString();
         category = reader.ReadInt32();
         item_active = reader.ReadInt32();
+        show_index = reader.ReadInt32();
         consume_type = reader.ReadString();
         item_id = reader.ReadInt32();
         item_count = reader.ReadInt32();
@@ -173,6 +198,8 @@
         buy_type = reader.ReadString();
         buy_limited_count = reader.ReadInt32();
         bonus_limited_count = reader.ReadInt32();
+        buy_start_date = reader.ReadString();
+        buy_end_date = reader.ReadString();
         return true;
     }
 
@@ -188,6 +215,8 @@
     private int category;
 
     private int item_active;
+
+    private int show_index;
 
     private string consume_type;
 
@@ -218,4 +247,8 @@
     private int buy_limited_count;
 
     private int bonus_limited_count;
+
+    private string buy_start_date;
+
+    private string buy_end_date;
 }

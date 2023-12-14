@@ -115,6 +115,7 @@ namespace _7dsgcDatamine
             ProcessDatabase<DBCreaturePassiveRow>(Path.Combine(databasePath, "DB_creature_passive"));
             ProcessDatabase<DBDailyAttendanceRow>(Path.Combine(databasePath, "DB_daily_attendance"));
             ProcessDatabase<DBDemonpointStageRow>(Path.Combine(databasePath, "DB_demonpoint_stage"));
+            ProcessDatabase<DBDemonlordRuleinfoRow>(Path.Combine(databasePath, "DB_demonlord_ruleinfo"));
             ProcessDatabase<DBDemonlordRuleRow>(Path.Combine(databasePath, "DB_demonlord_rule"));
             ProcessDatabase<DBDemonlordPassiveRow>(Path.Combine(databasePath, "DB_demonlord_passive"));
             ProcessDatabase<DBDirectSelectorRow>(Path.Combine(databasePath, "DB_direct_selector"));
@@ -462,6 +463,7 @@ namespace _7dsgcDatamine
             ProcessDatabase<DBSkinBaseRow>(Path.Combine(databasePath, "DB_skin_base"));
             ProcessDatabase<DBSkinCostumeResourceRow>(Path.Combine(databasePath, "DB_skin_costume_resource"));
             ProcessDatabase<DBSkinEvolutionRow>(Path.Combine(databasePath, "DB_skin_evolution"));
+            ProcessDatabase<DBSkinExceedRow>(Path.Combine(databasePath, "DB_skin_exceed"));
             ProcessDatabase<DBSkinExclusivePassiveRow>(Path.Combine(databasePath, "DB_skin_exclusive_passive"));
             ProcessDatabase<DBSkinSkillRow>(Path.Combine(databasePath, "DB_skin_skill"));
             ProcessDatabase<DBSkinSkillLevelupRow>(Path.Combine(databasePath, "DB_skin_skill_levelup"));

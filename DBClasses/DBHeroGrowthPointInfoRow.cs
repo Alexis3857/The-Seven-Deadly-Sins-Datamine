@@ -56,6 +56,14 @@
         }
     }
 
+    public int HeroExceedGp
+    {
+        get
+        {
+            return hero_exceed_gp;
+        }
+    }
+
     public int HeroSkilUpgradeGp
     {
         get
@@ -73,6 +81,7 @@
         hero_evolution_lr_gp = reader.ReadInt32();
         hero_awaken_gp = reader.ReadInt32();
         hero_transcend_gp = reader.ReadInt32();
+        hero_exceed_gp = reader.ReadInt32();
         hero_skil_upgrade_gp = reader.ReadInt32();
         return true;
     }
@@ -95,6 +104,8 @@
     private int hero_awaken_gp;
 
     private int hero_transcend_gp;
+
+    private int hero_exceed_gp;
 
     private int hero_skil_upgrade_gp;
 }
