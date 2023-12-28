@@ -96,6 +96,14 @@
         }
     }
 
+    public int GachaUr
+    {
+        get
+        {
+            return gacha_ur;
+        }
+    }
+
     public bool ReadToStream(BinaryReader reader)
     {
         index = reader.ReadInt32();
@@ -110,6 +118,7 @@
         skin_level = reader.ReadInt32();
         skin_awaken = reader.ReadInt32();
         gacha_ssr_bonus_count = reader.ReadInt32();
+        gacha_ur = reader.ReadInt32();
         return true;
     }
 
@@ -141,4 +150,6 @@
     private int skin_awaken;
 
     private int gacha_ssr_bonus_count;
+
+    private int gacha_ur;
 }

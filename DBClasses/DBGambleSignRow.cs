@@ -80,6 +80,14 @@
         }
     }
 
+    public float SignRate8
+    {
+        get
+        {
+            return sign_rate_8;
+        }
+    }
+
     public List<float> ListSignRate
     {
         get
@@ -94,7 +102,8 @@
                     SignRate4,
                     SignRate5,
                     SignRate6,
-                    SignRate7
+                    SignRate7,
+                    SignRate8
                 };
             }
             return list_sign_rate;
@@ -113,6 +122,7 @@
         sign_rate_5 = reader.ReadSingle();
         sign_rate_6 = reader.ReadSingle();
         sign_rate_7 = reader.ReadSingle();
+        sign_rate_8 = reader.ReadSingle();
         return true;
     }
 
@@ -140,6 +150,8 @@
     private float sign_rate_6;
 
     private float sign_rate_7;
+
+    private float sign_rate_8;
 
     private List<float> list_sign_rate;
 }

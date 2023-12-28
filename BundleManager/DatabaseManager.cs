@@ -465,6 +465,8 @@ namespace _7dsgcDatamine
             ProcessDatabase<DBSkinEvolutionRow>(Path.Combine(databasePath, "DB_skin_evolution"));
             ProcessDatabase<DBSkinExceedRow>(Path.Combine(databasePath, "DB_skin_exceed"));
             ProcessDatabase<DBSkinExclusivePassiveRow>(Path.Combine(databasePath, "DB_skin_exclusive_passive"));
+            ProcessDatabase<DBSkinLevelupBonusRow>(Path.Combine(databasePath, "DB_skin_levelup_bonus"));
+
             ProcessDatabase<DBSkinSkillRow>(Path.Combine(databasePath, "DB_skin_skill"));
             ProcessDatabase<DBSkinSkillLevelupRow>(Path.Combine(databasePath, "DB_skin_skill_levelup"));
             ProcessDatabase<DBSkinTranscendRow>(Path.Combine(databasePath, "DB_skin_transcend"));

@@ -40,6 +40,8 @@ public class DBHeroLeagueDefenceRow : ITableRowIndexer
     public float HpStealPer { get => hp_steal_per; }
     public float AttrEnhancePer { get => attr_enhance_per;  }
 
+    public float DmgRes { get => dmg_res; }
+
     public bool ReadToStream(BinaryReader reader)
     {
         index = reader.ReadInt32();
@@ -81,6 +83,7 @@ public class DBHeroLeagueDefenceRow : ITableRowIndexer
         hp_recovery_per = reader.ReadSingle();
         hp_steal_per = reader.ReadSingle();
         attr_enhance_per = reader.ReadSingle();
+        dmg_res = reader.ReadSingle();
         return true;
     }
 
@@ -166,4 +169,6 @@ public class DBHeroLeagueDefenceRow : ITableRowIndexer
     private float hp_steal_per;
 
     private float attr_enhance_per;
+
+    private float dmg_res;
 }

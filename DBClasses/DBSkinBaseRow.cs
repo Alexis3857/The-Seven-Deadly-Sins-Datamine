@@ -304,6 +304,14 @@
         }
     }
 
+    public float DmgRes
+    {
+        get
+        {
+            return dmg_res;
+        }
+    }
+
     public float AtkAdd
     {
         get
@@ -456,6 +464,7 @@
         hp_recovery_per = reader.ReadSingle();
         hp_steal_per = reader.ReadSingle();
         attr_enhance_per = reader.ReadSingle();
+        dmg_res = reader.ReadSingle();
         atk_add = reader.ReadSingle();
         def_add = reader.ReadSingle();
         hp_add = reader.ReadSingle();
@@ -553,6 +562,8 @@
     private float hp_steal_per;
 
     private float attr_enhance_per;
+
+    private float dmg_res;
 
     private float atk_add;
 

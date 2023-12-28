@@ -26,6 +26,8 @@
     public float AddHpRecoveryPer => add_hp_recovery_per;
     public float AddHpStealPer => add_hp_steal_per;
     public float AddAttrEnhancePer => add_attr_enhance_per;
+
+    public float AddDmgRes => add_dmg_res;
     public float AddFpower => add_fpower;
     public List<int> ListExceedMaterialId
     {
@@ -89,6 +91,7 @@
         add_hp_recovery_per = reader.ReadSingle();
         add_hp_steal_per = reader.ReadSingle();
         add_attr_enhance_per = reader.ReadSingle();
+        add_dmg_res = reader.ReadSingle();
         add_fpower = reader.ReadSingle();
         return true;
     }
@@ -149,6 +152,8 @@
     private float add_hp_steal_per;
 
     private float add_attr_enhance_per;
+
+    private float add_dmg_res;
 
     private float add_fpower;
 

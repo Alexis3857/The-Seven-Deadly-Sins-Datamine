@@ -222,6 +222,8 @@
     public int Banconditionvalue5 => BanConditionValue_5;
     public string Bancondition6 => BanCondition_6;
     public int Banconditionvalue6 => BanConditionValue_6;
+    public List<int> ListArrayRuleinfo1 => list_array_ruleinfo1;
+    public List<int> ListArrayRuleinfo2 => list_array_ruleinfo2;
     public List<int> ListBgmSoundId
     {
         get
@@ -1001,6 +1003,18 @@
         BanConditionValue_5 = reader.ReadInt32();
         BanCondition_6 = reader.ReadString();
         BanConditionValue_6 = reader.ReadInt32();
+        int a = reader.ReadInt32();
+        list_array_ruleinfo1 = new List<int>();
+        for (int i = 0; i < a; i++)
+        {
+            list_array_ruleinfo1.Add(reader.ReadInt32());
+        }
+        int b = reader.ReadInt32();
+        list_array_ruleinfo2 = new List<int>();
+        for (int i = 0; i < b; i++)
+        {
+            list_array_ruleinfo2.Add(reader.ReadInt32());
+        }
         return true;
     }
 
@@ -1451,6 +1465,10 @@
     private string BanCondition_6;
 
     private int BanConditionValue_6;
+
+    private List<int> list_array_ruleinfo1;
+
+    private List<int> list_array_ruleinfo2;
 
     private List<int> list_bgm_sound_id;
 

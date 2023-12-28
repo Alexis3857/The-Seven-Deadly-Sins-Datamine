@@ -1296,6 +1296,78 @@
         }
     }
 
+    public int Phase1BossId3
+    {
+        get
+        {
+            return phase1_boss_id_3;
+        }
+    }
+
+    public int Phase1BossLevel3
+    {
+        get
+        {
+            return phase1_boss_level_3;
+        }
+    }
+
+    public List<int> ListPhase1ArrayPassive3
+    {
+        get
+        {
+            return list_phase1_array_passive3;
+        }
+    }
+
+    public int Phase1BossMaterialBox3
+    {
+        get
+        {
+            return phase1_boss_material_box_3;
+        }
+    }
+
+    public int Phase1BossId4
+    {
+        get
+        {
+            return phase1_boss_id_4;
+        }
+    }
+
+    public int Phase1BossLevel4
+    {
+        get
+        {
+            return phase1_boss_level_4;
+        }
+    }
+
+    public List<int> ListPhase1ArrayPassive4
+    {
+        get
+        {
+            return list_phase1_array_passive4;
+        }
+    }
+
+    public int Phase1BossMaterialBox4
+    {
+        get
+        {
+            return phase1_boss_material_box_4;
+        }
+    }
+
+    public List<int> ListArrayPhase1TunnelActivation
+    {
+        get
+        {
+            return list_array_phase1_tunnel_activation;
+        }
+    }
+
     public int Phase2MonsterAiId
     {
         get
@@ -1397,6 +1469,78 @@
         get
         {
             return phase2_boss_material_box_2;
+        }
+    }
+
+    public int Phase2BossId3
+    {
+        get
+        {
+            return phase2_boss_id_3;
+        }
+    }
+
+    public int Phase2BossLevel3
+    {
+        get
+        {
+            return phase2_boss_level_3;
+        }
+    }
+
+    public List<int> ListPhase2ArrayPassive3
+    {
+        get
+        {
+            return list_phase2_array_passive3;
+        }
+    }
+
+    public int Phase2BossMaterialBox3
+    {
+        get
+        {
+            return phase2_boss_material_box_3;
+        }
+    }
+
+    public int Phase2BossId4
+    {
+        get
+        {
+            return phase2_boss_id_4;
+        }
+    }
+
+    public int Phase2BossLevel4
+    {
+        get
+        {
+            return phase2_boss_level_4;
+        }
+    }
+
+    public List<int> ListPhase2ArrayPassive4
+    {
+        get
+        {
+            return list_phase2_array_passive4;
+        }
+    }
+
+    public int Phase2BossMaterialBox4
+    {
+        get
+        {
+            return phase2_boss_material_box_4;
+        }
+    }
+
+    public List<int> ListArrayPhase2TunnelActivation
+    {
+        get
+        {
+            return list_array_phase2_tunnel_activation;
         }
     }
 
@@ -1504,6 +1648,78 @@
         }
     }
 
+    public int Phase3BossId3
+    {
+        get
+        {
+            return phase3_boss_id_3;
+        }
+    }
+
+    public int Phase3BossLevel3
+    {
+        get
+        {
+            return phase3_boss_level_3;
+        }
+    }
+
+    public List<int> ListPhase3ArrayPassive3
+    {
+        get
+        {
+            return list_phase3_array_passive3;
+        }
+    }
+
+    public int Phase3BossMaterialBox3
+    {
+        get
+        {
+            return phase3_boss_material_box_3;
+        }
+    }
+
+    public int Phase3BossId4
+    {
+        get
+        {
+            return phase3_boss_id_4;
+        }
+    }
+
+    public int Phase3BossLevel4
+    {
+        get
+        {
+            return phase3_boss_level_4;
+        }
+    }
+
+    public List<int> ListPhase3ArrayPassive4
+    {
+        get
+        {
+            return list_phase3_array_passive4;
+        }
+    }
+
+    public int Phase3BossMaterialBox4
+    {
+        get
+        {
+            return phase3_boss_material_box_4;
+        }
+    }
+
+    public List<int> ListArrayPhase3TunnelActivation
+    {
+        get
+        {
+            return list_array_phase3_tunnel_activation;
+        }
+    }
+
     public int Phase4MonsterAiId
     {
         get
@@ -1608,6 +1824,78 @@
         }
     }
 
+    public int Phase4BossId3
+    {
+        get
+        {
+            return phase4_boss_id_3;
+        }
+    }
+
+    public int Phase4BossLevel3
+    {
+        get
+        {
+            return phase4_boss_level_3;
+        }
+    }
+
+    public List<int> ListPhase4ArrayPassive3
+    {
+        get
+        {
+            return list_phase4_array_passive3;
+        }
+    }
+
+    public int Phase4BossMaterialBox3
+    {
+        get
+        {
+            return phase4_boss_material_box_3;
+        }
+    }
+
+    public int Phase4BossId4
+    {
+        get
+        {
+            return phase4_boss_id_4;
+        }
+    }
+
+    public int Phase4BossLevel4
+    {
+        get
+        {
+            return phase4_boss_level_4;
+        }
+    }
+
+    public List<int> ListPhase4ArrayPassive4
+    {
+        get
+        {
+            return list_phase4_array_passive4;
+        }
+    }
+
+    public int Phase4BossMaterialBox4
+    {
+        get
+        {
+            return phase4_boss_material_box_4;
+        }
+    }
+
+    public List<int> ListArrayPhase4TunnelActivation
+    {
+        get
+        {
+            return list_array_phase4_tunnel_activation;
+        }
+    }
+
     public int Phase5MonsterAiId
     {
         get
@@ -1709,6 +1997,78 @@
         get
         {
             return phase5_boss_material_box_2;
+        }
+    }
+
+    public int Phase5BossId3
+    {
+        get
+        {
+            return phase5_boss_id_3;
+        }
+    }
+
+    public int Phase5BossLevel3
+    {
+        get
+        {
+            return phase5_boss_level_3;
+        }
+    }
+
+    public List<int> ListPhase5ArrayPassive3
+    {
+        get
+        {
+            return list_phase5_array_passive3;
+        }
+    }
+
+    public int Phase5BossMaterialBox3
+    {
+        get
+        {
+            return phase5_boss_material_box_3;
+        }
+    }
+
+    public int Phase5BossId4
+    {
+        get
+        {
+            return phase5_boss_id_4;
+        }
+    }
+
+    public int Phase5BossLevel4
+    {
+        get
+        {
+            return phase5_boss_level_4;
+        }
+    }
+
+    public List<int> ListPhase5ArrayPassive4
+    {
+        get
+        {
+            return list_phase5_array_passive4;
+        }
+    }
+
+    public int Phase5BossMaterialBox4
+    {
+        get
+        {
+            return phase5_boss_material_box_4;
+        }
+    }
+
+    public List<int> ListArrayPhase5TunnelActivation
+    {
+        get
+        {
+            return list_array_phase5_tunnel_activation;
         }
     }
 
@@ -2866,6 +3226,30 @@
             list_phase1_array_passive2.Add(reader.ReadInt32());
         }
         phase1_boss_material_box_2 = reader.ReadInt32();
+        phase1_boss_id_3 = reader.ReadInt32();
+        phase1_boss_level_3 = reader.ReadInt32();
+        int a = reader.ReadInt32();
+        list_phase1_array_passive3 = new List<int>();
+        for (int i = 0; i < a; i++)
+        {
+            list_phase1_array_passive3.Add(reader.ReadInt32());
+        }
+        phase1_boss_material_box_3 = reader.ReadInt32();
+        phase1_boss_id_4 = reader.ReadInt32();
+        phase1_boss_level_4 = reader.ReadInt32();
+        int b = reader.ReadInt32();
+        list_phase1_array_passive4 = new List<int>();
+        for (int i = 0; i < b; i++)
+        {
+            list_phase1_array_passive4.Add(reader.ReadInt32());
+        }
+        phase1_boss_material_box_4 = reader.ReadInt32();
+        int c = reader.ReadInt32();
+        list_array_phase1_tunnel_activation = new List<int>();
+        for (int i = 0; i < c; i++)
+        {
+            list_array_phase1_tunnel_activation.Add(reader.ReadInt32());
+        }
         phase2_monster_ai_id = reader.ReadInt32();
         phase2_boss_ui_change = reader.ReadByte();
         phase2_boss_atk_inc_per = reader.ReadInt32();
@@ -2875,7 +3259,7 @@
         phase2_boss_level_1 = reader.ReadInt32();
         int num3 = reader.ReadInt32();
         list_phase2_array_passive1 = new List<int>();
-        for (int k = 0; k < num3; k++)
+        for (int kk = 0; kk < num3; kk++)
         {
             list_phase2_array_passive1.Add(reader.ReadInt32());
         }
@@ -2889,6 +3273,30 @@
             list_phase2_array_passive2.Add(reader.ReadInt32());
         }
         phase2_boss_material_box_2 = reader.ReadInt32();
+        phase2_boss_id_3 = reader.ReadInt32();
+        phase2_boss_level_3 = reader.ReadInt32();
+        int d = reader.ReadInt32();
+        list_phase2_array_passive3 = new List<int>();
+        for (int i = 0; i < d; i++)
+        {
+            list_phase2_array_passive3.Add(reader.ReadInt32());
+        }
+        phase2_boss_material_box_3 = reader.ReadInt32();
+        phase2_boss_id_4 = reader.ReadInt32();
+        phase2_boss_level_4 = reader.ReadInt32();
+        int e = reader.ReadInt32();
+        list_phase2_array_passive4 = new List<int>();
+        for (int i = 0; i < e; i++)
+        {
+            list_phase2_array_passive4.Add(reader.ReadInt32());
+        }
+        phase2_boss_material_box_4 = reader.ReadInt32();
+        int f = reader.ReadInt32();
+        list_array_phase2_tunnel_activation = new List<int>();
+        for (int i = 0; i < f; i++)
+        {
+            list_array_phase2_tunnel_activation.Add(reader.ReadInt32());
+        }
         phase3_monster_ai_id = reader.ReadInt32();
         phase3_boss_ui_change = reader.ReadByte();
         phase3_boss_atk_inc_per = reader.ReadInt32();
@@ -2898,7 +3306,7 @@
         phase3_boss_level_1 = reader.ReadInt32();
         int num5 = reader.ReadInt32();
         list_phase3_array_passive1 = new List<int>();
-        for (int m = 0; m < num5; m++)
+        for (int mm = 0; mm < num5; mm++)
         {
             list_phase3_array_passive1.Add(reader.ReadInt32());
         }
@@ -2907,11 +3315,35 @@
         phase3_boss_level_2 = reader.ReadInt32();
         int num6 = reader.ReadInt32();
         list_phase3_array_passive2 = new List<int>();
-        for (int n = 0; n < num6; n++)
+        for (int nn = 0; nn < num6; nn++)
         {
             list_phase3_array_passive2.Add(reader.ReadInt32());
         }
         phase3_boss_material_box_2 = reader.ReadInt32();
+        phase3_boss_id_3 = reader.ReadInt32();
+        phase3_boss_level_3 = reader.ReadInt32();
+        int g = reader.ReadInt32();
+        list_phase3_array_passive3 = new List<int>();
+        for (int i = 0; i < g; i++)
+        {
+            list_phase3_array_passive3.Add(reader.ReadInt32());
+        }
+        phase3_boss_material_box_3 = reader.ReadInt32();
+        phase3_boss_id_4 = reader.ReadInt32();
+        phase3_boss_level_4 = reader.ReadInt32();
+        int h = reader.ReadInt32();
+        list_phase3_array_passive4 = new List<int>();
+        for (int i = 0; i < h; i++)
+        {
+            list_phase3_array_passive4.Add(reader.ReadInt32());
+        }
+        phase3_boss_material_box_4 = reader.ReadInt32();
+        int k = reader.ReadInt32();
+        list_array_phase3_tunnel_activation = new List<int>();
+        for (int i = 0; i < k; i++)
+        {
+            list_array_phase3_tunnel_activation.Add(reader.ReadInt32());
+        }
         phase4_monster_ai_id = reader.ReadInt32();
         phase4_boss_ui_change = reader.ReadByte();
         phase4_boss_atk_inc_per = reader.ReadInt32();
@@ -2935,6 +3367,30 @@
             list_phase4_array_passive2.Add(reader.ReadInt32());
         }
         phase4_boss_material_box_2 = reader.ReadInt32();
+        phase4_boss_id_3 = reader.ReadInt32();
+        phase4_boss_level_3 = reader.ReadInt32();
+        int m = reader.ReadInt32();
+        list_phase4_array_passive3 = new List<int>();
+        for (int i = 0; i < m; i++)
+        {
+            list_phase4_array_passive3.Add(reader.ReadInt32());
+        }
+        phase4_boss_material_box_3 = reader.ReadInt32();
+        phase4_boss_id_4 = reader.ReadInt32();
+        phase4_boss_level_4 = reader.ReadInt32();
+        int n = reader.ReadInt32();
+        list_phase4_array_passive4 = new List<int>();
+        for (int i = 0; i < n; i++)
+        {
+            list_phase4_array_passive4.Add(reader.ReadInt32());
+        }
+        phase4_boss_material_box_4 = reader.ReadInt32();
+        int o = reader.ReadInt32();
+        list_array_phase4_tunnel_activation = new List<int>();
+        for (int i = 0; i < o; i++)
+        {
+            list_array_phase4_tunnel_activation.Add(reader.ReadInt32());
+        }
         phase5_monster_ai_id = reader.ReadInt32();
         phase5_boss_ui_change = reader.ReadByte();
         phase5_boss_atk_inc_per = reader.ReadInt32();
@@ -2958,6 +3414,30 @@
             list_phase5_array_passive2.Add(reader.ReadInt32());
         }
         phase5_boss_material_box_2 = reader.ReadInt32();
+        phase5_boss_id_3 = reader.ReadInt32();
+        phase5_boss_level_3 = reader.ReadInt32();
+        int p = reader.ReadInt32();
+        list_phase5_array_passive3 = new List<int>();
+        for (int i = 0; i < p; i++)
+        {
+            list_phase5_array_passive3.Add(reader.ReadInt32());
+        }
+        phase5_boss_material_box_3 = reader.ReadInt32();
+        phase5_boss_id_4 = reader.ReadInt32();
+        phase5_boss_level_4 = reader.ReadInt32();
+        int q = reader.ReadInt32();
+        list_phase5_array_passive4 = new List<int>();
+        for (int i = 0; i < q; i++)
+        {
+            list_phase5_array_passive4.Add(reader.ReadInt32());
+        }
+        phase5_boss_material_box_4 = reader.ReadInt32();
+        int r = reader.ReadInt32();
+        list_array_phase5_tunnel_activation = new List<int>();
+        for (int i = 0; i < r; i++)
+        {
+            list_array_phase5_tunnel_activation.Add(reader.ReadInt32());
+        }
         play_boss_spawn = reader.ReadInt32();
         boss_entry_type = reader.ReadString();
         team_power = reader.ReadInt32();
@@ -3330,6 +3810,24 @@
 
     private int phase1_boss_material_box_2;
 
+    private int phase1_boss_id_3;
+
+    private int phase1_boss_level_3;
+
+    private List<int> list_phase1_array_passive3;
+
+    private int phase1_boss_material_box_3;
+
+    private int phase1_boss_id_4;
+
+    private int phase1_boss_level_4;
+
+    private List<int> list_phase1_array_passive4;
+
+    private int phase1_boss_material_box_4;
+
+    private List<int> list_array_phase1_tunnel_activation;
+
     private int phase2_monster_ai_id;
 
     private byte phase2_boss_ui_change;
@@ -3355,6 +3853,24 @@
     private List<int> list_phase2_array_passive2;
 
     private int phase2_boss_material_box_2;
+
+    private int phase2_boss_id_3;
+
+    private int phase2_boss_level_3;
+
+    private List<int> list_phase2_array_passive3;
+
+    private int phase2_boss_material_box_3;
+
+    private int phase2_boss_id_4;
+
+    private int phase2_boss_level_4;
+
+    private List<int> list_phase2_array_passive4;
+
+    private int phase2_boss_material_box_4;
+
+    private List<int> list_array_phase2_tunnel_activation;
 
     private int phase3_monster_ai_id;
 
@@ -3382,6 +3898,24 @@
 
     private int phase3_boss_material_box_2;
 
+    private int phase3_boss_id_3;
+
+    private int phase3_boss_level_3;
+
+    private List<int> list_phase3_array_passive3;
+
+    private int phase3_boss_material_box_3;
+
+    private int phase3_boss_id_4;
+
+    private int phase3_boss_level_4;
+
+    private List<int> list_phase3_array_passive4;
+
+    private int phase3_boss_material_box_4;
+
+    private List<int> list_array_phase3_tunnel_activation;
+
     private int phase4_monster_ai_id;
 
     private byte phase4_boss_ui_change;
@@ -3408,6 +3942,24 @@
 
     private int phase4_boss_material_box_2;
 
+    private int phase4_boss_id_3;
+
+    private int phase4_boss_level_3;
+
+    private List<int> list_phase4_array_passive3;
+
+    private int phase4_boss_material_box_3;
+
+    private int phase4_boss_id_4;
+
+    private int phase4_boss_level_4;
+
+    private List<int> list_phase4_array_passive4;
+
+    private int phase4_boss_material_box_4;
+
+    private List<int> list_array_phase4_tunnel_activation;
+
     private int phase5_monster_ai_id;
 
     private byte phase5_boss_ui_change;
@@ -3433,6 +3985,24 @@
     private List<int> list_phase5_array_passive2;
 
     private int phase5_boss_material_box_2;
+
+    private int phase5_boss_id_3;
+
+    private int phase5_boss_level_3;
+
+    private List<int> list_phase5_array_passive3;
+
+    private int phase5_boss_material_box_3;
+
+    private int phase5_boss_id_4;
+
+    private int phase5_boss_level_4;
+
+    private List<int> list_phase5_array_passive4;
+
+    private int phase5_boss_material_box_4;
+
+    private List<int> list_array_phase5_tunnel_activation;
 
     private int play_boss_spawn;
 
