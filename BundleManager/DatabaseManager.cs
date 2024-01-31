@@ -110,11 +110,11 @@ namespace _7dsgcDatamine
             ProcessDatabase<DBCraftCostumeUpgradeRow>(Path.Combine(databasePath, "DB_craft_costume_upgrade"));
             ProcessDatabase<DBCraftCostumeUpgradeFinishRow>(Path.Combine(databasePath, "DB_craft_costume_upgrade_finish"));
             ProcessDatabase<DBShopCreaturecolosseumRow>(Path.Combine(databasePath, "DB_shop_creaturecolosseum"));
-            ProcessDatabase<DBShopDemonlordRow>(Path.Combine(databasePath, "DB_shop_demonlord"));
+            //ProcessDatabase<DBShopDemonlordRow>(Path.Combine(databasePath, "DB_shop_demonlord"));
             ProcessDatabase<DBCreaturecolosseumSeasonRow>(Path.Combine(databasePath, "DB_creaturecolosseum_season"));
             ProcessDatabase<DBCreaturePassiveRow>(Path.Combine(databasePath, "DB_creature_passive"));
             ProcessDatabase<DBDailyAttendanceRow>(Path.Combine(databasePath, "DB_daily_attendance"));
-            ProcessDatabase<DBDemonpointStageRow>(Path.Combine(databasePath, "DB_demonpoint_stage"));
+            //ProcessDatabase<DBDemonpointStageRow>(Path.Combine(databasePath, "DB_demonpoint_stage"));
             ProcessDatabase<DBDemonlordRuleinfoRow>(Path.Combine(databasePath, "DB_demonlord_ruleinfo"));
             ProcessDatabase<DBDemonlordRuleRow>(Path.Combine(databasePath, "DB_demonlord_rule"));
             ProcessDatabase<DBDemonlordPassiveRow>(Path.Combine(databasePath, "DB_demonlord_passive"));
