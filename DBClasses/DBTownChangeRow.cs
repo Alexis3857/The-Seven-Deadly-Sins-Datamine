@@ -64,6 +64,14 @@
         }
     }
 
+    public string TownEmblemChange
+    {
+        get
+        {
+            return town_emblem_change;
+        }
+    }
+
     public string TownMinimapChange
     {
         get
@@ -82,6 +90,7 @@
         open_value = reader.ReadInt32();
         town_name = reader.ReadInt32();
         town_icon = reader.ReadString();
+        town_emblem_change = reader.ReadString();
         town_minimap_change = reader.ReadString();
         return true;
     }
@@ -106,6 +115,8 @@
     private int town_name;
 
     private string town_icon;
+
+    private string town_emblem_change;
 
     private string town_minimap_change;
 }
