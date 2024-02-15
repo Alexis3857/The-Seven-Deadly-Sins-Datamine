@@ -10,8 +10,7 @@ namespace _7dsgcDatamine
             Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");  // Needed to make sure the program writes decimal number with . and not , when exporting Mesh
             GameCode gameCode;
             string? decryptionKey, patchRelativeSub, patchVersion;
-            bool isWriteChangedString;
-            ParseArguments(args, out gameCode, out decryptionKey, out patchRelativeSub, out patchVersion, out isWriteChangedString);
+            ParseArguments(args, out gameCode, out decryptionKey, out patchRelativeSub, out patchVersion);
             if (string.IsNullOrEmpty(decryptionKey) || gameCode == GameCode.none)
             {
                 Usage();
@@ -55,13 +54,13 @@ namespace _7dsgcDatamine
             else
             {
                 Console.WriteLine($"Comparing with {lastSavedVersion}");
-                bundleManager.DownloadNew(isWriteChangedString);
+                bundleManager.DownloadNew();
             }
         }
 
         private static void Usage()
         {
-            Console.WriteLine("Usage: 7dsgcDatamine.exe -game=game -key=decryption_key -patch=patch_relative_sub:patch_version -write_changed_string");
+            Console.WriteLine("Usage: 7dsgcDatamine.exe -game=game -key=decryption_key -patch=patch_relative_sub:patch_version");
 
             Console.WriteLine("\n-game is mandatory");
             Console.WriteLine("It's the game version to datamine, it must be either JP, KR or GB");
@@ -74,18 +73,14 @@ namespace _7dsgcDatamine
             Console.WriteLine("patch_relative_sub is the patch name, it changes every week when there's an update");
             Console.WriteLine("patch_version changes when a bug is fixed in a patch");
             Console.WriteLine("If no patch is given, the program will use the current game patch");
-
-            Console.WriteLine("\n-write_changed_string is optional");
-            Console.WriteLine("If used, the program will also write strings that got changed and not only new strings");
         }
 
-        private static void ParseArguments(string[] args, out GameCode gameCode, out string? decKey, out string? relSub, out string? version, out bool writeChangedStr)
+        private static void ParseArguments(string[] args, out GameCode gameCode, out string? decKey, out string? relSub, out string? version)
         {
             gameCode = GameCode.none;
             decKey = null;
             relSub = null;
             version = null;
-            writeChangedStr = false;
             foreach (string arg in args)
             {
                 if (arg.StartsWith("-key="))
@@ -120,11 +115,6 @@ namespace _7dsgcDatamine
                     {
                         Console.WriteLine("Argument -patch couldn't be parsed.");
                     }
-                }
-                else if (arg == "-write_changed_string")
-                {
-                    writeChangedStr = true;
-
                 }
             }
         }

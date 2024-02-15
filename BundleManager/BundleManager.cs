@@ -54,7 +54,7 @@ namespace _7dsgcDatamine
 
         }
 
-        public void DownloadNew(bool isWriteChangedStrings)
+        public void DownloadNew()
         {
             if (_previousBmdataDirectory is null)
             {
@@ -115,7 +115,7 @@ namespace _7dsgcDatamine
             }
             else if (compareLocalization && Localization.Localizer.Load(_localizationPath, _previousLocalizationPath))
             {
-                Localization.Localizer.WriteNewStringsToFile(_localizationDirectory, isWriteChangedStrings);
+                Localization.Localizer.WriteNewStringsToFile(_localizationDirectory);
             }
             if (transformDatabase)
             {

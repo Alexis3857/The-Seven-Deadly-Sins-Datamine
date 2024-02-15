@@ -58,7 +58,7 @@ namespace _7dsgcDatamine
             return true;
         }
 
-        public void WriteNewStringsToFile(string outputDirectory, bool isWriteChangedStrings)
+        public void WriteNewStringsToFile(string outputDirectory)
         {
             Console.WriteLine("\nGetting the new string from the database...");
             SqliteCommand selectAllCommand = _sqliteConnection.CreateCommand();
@@ -66,7 +66,8 @@ namespace _7dsgcDatamine
             var count = selectAllCommand.ExecuteScalar();
             selectAllCommand.CommandText = "SELECT id, translated FROM TRANSLATION";
             SqliteDataReader sqliteDataReader = selectAllCommand.ExecuteReader();
-            StringBuilder stringBuilder = new StringBuilder();
+            StringBuilder newStrSB = new StringBuilder();
+            StringBuilder changedStrSB = new StringBuilder();
             for (int i = 1; i < Convert.ToInt32(count) + 1; i++)
             {
                 Console.Write($"\r{i}/{count}", Console.BufferWidth);
@@ -74,12 +75,17 @@ namespace _7dsgcDatamine
                 string id = sqliteDataReader.GetString(0);
                 _paramById.Value = id;
                 string encryptedString = sqliteDataReader.GetString(1);
-                if (!IsExistId(id) || (isWriteChangedStrings && IsStringChanged(id, encryptedString)))
+                if (!IsExistId(id))
                 {
-                    stringBuilder.AppendLine($"{id} : {StringDecryption(encryptedString)}");
+                    newStrSB.AppendLine($"{id} : {StringDecryption(encryptedString)}");
+                }
+                else if (IsStringChanged(id, encryptedString))
+                {
+                    changedStrSB.AppendLine($"{id} : {StringDecryption(encryptedString)}");
                 }
             }
-            File.WriteAllText(Path.Combine(outputDirectory, "NewLocalizationString.txt"), stringBuilder.ToString());
+            File.WriteAllText(Path.Combine(outputDirectory, "NewLocalizationString.txt"), newStrSB.ToString());
+            File.WriteAllText(Path.Combine(outputDirectory, "ChangedLocalizationString.txt"), changedStrSB.ToString());
             Console.WriteLine("\nDone !");
         }
 

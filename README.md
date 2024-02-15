@@ -1,6 +1,6 @@
 # The Seven Deadly Sins Datamine
  
-Program to download and exports new update's assets of the japanese version of The Seven Deadly Sins Grand Cross
+Program to download and exports new update's assets of any version of The Seven Deadly Sins Grand Cross
 
 
 ## Usage
@@ -9,7 +9,7 @@ Get the current decryption key of the game with [The Seven Deadly Sins Key Finde
 
 Run the program and pass the decryption key as an argument :
 ```cmd
-7dsgcDatamine.exe -game=game -key=decryption_key -patch=patch_relative_sub:patch_version -write_changed_string
+7dsgcDatamine.exe -game=game -key=decryption_key -patch=patch_relative_sub:patch_version
 ```
 
 -game is mandatory
@@ -23,8 +23,6 @@ patch_relative_sub is the patch name, it changes every week when there's an upda
 patch_version changes when a bug is fixed in a patch.
 If no patch is given, the program will use the current game patch.
 
--write_changed_string is optional
-If used, the program will also write strings that got changed and not only new strings.
 
 Example if you want to export the assets from the latest JP update :
 ```cmd
