@@ -40,7 +40,7 @@
         }
     }
 
-    public float Probability
+    public int Probability
     {
         get
         {
@@ -525,7 +525,7 @@
         gamble_label = reader.ReadInt32();
         gamble_pickup = reader.ReadInt32();
         probability_check = reader.ReadInt32();
-        probability = reader.ReadSingle();
+        probability = reader.ReadInt32();
         gamble_control = reader.ReadInt32();
         gamble_group = reader.ReadInt32();
         gacha_bonus_reward_group = reader.ReadInt32();
@@ -594,7 +594,7 @@
 
     private int probability_check;
 
-    private float probability;
+    private int probability;
 
     private int gamble_control;
 

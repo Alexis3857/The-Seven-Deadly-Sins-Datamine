@@ -428,6 +428,7 @@ namespace _7dsgcDatamine
             ProcessDatabase<DBQuestExtraRow>(Path.Combine(databasePath, "DB_quest_extra"));
             ProcessDatabase<DBQuestSoundRow>(Path.Combine(databasePath, "DB_quest_sound"));
             ProcessDatabase<DBQuestTalkRow>(Path.Combine(databasePath, "DB_quest_talk"));
+            ProcessDatabase<DBRandomShopRatingPerRow>(Path.Combine(databasePath, "DB_random_shop_rating_per"));
             ProcessDatabase<DBRatingRow>(Path.Combine(databasePath, "DB_rating"));
             ProcessDatabase<DBRecommendTeamRow>(Path.Combine(databasePath, "DB_recommend_team"));
             ProcessDatabase<DBRegionRow>(Path.Combine(databasePath, "DB_region"));

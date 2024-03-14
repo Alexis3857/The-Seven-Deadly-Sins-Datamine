@@ -1,5 +1,13 @@
 ﻿public class DBRandomShopRatingPerRow : ITableRowIndexer
 {
+    public int Id
+    {
+        get
+        {
+            return id;
+        }
+    }
+
     public int Rating
     {
         get
@@ -26,6 +34,7 @@
 
     public bool ReadToStream(BinaryReader reader)
     {
+        id = reader.ReadInt32();
         rating = reader.ReadInt32();
         normal_slot = reader.ReadInt32();
         special_slot = reader.ReadInt32();
@@ -36,6 +45,8 @@
     {
         return Rating;
     }
+
+    private int id;
 
     private int rating;
 
